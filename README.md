@@ -1,8 +1,9 @@
 # TIGA-Webdocumentaire
 ***
 <p float="left">
-<img src="https://github.com/VCityTeam/DatAgora/blob/master/Pictures/PartDieuModel/Model1.jpg" alt="Home" width="400"/>
-<img src="https://github.com/VCityTeam/DatAgora/blob/master/Pictures/PartDieuModel/Model2.jpg" alt="Home" width="400"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/interfora.png" alt="Home" width="400"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/liris.png" alt="Home" width="400"/>
+ <img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/udl.png" alt="Home" width="400"/>
 </p>
 
 ***
