@@ -24,3 +24,6 @@ Ce jeu documentaire, dans lequel tout est réel, amène les participants, au tra
 * Favoriser la rencontre des acteurs pour créer des synergies et du développement économique, écologique et du lien social
 * Permettre à chaque citoyen de participer au débat public.
 * Proposer une documentation en continue et diachronique de la vallée de la chimie.
+
+## Atelier maquette
+Dans le cadre de la fête de la science une maquette LEgo a été produite afin d'effectuer un premier essai sur la médiation hybride mélangant webdocumentaire et maquette tangible. Pour ce fait nous avons utilisé le [legonizer]() avec comme emprise la raffinerie de Feyzin pour construire en en légo la maquette. Celle-ci est constituée de 330 légo environ et est basé sur les données du [data grand lyon](https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees). Elles correspondent au bâtiments 3D de 2018. Cela a pris une demi-journée pour relancer le processus et la construction. 
