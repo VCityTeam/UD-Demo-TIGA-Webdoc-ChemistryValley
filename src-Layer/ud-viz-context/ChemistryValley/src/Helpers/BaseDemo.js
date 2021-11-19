@@ -57,7 +57,8 @@ export class BaseDemo {
       _this.init3DView();
       _this.addBaseMapLayer();
       _this.addElevationLayer();
-      _this.setupAndAdd3DTilesLayer();
+      _this.addAdditionnalDatalayers();
+      //_this.setupAndAdd3DTilesLayer();
       _this.update3DView();
 
       // //// REQUEST SERVICE
@@ -146,85 +147,13 @@ export class BaseDemo {
           _this.addModuleView('cameraPositioner', cameraPosition);
         }
 
-        // //// BillBoard
-        /*const billboard = new BillBoard();
-
-        // Chimney
-        const sprite = billboard.CreateBillBoard('./assets/img/web_Source0.jpg', new THREE.Vector3(1843419.7372375734, 5164761.581669409, 275.0925693228869),
-          new THREE.Vector3(240, 190, 1.0));
-        sprite.updateMatrixWorld();
-        this.view.scene.add(sprite);
-
-        */
-        // CSS3D----------------------------------------------------------------
-        var scene2, renderer2;
-
-        scene2 = new THREE.Scene();
-
-        // create the iframe to contain webpage
-        let planeWidth = 360;
-        let planeHeight = 200;
-        let element	= document.createElement('iframe');
-        // webpage to be loaded into iframe
-        //element.src	= "src/Helpers/mapage.html";
-        element.src	= "http://rict2.liris.cnrs.fr/UD-Viz/UD-Viz-Core/examples/DemoFull/Demo.html";
-        // width of iframe in pixels
-        let elementWidth = 1280;
-        // force iframe to have same relative dimensions as planeGeometry
-        let aspectRatio = planeHeight / planeWidth;
-        let elementHeight = elementWidth * aspectRatio;
-        element.style.width  = elementWidth + "px";
-        element.style.height = elementHeight + "px";
-
-        let domObject = new CSS3DObject( element );
-        domObject.position.x = 1843419.7372375734;
-        domObject.position.y = 5164761.581669409;
-        domObject.position.z = 275.0925693228869;
-        domObject.rotation.x = -4.7;
-        domObject.rotation.y = 0;
-        domObject.rotation.z = 0;
-        //scene2.add( domObject );
-
-
-        // Second iframe
-        let planeWidth2 = 360;
-        let planeHeight2 = 200;
-        let element2	= document.createElement('iframe');
-        // webpage to be loaded into iframe
-        //element.src	= "src/Helpers/mapage.html";
-        element2.src	= "src/Helpers/VIDEO360 IFPEN Lyon.mp4";
-        // width of iframe in pixels
-        let elementWidth2 = 1280;
-        // force iframe to have same relative dimensions as planeGeometry
-        let aspectRatio2 = planeHeight2 / planeWidth2;
-        let elementHeight2 = elementWidth2 * aspectRatio2;
-        element2.style.width  = elementWidth2 + "px";
-        element2.style.height = elementHeight2 + "px";
-
-        let domObject2 = new CSS3DObject( element2 );
-        domObject2.position.x = 1840600.6829996328;
-        domObject2.position.y = 5167231.67695955;
-        domObject2.position.z = 733.8620692362946;
-        domObject2.rotation.x = -4.7;
-        domObject2.rotation.y = 0;
-        domObject2.rotation.z = 0;
-        scene2.add( domObject2 );
-
-        //CSS3DRenderer
-        renderer2 = new CSS3DRenderer();
-        renderer2.setSize( window.innerWidth, window.innerHeight );
-        renderer2.domElement.style.position = 'absolute';
-        renderer2.domElement.style.top = 0;
-        renderer2.domElement.style.zIndex = 2;
-        renderer2.domElement.id = "CSS3DRenderer";
-        this.viewerDivElement.appendChild( renderer2.domElement );
-
-        const camera = this.view.camera.camera3D;
-        const tick = function(){
-          requestAnimationFrame(tick)
-          renderer2.render(scene2,camera)
-          }
-        tick()
+        ////// LAYER CHOICE
+        if (_this.config.widgets.LayerChoice) {
+          const layerChoice = new Widgets.LayerChoice(_this.layerManager);
+          _this.addModuleView('layerChoice', layerChoice, {
+            name: 'layerChoice',
+          });
+        }
       }
     });
   }
@@ -615,6 +544,56 @@ export class BaseDemo {
     );
     this.view.addLayer(wmsElevationLayer);
   }
+
+  addAdditionnalDatalayers(){
+    function colorEVAVegetation(properties) {
+        if (properties.strate == 1 ) 
+        {
+            return color.set(0x005500);
+        }
+        else
+        if(properties.strate == 2 )
+        {
+            return color.set(0x00b000);
+        }
+        else
+        return color.set(0x00ff00);
+    }
+
+    
+
+    function colorSurfaceBatiments() {
+      return color.set(0xff0000);
+    }
+
+    ////---DataGrandLyon Layers---////
+
+    var BatimentsSource = new itowns.WFSSource({
+      url: 'https://download.data.grandlyon.com/wfs/rdata',
+      protocol: 'wfs',
+      version: '2.0.0',
+      id: 'Bus',
+      typeName: 'tcl_sytral.tcllignebus_2_0_0', 
+      crs: 'EPSG:3946',
+      extent: this.extent,
+      format: 'geojson',
+    });
+
+    var BatimentsLayer = new itowns.GeometryLayer('bus', new THREE.Group(), {
+      update: itowns.FeatureProcessing.update,
+      convert: itowns.Feature2Mesh.convert(),
+      source: BatimentsSource,
+      style: new itowns.Style({
+        stroke:{
+          base_altittude : 200,
+          color: colorSurfaceBatiments,
+        }
+      })
+    });
+    console.log(BatimentsSource);
+    this.view.addLayer(BatimentsLayer);
+  }
+
 
   /**
    * The configuration file of demo defines URL of resources. At the time
