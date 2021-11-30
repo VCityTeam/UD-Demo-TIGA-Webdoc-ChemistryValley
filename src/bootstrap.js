@@ -31,13 +31,13 @@ udviz.Components.SystemUtils.File.loadJSON(
   //pass the extent
   view3D.initItownsView(extent);
 
-  const episode = document.createElement('iframe');
-  episode.id = 'Episode 1';
-  episode.src = '../assets/img/Alchimie_Vallée.JPG';
-  episode.style.zIndex = "-1";
-  //document.body.appendChild(episode);
-  //episode.scss
-  view3D.html().appendChild(episode);
+  // const episode = document.createElement('iframe');
+  // episode.id = 'Episode 1';
+  // episode.src = '../assets/img/Alchimie_Vallée.JPG';
+  // episode.style.zIndex = "-1";
+  // //document.body.appendChild(episode);
+  // //episode.scss
+  // view3D.html().appendChild(episode);
   
   // episode.style.width = 80 * 30 + 'px';
   // episode.style.height = 80 * 25 + 'px';
@@ -65,45 +65,20 @@ udviz.Components.SystemUtils.File.loadJSON(
   );
 
   const center = view3D.getExtent().center();
-
-  // const iframe_Episode_1 = document.createElement('iframe');
-  // iframe_Episode_1.src = 'https://visite.interfora-connect.com/Visite/index.html';
-  // const billboard_Episode_1 = new udviz.Widgets.Billboard(
-  //   iframe_Episode_1,
-  //   new udviz.Game.Shared.Components.THREEUtils.Transform(
-  //     new udviz.THREE.Vector3(center.x, center.y, 400),
-  //     new udviz.THREE.Vector3(Math.PI * 0.5, Math.PI * 0.2, 0),
-  //     new udviz.THREE.Vector3(20, 15, 20)
-  //   ),
-  //   80
-  // );
-
-  // const iframe_Episode_2 = document.createElement('iframe');
-  // iframe_Episode_2.src = 'https://visite.interfora-connect.com/Visite/index.html';
-  // const billboard_Episode_2 = new udviz.Widgets.Billboard(
-  //   iframe_Episode_2,
-  //   new udviz.Game.Shared.Components.THREEUtils.Transform(
-  //     new udviz.THREE.Vector3(center.x + 800, center.y + 800, 600),
-  //     new udviz.THREE.Vector3(Math.PI * 0.5, Math.PI * 0.2, 0),
-  //     new udviz.THREE.Vector3(30, 25, 30)
-  //   ),
-  //   80
-  // );
-
-  // view3D.initCSS3D();
-  
-  // view3D.appendBillboard(billboard_Episode_1);
-  // view3D.appendBillboard(billboard_Episode_2);
   
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', '../assets/img/1200px-Google_Maps_pin.svg.png', view3D);  
   episode_1.createPin(center);
+  let listPins = episode_1.getPinsObject();
 
-  document.addEventListener( 'mouseover', onDocumentMouseEnter );
-  document.addEventListener( 'mouseout', onDocumentMouseLeave );
 
+  //view3D.html().addEventListener( 'mouseover', onDocumentMouseEnter );
+  view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
+
+  /* --------------------------------- EVENT --------------------------------- */
   //Select sprites
   function onDocumentMouseEnter( event ) {  
+    //this.camera = this.view3D;
     console.log('lancé');  
     event.preventDefault();
     let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
@@ -117,35 +92,34 @@ udviz.Components.SystemUtils.File.loadJSON(
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     
     if ( intersects.length > 0 ) {
-      if (intersects[0].object.name == "pins");{
-        console.log(' Enter ');
-        intersects[ 0 ].object.scale.set(intersects[ 0 ].object.scale.x + 50, intersects[ 0 ].object.scale.y + 50, 1);
-        intersects[ 0 ].object.updateMatrixWorld();
-      }
+        if (intersects[0].object.name == "pins");{
+            console.log(' Enter ');
+            intersects[ 0 ].object.scale.set(intersects[ 0 ].object.scale.x + 50, intersects[ 0 ].object.scale.y + 50, 1);
+            intersects[ 0 ].object.updateMatrixWorld();
+        }
     }
   }
 
   //On growth
   function onDocumentMouseLeave( event ) {    
-    event.preventDefault();
-    let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                            -( event.clientY / window.innerHeight ) * 2 + 1,  
-                            0.5 );     
-                                            
-    let raycaster =  new udviz.THREE.Raycaster();                                        
-    raycaster.setFromCamera( mouse3D, view3D.getCamera());
+      event.preventDefault();
+      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+                              -( event.clientY / window.innerHeight ) * 2 + 1,  
+                              0.5 );     
+                                              
+      let raycaster =  new udviz.THREE.Raycaster();                                        
+      raycaster.setFromCamera( mouse3D, view3D.getCamera());
 
-    //All objects hits
-    let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
-    if ( intersects.length > 0 ) {
-      if (intersects[0].object.name == "pins");{
-        console.log(' Leave ');
-        intersects[ 0 ].object.scale.set(200, 300,1);
-        intersects[ 0 ].object.updateMatrixWorld();
+      //All objects hits
+      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
+      if ( intersects.length > 0 ) {
+          if (intersects[ 0 ].object.name == "pins");{
+              console.log(intersects[ 0 ].object.material);
+              intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
+              intersects[ 0 ].object.updateMatrixWorld();
+          }
+      } else {
+        listPins.material.color.set("rgb(255, 255, 255)");
       }
-    }
-}
-
-  console.log(scene3D);
-  
+  }
 });
