@@ -31,7 +31,7 @@ udviz.Components.SystemUtils.File.loadJSON(
   //pass the extent
   view3D.initItownsView(extent);
 
-  // const episode = document.createElement('iframe');
+  // const episode = document.createElement('div');
   // episode.id = 'Episode 1';
   // episode.src = '../assets/img/Alchimie_Vallée.JPG';
   // episode.style.zIndex = "-1";
@@ -71,15 +71,29 @@ udviz.Components.SystemUtils.File.loadJSON(
   episode_1.createPin(center);
   let listPins = episode_1.getPinsObject();
 
+  //view3D.rootHtml += episode_1.innerContentHtml;
 
-  //view3D.html().addEventListener( 'mouseover', onDocumentMouseEnter );
+  console.log(episode_1.innerContentHtml);
+  console.log(episode_1.innerContentHtml.element);
+  
+
+  const episodeDiv = document.createElement('div');
+  episodeDiv.id = 'Episode 1';
+  episodeDiv.style.zIndex = 107;
+  episodeDiv.hidden = true;
+  view3D.rootHtml.appendChild(episodeDiv);
+  episodeDiv.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
+  // view3D.rootHtml.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
+  
+
+
+  view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
   /* --------------------------------- EVENT --------------------------------- */
-  //Select sprites
-  function onDocumentMouseEnter( event ) {  
-    //this.camera = this.view3D;
-    console.log('lancé');  
+
+  //Show epiode div
+  function onDocumentMouseClick( event ) {    
     event.preventDefault();
     let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
                             -( event.clientY / window.innerHeight ) * 2 + 1,  
@@ -90,17 +104,16 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //All objects hits
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
-    
     if ( intersects.length > 0 ) {
-        if (intersects[0].object.name == "pins");{
-            console.log(' Enter ');
-            intersects[ 0 ].object.scale.set(intersects[ 0 ].object.scale.x + 50, intersects[ 0 ].object.scale.y + 50, 1);
-            intersects[ 0 ].object.updateMatrixWorld();
+        if (intersects[ 0 ].object.name == "pins");{
+            console.log(intersects[ 0 ].object.material);
+            episodeDiv.hidden = false;
         }
     }
   }
 
-  //On growth
+
+  //Highlight
   function onDocumentMouseLeave( event ) {    
       event.preventDefault();
       let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   

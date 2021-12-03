@@ -17,8 +17,8 @@ export class EpisodeVisualizer {
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
         const pinsSprite = new THREE.Sprite( pinsMaterial );
 
-        pinsSprite.position.set(position.x + 800, position.y + 800, 600);
-        pinsSprite.scale.set(200,300,1);
+        pinsSprite.position.set(position.x + 800, position.y + 800, 600); 
+        pinsSprite.scale.set(160,300,1);
         pinsSprite.updateMatrixWorld();
         pinsSprite.name = this.name;
 
@@ -29,23 +29,34 @@ export class EpisodeVisualizer {
         
     }
 
+
     getPinsObject(){
         return this.pinsObject;
     }
 
-    get html(){
+    get innerContentHtml() {
         return /*html*/ `
-        <img id="../assets/img/Alchimie_Vallée.JPG"/>
-        <div class="controls-panel">
-            <button id="${this.closeButtonId}">Close</button>
-            <div class="slider-container">
-            <div class="slider-label">
-                <label for="${this.opacitySliderId}">Opacity : </label>
-                <output for="${this.opacitySliderId}" id="${this.opacityId}">1</output>
+          <div class="window">
+            <h3 class="section-title">Title: <span id="${this.docTitleId}"></span></h3>
+            <div>
+              <img class="inspector-doc-img" src="../assets/img/Alchimie_Vallée.JPG" alt="Document image"
+                id="Test" title="CTRL + Click to open the image">
+              <input type="checkbox" class="spoiler-check" id="doc-details-spoiler" checked>
+              <label for="doc-details-spoiler" class="subsection-title">Details</label>
+              </div>
             </div>
-            <input type="range" min="0" max="1" value="1" step="0.01" id="${this.opacitySliderId}">
-            </div>
-        </div>
+          </div>
+          <div data-ext-container="panel"
+            data-ext-container-default="div"
+            data-ext-class="box-section">
+          </div>
         `;
+      }
+
+    windowCreated() {
+    this.window.style.left = 'unset';
+    this.window.style.right = '10px';
+    this.window.style.top = '10px';
+    this.window.style.width = '390px';
     }
 }
