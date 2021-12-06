@@ -22,7 +22,7 @@ export class EpisodeVisualizer {
         const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
         const pinsSprite = new THREE.Sprite( pinsMaterial );
-
+        
         pinsSprite.position.set(position.x, position.y, position.z); 
         pinsSprite.scale.set(60,100,1);
         pinsSprite.updateMatrixWorld();
@@ -32,6 +32,7 @@ export class EpisodeVisualizer {
         const pictureTexture = new THREE.TextureLoader().load(imageSrc);
         const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
         const pictureSprite = new THREE.Sprite( pictureMaterial );
+        pictureSprite.userData = { LOCK: lock };
 
         pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
         pictureSprite.scale.set(300,300,1);

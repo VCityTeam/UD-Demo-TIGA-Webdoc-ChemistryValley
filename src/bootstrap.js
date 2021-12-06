@@ -66,13 +66,13 @@ udviz.Components.SystemUtils.File.loadJSON(
 
   const center = view3D.getExtent().center();
   const positionPins_1 = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
-  const positionPins_2 = new udviz.THREE.Vector3(1844804.07 , 5168372.18, 260);
-  
+  const positionPins_2 = new udviz.THREE.Vector3(1844804.07, 5168372.18, 260); 
+  const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 260);
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', view3D);  
   episode_1.createPin(positionPins_1,"../assets/img/Episode1.png",false);
   episode_1.createPin(positionPins_2,"../assets/img/Episode1_1.png",true);
-  
+  episode_1.createPin(positionPins_3,"../assets/img/Episode1_2.png",true);
   //TO-DO make a list of object clickable
   let listPins = episode_1.getPinsObject();  
   
@@ -83,9 +83,9 @@ udviz.Components.SystemUtils.File.loadJSON(
   episodeDiv.hidden = true;
   view3D.rootHtml.appendChild(episodeDiv);
   episodeDiv.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
-  // view3D.rootHtml.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
   
-
+  //DEBUG
+  console.log(scene3D);
 
   view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
@@ -105,8 +105,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     //All objects hits
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     if ( intersects.length > 0 ) {
-        if (intersects[ 0 ].object.name == "pins");{
-            console.log(intersects[ 0 ].object.material);
+        if (!intersects[ 0 ].object.userData.LOCK){
             episodeDiv.hidden = false;
         }
     }
@@ -125,13 +124,12 @@ udviz.Components.SystemUtils.File.loadJSON(
       //All objects hits
       let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
       if ( intersects.length > 0 ) {
-          if (intersects[ 0 ].object.name == "pins");{
-              console.log(intersects[ 0 ].object.material);
-              intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
-              intersects[ 0 ].object.updateMatrixWorld();
-          }
-      } else {
-        listPins.material.color.set("rgb(255, 255, 255)");
-      }
+        if (!intersects[ 0 ].object.userData.LOCK){
+            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
+            intersects[ 0 ].object.updateMatrixWorld();
+        }else {
+          listPins.material.color.set("rgb(255, 255, 255)");
+        }
+    }
   }
 });
