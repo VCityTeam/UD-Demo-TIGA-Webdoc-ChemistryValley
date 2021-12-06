@@ -3,9 +3,8 @@ import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 
 export class EpisodeVisualizer { 
-    constructor(name, src, view3D = new udviz.Views.View3D()) {
+    constructor(name, view3D = new udviz.Views.View3D()) {
         this.name = name;
-        this.src = src;
         this.view3D = view3D;
 
          this.pinsObject = new THREE.Sprite();    
@@ -13,10 +12,14 @@ export class EpisodeVisualizer {
     }
 
     //Create Pins
-    createPin(position, lock){
+    createPin(position,imageSrc, lock){
+      let colorLock = "rgb(255,255,255)";
+
+      if (lock)
+        colorLock = "rgb(100,100,100)";
 
       //Pins
-        const pinsTexture = new THREE.TextureLoader().load(this.src);
+        const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
         const pinsSprite = new THREE.Sprite( pinsMaterial );
 
@@ -26,8 +29,8 @@ export class EpisodeVisualizer {
         pinsSprite.name = this.name;
 
       //Picture on the top
-        const pictureTexture = new THREE.TextureLoader().load("../assets/img/Episode1.png");
-        const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: "rgb(255, 255, 255)"  } );
+        const pictureTexture = new THREE.TextureLoader().load(imageSrc);
+        const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
         const pictureSprite = new THREE.Sprite( pictureMaterial );
 
         pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
