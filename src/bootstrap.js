@@ -65,10 +65,11 @@ udviz.Components.SystemUtils.File.loadJSON(
   );
 
   const center = view3D.getExtent().center();
+  const positionPins = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
   
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', '../assets/img/1200px-Google_Maps_pin.svg.png', view3D);  
-  episode_1.createPin(center);
+  episode_1.createPin(positionPins,false);
   let listPins = episode_1.getPinsObject();
 
   //view3D.rootHtml += episode_1.innerContentHtml;
@@ -76,7 +77,7 @@ udviz.Components.SystemUtils.File.loadJSON(
   console.log(episode_1.innerContentHtml);
   console.log(episode_1.innerContentHtml.element);
   
-
+  
   const episodeDiv = document.createElement('div');
   episodeDiv.id = 'Episode 1';
   episodeDiv.style.zIndex = 107;
@@ -111,7 +112,6 @@ udviz.Components.SystemUtils.File.loadJSON(
         }
     }
   }
-
 
   //Highlight
   function onDocumentMouseLeave( event ) {    
