@@ -1,7 +1,8 @@
 /** @format */
 
 import * as udviz from 'ud-viz';
-import { EpisodeVisualizer } from '../src/EpisodeVisualizer'
+import { HelpWindow } from '../src/Help';
+import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 
 //const app = new udviz.Views.View3D('../assets/config/config.json');
 
@@ -63,6 +64,9 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.getScene(),
     directionalLight
   );
+
+  //Help module
+  const help = new HelpWindow(config);
 
   const center = view3D.getExtent().center();
   const positionPins_1 = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
