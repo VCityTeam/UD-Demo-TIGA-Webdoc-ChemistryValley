@@ -1,4 +1,4 @@
-import '../node_modules/ud-viz/src/Widgets/DocumentVisualizer/View/DocumentVisualizer.css'
+import '../src/episode.css'
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 
@@ -8,22 +8,37 @@ export class EpisodeVisualizer {
         this.src = src;
         this.view3D = view3D;
 
-         this.pinsObject = new THREE.Sprite();       
+         this.pinsObject = new THREE.Sprite();    
+         //let windows = new udviz.Widgets.DocumentVisualizerWindow();  
     }
 
     //Create Pins
-    createPin(position){
+    createPin(position, lock){
+
+      //Pins
         const pinsTexture = new THREE.TextureLoader().load(this.src);
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
         const pinsSprite = new THREE.Sprite( pinsMaterial );
 
-        pinsSprite.position.set(position.x + 800, position.y + 800, 600); 
-        pinsSprite.scale.set(160,300,1);
+        pinsSprite.position.set(position.x, position.y, position.z); 
+        pinsSprite.scale.set(60,100,1);
         pinsSprite.updateMatrixWorld();
         pinsSprite.name = this.name;
 
+      //Picture on the top
+        const pictureTexture = new THREE.TextureLoader().load("../assets/img/Episode1.png");
+        const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: "rgb(255, 255, 255)"  } );
+        const pictureSprite = new THREE.Sprite( pictureMaterial );
+
+        pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
+        pictureSprite.scale.set(300,300,1);
+        pictureSprite.updateMatrixWorld();
+        pictureSprite.name = this.name;
+
         //Add pins object in the scene
         this.view3D.getScene().add(pinsSprite);
+        this.view3D.getScene().add(pictureSprite);
+        
 
         this.pinsObject = pinsSprite;
         
@@ -36,7 +51,7 @@ export class EpisodeVisualizer {
 
     get innerContentHtml() {
         return /*html*/ `
-          <div class="window">
+          <div class="episode">
             <h3 class="section-title">Title: <span id="${this.docTitleId}"></span></h3>
             <div>
               <img class="inspector-doc-img" src="../assets/img/Alchimie_Vallée.JPG" alt="Document image"
@@ -51,12 +66,5 @@ export class EpisodeVisualizer {
             data-ext-class="box-section">
           </div>
         `;
-      }
-
-    windowCreated() {
-    this.window.style.left = 'unset';
-    this.window.style.right = '10px';
-    this.window.style.top = '10px';
-    this.window.style.width = '390px';
     }
 }
