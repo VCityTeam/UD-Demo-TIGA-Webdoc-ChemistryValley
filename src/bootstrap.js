@@ -80,13 +80,15 @@ udviz.Components.SystemUtils.File.loadJSON(
   //TO-DO make a list of object clickable
   let listPins = episode_1.getPinsObject();  
   
+  //let divEpisode = episode_1.constructHtml();
+  //console.log(divEpisode.hidden = true);
   //Div element for the episode
-  const episodeDiv = document.createElement('div');
-  episodeDiv.id = 'Episode 1';
-  episodeDiv.style.zIndex = 107;
-  episodeDiv.hidden = true;
-  view3D.rootHtml.appendChild(episodeDiv);
-  episodeDiv.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
+  // const episodeDiv = document.createElement('div');
+  // episodeDiv.id = 'Episode 1';
+  // episodeDiv.style.zIndex = 107;
+  // episodeDiv.hidden = true;
+  // view3D.rootHtml.appendChild(episodeDiv);
+  //episodeDiv.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
   
   //DEBUG
   console.log(scene3D);
@@ -96,7 +98,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
   /* --------------------------------- EVENT --------------------------------- */
 
-  //Show epiode div
+  //Show episode div
   function onDocumentMouseClick( event ) {    
     event.preventDefault();
     let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
@@ -110,7 +112,8 @@ udviz.Components.SystemUtils.File.loadJSON(
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     if ( intersects.length > 0 ) {
         if (!intersects[ 0 ].object.userData.LOCK){
-            episodeDiv.hidden = false;
+            episode_1.constructHtml();
+            //window.open("https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html")
         }
     }
   }

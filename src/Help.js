@@ -32,16 +32,28 @@ export class HelpWindow extends ModuleView {
             <li>T: orient camera to a top view</li>\
             <li>Y: move camera to start position</li>\
          </ul>\
-         <button id="helpCloseButton">Close</button>\
-        ';
-
+         <button id="CloseButton">Close</button>\
+        '; 
     // Close the window...when close button is hit
-    document.getElementById('helpCloseButton').addEventListener(
+    document.getElementById('CloseButton').addEventListener(
       'mousedown',
       () => {
-        this.disable();
+        this.disableView();
       },
       false
     );
+    //episodeDiv.hidden = true;
+    return document.getElementById('CloseButton'); 
+  }
+
+  /////// MODULE VIEW MANAGEMENT
+  enableView() {
+    document
+      .getElementById('helpWindow')
+      .style.setProperty('display', 'block');
+  }
+
+  disableView() {
+    document.getElementById('helpWindow').style.setProperty('display', 'none');
   }
 }
