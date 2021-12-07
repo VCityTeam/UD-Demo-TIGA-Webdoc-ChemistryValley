@@ -32,19 +32,6 @@ udviz.Components.SystemUtils.File.loadJSON(
   //pass the extent
   view3D.initItownsView(extent);
 
-  // const episode = document.createElement('div');
-  // episode.id = 'Episode 1';
-  // episode.src = '../assets/img/Alchimie_Vallée.JPG';
-  // episode.style.zIndex = "-1";
-  // //document.body.appendChild(episode);
-  // //episode.scss
-  // view3D.html().appendChild(episode);
-  
-  // episode.style.width = 80 * 30 + 'px';
-  // episode.style.height = 80 * 25 + 'px';
-
-  
-
   //Setup skybox
   udviz.Game.Shared.Components.THREEUtils.addEquiRectangularMap(
     './assets/img/sky.jpg',
@@ -66,32 +53,26 @@ udviz.Components.SystemUtils.File.loadJSON(
   );
 
   //Help module
-  const help = new HelpWindow(config);
+  const help = new HelpWindow();
 
   const center = view3D.getExtent().center();
   const positionPins_1 = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
   const positionPins_2 = new udviz.THREE.Vector3(1844804.07, 5168372.18, 260); 
   const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 260);
+
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', view3D);  
-  episode_1.createPin(positionPins_1,"../assets/img/Episode1.png",false);
-  episode_1.createPin(positionPins_2,"../assets/img/Episode1_1.png",true);
-  episode_1.createPin(positionPins_3,"../assets/img/Episode1_2.png",true);
+  episode_1.createPin(positionPins_1,"../assets/img/Episode1_1.png","../assets/img/Episode1_1_lock.png",false);
+  episode_1.createPin(positionPins_2,"../assets/img/Episode1_2.png","../assets/img/Episode1_2_lock.png",true);
+  episode_1.createPin(positionPins_3,"../assets/img/Episode1_3.png","../assets/img/Episode1_3_lock.png",true);
+  episode_1.constructHtml();
+
+  //Div of the episode build
+  let divEpisode = document.getElementById('episodeWindow');
+  divEpisode.style.setProperty('display','none');
+
   //TO-DO make a list of object clickable
-  let listPins = episode_1.getPinsObject();  
-  
-  //let divEpisode = episode_1.constructHtml();
-  //console.log(divEpisode.hidden = true);
-  //Div element for the episode
-  // const episodeDiv = document.createElement('div');
-  // episodeDiv.id = 'Episode 1';
-  // episodeDiv.style.zIndex = 107;
-  // episodeDiv.hidden = true;
-  // view3D.rootHtml.appendChild(episodeDiv);
-  //episodeDiv.insertAdjacentHTML('beforeend',episode_1.innerContentHtml);
-  
-  //DEBUG
-  console.log(scene3D);
+  let listPins = episode_1.getPinsObject();
 
   view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
@@ -111,32 +92,32 @@ udviz.Components.SystemUtils.File.loadJSON(
     //All objects hits
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     if ( intersects.length > 0 ) {
-        if (!intersects[ 0 ].object.userData.LOCK){
-            episode_1.constructHtml();
-            //window.open("https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html")
-        }
+      if (!intersects[ 0 ].object.userData.LOCK){
+          divEpisode.style.setProperty('display','block');
+          //window.open("https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html")
+      }
     }
   }
 
   //Highlight
   function onDocumentMouseLeave( event ) {    
-      event.preventDefault();
-      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                              -( event.clientY / window.innerHeight ) * 2 + 1,  
-                              0.5 );     
-                                              
-      let raycaster =  new udviz.THREE.Raycaster();                                        
-      raycaster.setFromCamera( mouse3D, view3D.getCamera());
+    event.preventDefault();
+    let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+                            -( event.clientY / window.innerHeight ) * 2 + 1,  
+                            0.5 );     
+                                            
+    let raycaster =  new udviz.THREE.Raycaster();                                        
+    raycaster.setFromCamera( mouse3D, view3D.getCamera());
 
-      //All objects hits
-      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
-      if ( intersects.length > 0 ) {
-        if (!intersects[ 0 ].object.userData.LOCK){
-            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
-            intersects[ 0 ].object.updateMatrixWorld();
-        }else {
-          listPins.material.color.set("rgb(255, 255, 255)");
-        }
+    //All objects hits
+    let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
+    if ( intersects.length > 0 ) {
+      if (!intersects[ 0 ].object.userData.LOCK){
+          intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
+          intersects[ 0 ].object.updateMatrixWorld();
+      }else {
+        listPins.material.color.set("rgb(255, 255, 255)");
+      }
     }
   }
 });
