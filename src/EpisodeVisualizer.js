@@ -12,11 +12,15 @@ export class EpisodeVisualizer {
     }
 
     //Create Pins
-    createPin(position,imageSrc, lock){
+    createPin(position,imageSrc,imageSrcLock, lock){
       let colorLock = "rgb(255,255,255)";
+      let pictureTexture;
 
       if (lock)
-        colorLock = "rgb(100,100,100)";
+        pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
+      else
+        pictureTexture = new THREE.TextureLoader().load(imageSrc);
+      
 
       //Pins
         const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
@@ -29,7 +33,6 @@ export class EpisodeVisualizer {
         pinsSprite.name = this.name;
 
       //Picture on the top
-        const pictureTexture = new THREE.TextureLoader().load(imageSrc);
         const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
         const pictureSprite = new THREE.Sprite( pictureMaterial );
         pictureSprite.userData = { LOCK: lock };
@@ -38,12 +41,13 @@ export class EpisodeVisualizer {
         pictureSprite.scale.set(300,300,1);
         pictureSprite.updateMatrixWorld();
         pictureSprite.name = this.name;
-
+          
         //Add pins object in the scene
         this.view3D.getScene().add(pinsSprite);
         this.view3D.getScene().add(pictureSprite);
-        
 
+        
+        
         this.pinsObject = pinsSprite;
         
     }
@@ -64,7 +68,7 @@ export class EpisodeVisualizer {
       '<div id="_window_document2-inspector" class="window" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
         <div class="window-header" id="_window_header_document2-inspector">\
           <h1 class="window-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
-          <button id="CloseButton">Close</button>\
+          <button id="WindowCloseButton">Close</button>\
         </div>\
         <div class="window-content" id="_window_content_document2-inspector">\
           <div class="window-inner-content" id="_window_inner_content_document2-inspector">\
@@ -83,7 +87,7 @@ export class EpisodeVisualizer {
       ';
 
       // Close the window...when close button is hit
-      document.getElementById('CloseButton').addEventListener(
+      document.getElementById('WindowCloseButton').addEventListener(
         'mousedown',
         () => {
           this.disableView();
@@ -91,7 +95,7 @@ export class EpisodeVisualizer {
         false
       );
       //episodeDiv.hidden = true;
-      return document.getElementById('CloseButton');
+      return document.getElementById('WindowCloseButton');
     }   
 
     /////// MODULE VIEW MANAGEMENT
