@@ -65,13 +65,13 @@ export class EpisodeVisualizer {
 
       // Create HMTL
       document.getElementById('episodeWindow').innerHTML = 
-      '<div id="_window_document2-inspector" class="window" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
-        <div class="window-header" id="_window_header_document2-inspector">\
-          <h1 class="window-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
-          <button id="WindowCloseButton">Close</button>\
+      '<div id="_window_document2-inspector" class="episode" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
+        <div class="episode-header" id="_window_header_document2-inspector">\
+          <h1 class="episode-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
+          <button class="episode-close-button" id="WindowCloseButton">Close</button>\
         </div>\
-        <div class="window-content" id="_window_content_document2-inspector">\
-          <div class="window-inner-content" id="_window_inner_content_document2-inspector">\
+        <div class="episode-content" id="_window_content_document2-inspector">\
+          <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
           <img class="inspector-doc-img" src="../assets/img/Episode1_1_layout.PNG" alt="Document image"\
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
