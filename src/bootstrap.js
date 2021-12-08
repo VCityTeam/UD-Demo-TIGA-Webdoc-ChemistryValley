@@ -42,14 +42,16 @@ udviz.Components.SystemUtils.File.loadJSON(
   const scene3D = view3D.getScene();
 
   //Lighting
-  const { directionalLight, ambientLight } =
+  const directionalLight = new udviz.THREE.DirectionalLight(0xffffff, 0.7);
+  const ambientLight = new udviz.THREE.AmbientLight(0xffffff, 0.7);
   udviz.Game.Shared.Components.THREEUtils.addLights(view3D.getScene());
   udviz.Game.Shared.Components.THREEUtils.bindLightTransform(
     10,
     Math.PI / 4,
     Math.PI / 4,
     view3D.getScene(),
-    directionalLight
+    directionalLight,
+    ambientLight
   );
 
   //Help module
@@ -58,7 +60,7 @@ udviz.Components.SystemUtils.File.loadJSON(
   const center = view3D.getExtent().center();
   const positionPins_1 = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
   const positionPins_2 = new udviz.THREE.Vector3(1844804.07, 5168372.18, 260); 
-  const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 260);
+  const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 220);
 
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', view3D);  

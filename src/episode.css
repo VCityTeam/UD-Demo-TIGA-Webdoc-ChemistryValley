@@ -38,14 +38,13 @@
     top: 2px;
     background-color: white;
     color: rgb(0, 0, 0);
-    border: none;
+    border: 1px solid black;
     font-size: 13px;
-    font-weight: bold;
     transition: background-color 0.2s ease;
 }
 
 .episode-close-button:hover {
-    background-color: #f95a5a;
+    background-color: #e91e1e;
     cursor: default;
 }
 
