@@ -77,6 +77,26 @@ udviz.Components.SystemUtils.File.loadJSON(
   view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
+  //Compass img element
+  const compass = document.createElement('img');
+  compass.src = '../assets/img/compass.png';
+  compass.style.position ='absolute';
+  compass.style.right = '5px';
+  compass.style.bottom = '5px';
+  compass.style.height = '80px';
+  compass.style.width = '80px';
+  document.getElementById('webgl_View3D').appendChild(compass);
+
+  //Compass update with camera
+  var dir = new udviz.THREE.Vector3();
+  var sph = new udviz.THREE.Spherical();
+  view3D.getRenderer().setAnimationLoop(() => {
+    view3D.getRenderer().render(scene3D, view3D.getCamera());
+    view3D.getCamera().getWorldDirection(dir);
+    sph.setFromVector3(dir);
+    compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
+  });
+
   /* --------------------------------- EVENT --------------------------------- */
 
   //Show episode div
