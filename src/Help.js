@@ -1,15 +1,14 @@
 /** @format */
 
-//Components
-import { ModuleView } from '../node_modules/ud-viz/src/Widgets/Components/ModuleView/ModuleView';
+import { Widgets } from 'ud-viz';
 
 import './Help.css';
 
 /**
- * adds an "About" window that can be open/closed with a button
+ * adds an "HelpWindow" window to show control of the camera that can be open/closed with a button
  * simply include this file in the html, no need to instanciate anything in main.js
  */
-export class HelpWindow extends ModuleView {
+export class HelpWindow extends Widgets.Components.ModuleView {
   constructor() {
     super();
     // Create DOM element
@@ -18,7 +17,7 @@ export class HelpWindow extends ModuleView {
     helpDiv.style.display = "block"
     document.getElementById('webgl_View3D').append(helpDiv);
 
-    // Create HMTL
+    // Create HMTL div whit content
     document.getElementById('helpWindow').innerHTML =
       '<a href="https://github.com/VCityTeam/UD-Viz/blob/master/Doc/User/ContributeData.md">User Tutorial</a>\
          <h3>\
@@ -42,7 +41,6 @@ export class HelpWindow extends ModuleView {
       },
       false
     );
-    //episodeDiv.hidden = true;
     return document.getElementById('CloseButton'); 
   }
 
