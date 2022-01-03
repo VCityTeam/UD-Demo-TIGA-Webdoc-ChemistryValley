@@ -4,8 +4,6 @@ import * as udviz from 'ud-viz';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 
-//const app = new udviz.Views.View3D('../assets/config/config.json');
-
 udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
 ).then(function (config) { 
@@ -22,7 +20,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     min_y,
     max_y
   );
-
 
   //pass the projection which was used to compute extent
   const view3D = new udviz.Views.View3D({
@@ -63,12 +60,12 @@ udviz.Components.SystemUtils.File.loadJSON(
   const positionPins_2 = new udviz.THREE.Vector3(1844804.07, 5168372.18, 260); 
   const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 220);
 
-  //Test d'un episode visualizer
-  const episode_1 = new EpisodeVisualizer('episode_1', view3D);  
-  episode_1.createPin(positionPins_1,"../Carte/assets/img/Episode1_1.png","../Carte/assets/img/Episode1_1_lock.png",false);
-  episode_1.createPin(positionPins_2,"../Carte/assets/img/Episode1_2.png","../Carte/assets/img/Episode1_2_lock.png",true);
-  episode_1.createPin(positionPins_3,"../Carte/assets/img/Episode1_3.png","../Carte/assets/img/Episode1_3_lock.png",true);
-  episode_1.constructHtml();
+  //Test episode visualizer
+  const episode_1 = new EpisodeVisualizer('episode_1', view3D, config['episode-1-data']);  
+  //episode_1.createPin(positionPins_1,"../assets/img/Episode1_1.png","../assets/img/Episode1_1_lock.png",false);
+  //episode_1.createPin(positionPins_2,"../assets/img/Episode1_2.png","../assets/img/Episode1_2_lock.png",true);
+  //episode_1.createPin(positionPins_3,"../assets/img/Episode1_3.png","../assets/img/Episode1_3_lock.png",true);
+  episode_1.constructAllContent();
 
   //Div of the episode build
   let divEpisode = document.getElementById('episodeWindow');
@@ -80,9 +77,9 @@ udviz.Components.SystemUtils.File.loadJSON(
   view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
-  //Compass img element
+  //Compass img element TOD-DO PUT IN A CSS
   const compass = document.createElement('img');
-  compass.src = '../Carte/assets/img/compass.png';
+  compass.src = '../assets/img/compass.png';
   compass.style.position ='absolute';
   compass.style.right = '5px';
   compass.style.bottom = '5px';
