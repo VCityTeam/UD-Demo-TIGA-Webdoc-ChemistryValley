@@ -23,6 +23,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     max_y
   );
 
+
   //pass the projection which was used to compute extent
   const view3D = new udviz.Views.View3D({
     itownsControls: true,
@@ -64,9 +65,9 @@ udviz.Components.SystemUtils.File.loadJSON(
 
   //Test d'un episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', view3D);  
-  episode_1.createPin(positionPins_1,"../assets/img/Episode1_1.png","../assets/img/Episode1_1_lock.png",false);
-  episode_1.createPin(positionPins_2,"../assets/img/Episode1_2.png","../assets/img/Episode1_2_lock.png",true);
-  episode_1.createPin(positionPins_3,"../assets/img/Episode1_3.png","../assets/img/Episode1_3_lock.png",true);
+  episode_1.createPin(positionPins_1,"../Carte/assets/img/Episode1_1.png","../Carte/assets/img/Episode1_1_lock.png",false);
+  episode_1.createPin(positionPins_2,"../Carte/assets/img/Episode1_2.png","../Carte/assets/img/Episode1_2_lock.png",true);
+  episode_1.createPin(positionPins_3,"../Carte/assets/img/Episode1_3.png","../Carte/assets/img/Episode1_3_lock.png",true);
   episode_1.constructHtml();
 
   //Div of the episode build
@@ -81,7 +82,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
   //Compass img element
   const compass = document.createElement('img');
-  compass.src = '../assets/img/compass.png';
+  compass.src = '../Carte/assets/img/compass.png';
   compass.style.position ='absolute';
   compass.style.right = '5px';
   compass.style.bottom = '5px';
