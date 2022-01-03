@@ -1,4 +1,5 @@
 import '../src/episode.css'
+import { EpisodeContent } from '../src/EpisodeContent';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
@@ -6,7 +7,6 @@ import { View3D } from 'ud-viz/src/Views/Views';
 /**
  * Class to create an episode with all his content materialized in ud-viz scene
  * 
- * @extends ModuleView
  */
 export class EpisodeVisualizer { 
   /**
@@ -15,12 +15,16 @@ export class EpisodeVisualizer {
    * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
    */
-    constructor(name, view3D = new udviz.Views.View3D()) {
+    constructor(name, view3D = new udviz.Views.View3D(), episodeConfig) {
         this.name = name;
         this.view3D = view3D;
 
         //TO-DO create a list of content of your episode / maybe should be a class
-        this.pinsObject = new THREE.Sprite();   
+        this.pinsObject = new THREE.Sprite(); 
+        
+        //Data of episode
+        this.content_1 = new EpisodeContent(episodeConfig['content-1']);
+        
     }
 
     /**
@@ -41,7 +45,7 @@ export class EpisodeVisualizer {
       
 
       //Pins object
-        const pinsTexture = new THREE.TextureLoader().load('../Carte/assets/img/1200px-Google_Maps_pin.svg.png');
+        const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
         const pinsSprite = new THREE.Sprite( pinsMaterial );
         
@@ -83,7 +87,7 @@ export class EpisodeVisualizer {
         </div>\
         <div class="episode-content" id="_window_content_document2-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <img class="inspector-doc-img" src="../Carte/assets/img/Episode1_1_layout.PNG" alt="Document image"\
+          <img class="inspector-doc-img" src="../assets/img/Episode1_1_layout.PNG" alt="Document image"\
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
               <p class="inspector-field-title">Vallée de la chimie, ma vie, mon job</p>\
@@ -107,6 +111,12 @@ export class EpisodeVisualizer {
       );
       return document.getElementById('WindowCloseButton');
     } 
+
+    constructAllContent(){
+      this.createPin(this.content_1.position,this.content_1.imgUnLock,this.content_1.imgLock,true);
+
+      this.constructHtml();
+    }
     
     /////// GETTER & SETTER
     getPinsObject(){
