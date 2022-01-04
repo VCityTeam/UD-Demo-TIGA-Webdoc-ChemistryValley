@@ -1,4 +1,3 @@
-
 import * as THREE from 'three';
 
 /**
@@ -18,6 +17,11 @@ export class EpisodeContent {
         this.ParseImgContent(dataContent);
     }
 
+    /**
+     * Method to parse position of a content 
+     * @param {JSON} positionData 
+     * @returns return a Vector3 correspond to the position of your content in the itowns scene 
+     */
     ParsePositionContent(positionData){
         let x = parseInt(positionData['x']);
         let y = parseInt(positionData['y']);
@@ -26,6 +30,10 @@ export class EpisodeContent {
         return new THREE.Vector3(x,y,z);
     }
 
+    /**
+     * Method to parse the path of your images lock and unlock of a content
+     * @param {JSON} imgData 
+     */
     ParseImgContent(imgData){
         this.imgUnLock = imgData['imgUnlock'];
         this.imgLock = imgData['imgLock'];

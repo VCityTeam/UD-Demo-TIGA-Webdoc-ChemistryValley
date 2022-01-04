@@ -116,6 +116,9 @@ export class EpisodeVisualizer {
       return document.getElementById('WindowCloseButton');
     } 
 
+    /**
+     * Method to construct all the content of an episode 
+     */
     constructAllContent(){
       this.createPin(this.content_1.position,this.content_1.imgUnLock,this.content_1.imgLock,false);
 
