@@ -14,21 +14,17 @@ export class EpisodeVisualizer {
    * 
    * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
+   * @param {JSON} episodeConfig JSON data of your episode
    */
     constructor(name, view3D = new udviz.Views.View3D(), episodeConfig) {
-        this.name = name;
-        this.view3D = view3D;
+      this.name = name;
+      this.view3D = view3D;
 
-        //TO-DO create a list of content of your episode / maybe should be a class
-        this.pinsObject = new THREE.Sprite(); 
-        
-        //Data of episode
-        this.content_1 = new EpisodeContent(episodeConfig['content-1']);
-        //console.log(JSON.parse(episodeConfig));
-        for (episodeConfig['content-'] in episodeConfig){
-          
-        }
-        
+      //TO-DO create a list of content of your episode / maybe should be a class
+      this.pinsObject = new THREE.Sprite(); 
+      
+      //Data of episode
+      this.content_1 = new EpisodeContent(episodeConfig['content-1']);
     }
 
     /**
@@ -47,7 +43,6 @@ export class EpisodeVisualizer {
       else
         pictureTexture = new THREE.TextureLoader().load(imageSrc);
       
-
       //Pins object
         const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
         const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
