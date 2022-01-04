@@ -24,6 +24,10 @@ export class EpisodeVisualizer {
         
         //Data of episode
         this.content_1 = new EpisodeContent(episodeConfig['content-1']);
+        //console.log(JSON.parse(episodeConfig));
+        for (episodeConfig['content-'] in episodeConfig){
+          
+        }
         
     }
 
@@ -113,7 +117,7 @@ export class EpisodeVisualizer {
     } 
 
     constructAllContent(){
-      this.createPin(this.content_1.position,this.content_1.imgUnLock,this.content_1.imgLock,true);
+      this.createPin(this.content_1.position,this.content_1.imgUnLock,this.content_1.imgLock,false);
 
       this.constructHtml();
     }
