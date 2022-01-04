@@ -20,8 +20,7 @@ export class HelpWindow extends Widgets.Components.ModuleView {
     // Create HMTL div whit content
     document.getElementById('helpWindow').innerHTML =
       '<a href="https://github.com/VCityTeam/UD-Viz/blob/master/Doc/User/ContributeData.md">User Tutorial</a>\
-         <h3>\
-         </h3><h3>Camera key bindings:</h3>\
+         <h3>Camera key bindings:</h3>\
          <ul>\
             <li>Left-Click: camera translation (drag)</li>\
             <li>Right-Click: camera translation (pan)</li>\
