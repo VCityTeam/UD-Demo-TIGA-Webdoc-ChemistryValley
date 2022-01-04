@@ -1,6 +1,7 @@
 /** @format */
 
 import * as udviz from 'ud-viz';
+import { LayerManager } from '../node_modules/ud-viz/src/Widgets/Components/LayerManager/LayerManager';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 
@@ -55,16 +56,8 @@ udviz.Components.SystemUtils.File.loadJSON(
   //Help module
   const help = new HelpWindow();
 
-  const center = view3D.getExtent().center();
-  const positionPins_1 = new udviz.THREE.Vector3(1843554.77, 5165405.73, 220);
-  const positionPins_2 = new udviz.THREE.Vector3(1844804.07, 5168372.18, 260); 
-  const positionPins_3 = new udviz.THREE.Vector3(1843470.01, 5164312.59, 220);
-
   //Test episode visualizer
   const episode_1 = new EpisodeVisualizer('episode_1', view3D, config['episode-1-data']);  
-  //episode_1.createPin(positionPins_1,"../assets/img/Episode1_1.png","../assets/img/Episode1_1_lock.png",false);
-  //episode_1.createPin(positionPins_2,"../assets/img/Episode1_2.png","../assets/img/Episode1_2_lock.png",true);
-  //episode_1.createPin(positionPins_3,"../assets/img/Episode1_3.png","../assets/img/Episode1_3_lock.png",true);
   episode_1.constructAllContent();
 
   //Div of the episode build
@@ -77,14 +70,10 @@ udviz.Components.SystemUtils.File.loadJSON(
   view3D.html().addEventListener( 'click', onDocumentMouseClick );
   view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
-  //Compass img element TOD-DO PUT IN A CSS
+  //Compass img element
   const compass = document.createElement('img');
   compass.src = '../assets/img/compass.png';
-  compass.style.position ='absolute';
-  compass.style.right = '5px';
-  compass.style.bottom = '5px';
-  compass.style.height = '80px';
-  compass.style.width = '80px';
+  compass.id = 'compass';
   document.getElementById('webgl_View3D').appendChild(compass);
 
   //Compass update with camera
@@ -109,13 +98,13 @@ udviz.Components.SystemUtils.File.loadJSON(
     let raycaster =  new udviz.THREE.Raycaster();                                        
     raycaster.setFromCamera( mouse3D, view3D.getCamera());
 
+    let pickedObject = udviz.Widgets.Components.LayerManager.pickCityObject;
+    console.log(pickedObject);
     //All objects hits
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     if ( intersects.length > 0 ) {
-      if (!intersects[ 0 ].object.userData.LOCK){
+      if (!intersects[ 0 ].object.userData.LOCK)
           divEpisode.style.setProperty('display','block');
-          //window.open("https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html")
-      }
     }
   }
 
