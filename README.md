@@ -1,20 +1,18 @@
-# A template application of the UD-Viz package
-
-This repository holds a template (demonstration) application of the [UD-Viz](https://github.com/VCityTeam/UD-Viz)
-JavaScript package. The goel of this template application is to
-
-- illustrate the main features of [UD-Viz](https://github.com/VCityTeam/UD-Viz),
-- provide code that demonstrates how such features can be configured/extended/embeded
-  and eventually combined/integrated within a full autonomous application,
-- illustrate the JavaScript ecosystem required for building and running it,
-- be used as a template for creating/declining your own application.
-
-Because thhis template application is fully functionnal maybe the simplest way to
-understand what it does is to build it and run it.
-
+# TIGA-Webdocumentaire
+***
 <p float="left">
-<img src="https://github.com/VCityTeam/MyTIGA/blob/main/doc/Web-doc/HomePage.PNG" alt="Home" width="550"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/interfora.png" alt="Home" width="250"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/liris.png" alt="Home" width="250"/>
+ <img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/udl.png" alt="Home" width="250"/>
 </p>
+
+***
+
+## Introduction
+
+« Derrière les fumées » est un jumeau digital du couloir de la chimie, qui invite à aller à la rencontre des familles et des acteurs économiques et publics, qui vivent, se forment, et travaillent dans la vallée. Il désenchevêtre tous ces tuyaux entremêlés et donne du sens à ces produits mystérieux qui sortent tous les jours de ces usines. A quoi cela peut servir ? Où est-ce que je les rencontre au quotidien ? Pourquoi la plupart des maux de tête du monde sont soignés grâce à la vallée de la chimie? Au travers d’un web documentaire gamifié et participatif, les acteurs du territoire, qu’ils soient citoyens usagers ou habitants pourront se forger leur propre opinion, participer au débat public et dissiper leur propre écran de fumée.
+Ce jeu documentaire, dans lequel tout est réel, amène les participants, au travers d’une enquête interactive, à confronter l’ensemble de leurs points de vue pour mesurer les enjeux, l’engagement responsable de la vallée et l’impact de ces usines sur nos vies au quotidien. Pour entrer en « mode action », les spectateurs sont invités à voter, à soumettre aux votes et aux avis des autres joueurs des actions concrètes pour faire évoluer les pratiques, pour mieux connaître le territoire, pour mieux se comprendre et ainsi devenir acteur du territoire.
+
 
 ## Objectifs
 * Découvrir le couloir de la chimie autrement, avec la vision humaine des acteurs du territoire.
