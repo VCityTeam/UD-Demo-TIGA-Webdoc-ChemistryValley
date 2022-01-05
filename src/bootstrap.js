@@ -1,7 +1,6 @@
 /** @format */
 
 import * as udviz from 'ud-viz';
-import { LayerManager } from '../node_modules/ud-viz/src/Widgets/Components/LayerManager/LayerManager';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 
@@ -98,8 +97,11 @@ udviz.Components.SystemUtils.File.loadJSON(
     let raycaster =  new udviz.THREE.Raycaster();                                        
     raycaster.setFromCamera( mouse3D, view3D.getCamera());
 
-    let pickedObject = udviz.Widgets.Components.LayerManager.pickCityObject;
+    //DEBUG
+    let pickedObject = view3D.getLayerManager().pickCityObject(event);
+    pickedObject = view3D.getItownsView().pickObjectsAt(event,5);
     console.log(pickedObject);
+
     //All objects hits
     let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
     if ( intersects.length > 0 ) {
