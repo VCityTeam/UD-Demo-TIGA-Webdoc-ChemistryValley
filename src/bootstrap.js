@@ -8,127 +8,135 @@ udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
 ).then(function (config) { 
 
-  //Get extents coordinates
-  let min_x = parseInt(config['extents']['min_x']);
-  let max_x = parseInt(config['extents']['max_x']);
-  let min_y = parseInt(config['extents']['min_y']);
-  let max_y = parseInt(config['extents']['max_y']);
-  const extent = new udviz.itowns.Extent(
-    config['projection'],
-    min_x,
-    max_x,
-    min_y,
-    max_y
-  );
+  //load episode config json
+  udviz.Components.SystemUtils.File.loadJSON(
+    './assets/config/configEpisodes.json'
+    ).then(function (configEpisode){
 
-  //pass the projection which was used to compute extent
-  const view3D = new udviz.Views.View3D({
-    itownsControls: true,
-    config: config,
-  });
-  
-  //pass the extent
-  view3D.initItownsView(extent);
+    //Get extents coordinates
+    let min_x = parseInt(config['extents']['min_x']);
+    let max_x = parseInt(config['extents']['max_x']);
+    let min_y = parseInt(config['extents']['min_y']);
+    let max_y = parseInt(config['extents']['max_y']);
+    const extent = new udviz.itowns.Extent(
+      config['projection'],
+      min_x,
+      max_x,
+      min_y,
+      max_y
+    );
 
-  //Setup skybox
-  udviz.Game.Shared.Components.THREEUtils.addEquiRectangularMap(
-    './assets/img/sky.jpg',
-    view3D.getRenderer(),
-    view3D.getScene()
-  );
+    
 
-  const scene3D = view3D.getScene();
+    //pass the projection which was used to compute extent
+    const view3D = new udviz.Views.View3D({
+      itownsControls: true,
+      config: config,
+    });
+    
+    //pass the extent
+    view3D.initItownsView(extent);
 
-  //Lighting
-  const directionalLight = new udviz.THREE.DirectionalLight(0xffffff, 0.7);
-  const ambientLight = new udviz.THREE.AmbientLight(0xffffff, 0.7);
-  udviz.Game.Shared.Components.THREEUtils.addLights(view3D.getScene());
-  udviz.Game.Shared.Components.THREEUtils.bindLightTransform(
-    10,
-    Math.PI / 4,
-    Math.PI / 4,
-    view3D.getScene(),
-    directionalLight,
-    ambientLight
-  );
+    //Setup skybox
+    udviz.Game.Shared.Components.THREEUtils.addEquiRectangularMap(
+      './assets/img/sky.jpg',
+      view3D.getRenderer(),
+      view3D.getScene()
+    );
 
-  //Help module
-  const help = new HelpWindow();
+    const scene3D = view3D.getScene();
 
-  //Test episode visualizer
-  const episode_1 = new EpisodeVisualizer('episode_1', view3D, config['episode-1-data']);  
-  episode_1.constructAllContent();
+    //Lighting
+    const directionalLight = new udviz.THREE.DirectionalLight(0xffffff, 0.7);
+    const ambientLight = new udviz.THREE.AmbientLight(0xffffff, 0.7);
+    udviz.Game.Shared.Components.THREEUtils.addLights(view3D.getScene());
+    udviz.Game.Shared.Components.THREEUtils.bindLightTransform(
+      10,
+      Math.PI / 4,
+      Math.PI / 4,
+      view3D.getScene(),
+      directionalLight,
+      ambientLight
+    );
 
-  //Div of the episode build
-  let divEpisode = document.getElementById('episodeWindow');
-  divEpisode.style.setProperty('display','none');
+    //Help module
+    const help = new HelpWindow();
 
-  //TO-DO make a list of object clickable
-  let listPins = episode_1.getPinsObject();
+    //Test episode visualizer
+    const episode_1 = new EpisodeVisualizer('episode_1', view3D, configEpisode['episode-1-data']);  
+    episode_1.constructAllContent();
 
-  view3D.html().addEventListener( 'click', onDocumentMouseClick );
-  view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
+    //Div of the episode build
+    let divEpisode = document.getElementById('episodeWindow');
+    divEpisode.style.setProperty('display','none');
 
-  //Compass img element
-  const compass = document.createElement('img');
-  compass.src = '../assets/img/compass.png';
-  compass.id = 'compass';
-  document.getElementById('webgl_View3D').appendChild(compass);
+    //TO-DO make a list of object clickable
+    let listPins = episode_1.getPinsObject();
 
-  //Compass update with camera
-  var dir = new udviz.THREE.Vector3();
-  var sph = new udviz.THREE.Spherical();
-  view3D.getRenderer().setAnimationLoop(() => {
-    view3D.getRenderer().render(scene3D, view3D.getCamera());
-    view3D.getCamera().getWorldDirection(dir);
-    sph.setFromVector3(dir);
-    compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
-  });
+    view3D.html().addEventListener( 'click', onDocumentMouseClick );
+    view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
-  /* --------------------------------- EVENT --------------------------------- */
+    //Compass img element
+    const compass = document.createElement('img');
+    compass.src = '../assets/img/compass.png';
+    compass.id = 'compass';
+    document.getElementById('webgl_View3D').appendChild(compass);
 
-  //Show episode div
-  function onDocumentMouseClick( event ) {    
-    event.preventDefault();
-    let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                            -( event.clientY / window.innerHeight ) * 2 + 1,  
-                            0.5 );     
-                                            
-    let raycaster =  new udviz.THREE.Raycaster();                                        
-    raycaster.setFromCamera( mouse3D, view3D.getCamera());
+    //Compass update with camera
+    var dir = new udviz.THREE.Vector3();
+    var sph = new udviz.THREE.Spherical();
+    view3D.getRenderer().setAnimationLoop(() => {
+      view3D.getRenderer().render(scene3D, view3D.getCamera());
+      view3D.getCamera().getWorldDirection(dir);
+      sph.setFromVector3(dir);
+      compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
+    });
 
-    //DEBUG
-    let pickedObject = view3D.getLayerManager().pickCityObject(event);
-    pickedObject = view3D.getItownsView().pickObjectsAt(event,5);
-    console.log(pickedObject);
+    /* --------------------------------- EVENT --------------------------------- */
 
-    //All objects hits
-    let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
-    if ( intersects.length > 0 ) {
-      if (!intersects[ 0 ].object.userData.LOCK)
-          divEpisode.style.setProperty('display','block');
-    }
-  }
+    //Show episode div
+    function onDocumentMouseClick( event ) {    
+      event.preventDefault();
+      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+                              -( event.clientY / window.innerHeight ) * 2 + 1,  
+                              0.5 );     
+                                              
+      let raycaster =  new udviz.THREE.Raycaster();                                        
+      raycaster.setFromCamera( mouse3D, view3D.getCamera());
 
-  //Highlight
-  function onDocumentMouseLeave( event ) {    
-    event.preventDefault();
-    let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                            -( event.clientY / window.innerHeight ) * 2 + 1,  
-                            0.5 );     
-                                            
-    let raycaster =  new udviz.THREE.Raycaster();                                        
-    raycaster.setFromCamera( mouse3D, view3D.getCamera());
+      //DEBUG
+      let pickedObject = view3D.getLayerManager().pickCityObject(event);
+      pickedObject = view3D.getItownsView().pickObjectsAt(event,5);
+      console.log(pickedObject);
 
-    //All objects hits
-    let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
-    if ( intersects.length > 0 ) {
-      if (!intersects[ 0 ].object.userData.LOCK){
-          intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
-          intersects[ 0 ].object.updateMatrixWorld();
-      }else {
-        listPins.material.color.set("rgb(255, 255, 255)");
+      //All objects hits
+      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
+      if ( intersects.length > 0 ) {
+        if (!intersects[ 0 ].object.userData.LOCK)
+            divEpisode.style.setProperty('display','block');
       }
     }
-  }
+
+    //Highlight
+    function onDocumentMouseLeave( event ) {    
+      event.preventDefault();
+      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+                              -( event.clientY / window.innerHeight ) * 2 + 1,  
+                              0.5 );     
+                                              
+      let raycaster =  new udviz.THREE.Raycaster();                                        
+      raycaster.setFromCamera( mouse3D, view3D.getCamera());
+
+      //All objects hits
+      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
+      if ( intersects.length > 0 ) {
+        if (!intersects[ 0 ].object.userData.LOCK){
+            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
+            intersects[ 0 ].object.updateMatrixWorld();
+        }else {
+          listPins.material.color.set("rgb(255, 255, 255)");
+        }
+      }
+    }
+  });
 });
