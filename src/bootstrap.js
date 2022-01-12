@@ -3,12 +3,13 @@
 import * as udviz from 'ud-viz';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
+import { EpisodeContent } from '../src/EpisodeContent';
 
 udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
 ).then(function (config) { 
 
-  //load episode config json
+  //load episode config json - Good way to do it ?
   udviz.Components.SystemUtils.File.loadJSON(
     './assets/config/configEpisodes.json'
     ).then(function (configEpisode){
@@ -25,8 +26,6 @@ udviz.Components.SystemUtils.File.loadJSON(
       min_y,
       max_y
     );
-
-    
 
     //pass the projection which was used to compute extent
     const view3D = new udviz.Views.View3D({
@@ -63,7 +62,12 @@ udviz.Components.SystemUtils.File.loadJSON(
     const help = new HelpWindow();
 
     //Test episode visualizer
-    const episode_1 = new EpisodeVisualizer('episode_1', view3D, configEpisode['episode-1-data']);  
+    let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
+    let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
+    let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
+    let listContents = [content_1,content_2,content_3];
+
+    const episode_1 = new EpisodeVisualizer('episode_1', view3D, listContents);  
     episode_1.constructAllContent();
 
     //Div of the episode build
