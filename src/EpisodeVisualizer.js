@@ -3,6 +3,7 @@ import { EpisodeContent } from '../src/EpisodeContent';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
+import { forEach } from 'vis-util';
 
 /**
  * Class to create an episode with all his content materialized in ud-viz scene
@@ -14,17 +15,17 @@ export class EpisodeVisualizer {
    * 
    * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
-   * @param {JSON} episodeConfig JSON data of your episode
+   * @param {Array} listContents list of JSON data of your episode
    */
-    constructor(name, view3D = new udviz.Views.View3D(), episodeConfig) {
+    constructor(name, view3D = new udviz.Views.View3D(), listContents) {
       this.name = name;
       this.view3D = view3D;
 
       //TO-DO create a list of content of your episode / maybe should be a class
       this.pinsObject = new THREE.Sprite(); 
       
-      //Data of episode
-      this.content_1 = new EpisodeContent(episodeConfig['content-1']);
+      //List of content 
+      this.listContents = listContents;
     }
 
     /**
@@ -115,8 +116,11 @@ export class EpisodeVisualizer {
      * Method to construct all the content of an episode 
      */
     constructAllContent(){
-      this.createPin(this.content_1.position,this.content_1.imgUnLock,this.content_1.imgLock,false);
-
+      for (let index = 0; index < this.listContents.length; index++) {
+        const element = this.listContents[index];
+        this.createPin(element.position, element.imgUnLock, element.imgLock, element.lock);
+      }
+      
       this.constructHtml();
     }
     

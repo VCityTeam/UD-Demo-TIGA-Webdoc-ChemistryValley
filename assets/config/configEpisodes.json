@@ -11,7 +11,7 @@
           "imgLock":"/assets/img/Episode1_1_lock.png"
         },
         "content-2" :{
-          "lock" : true,
+          "lock" : false,
           "position" :{
             "x" : "1844804.07",
             "y" : "5168372.18",
@@ -21,7 +21,7 @@
           "imgLock":"/assets/img/Episode1_2_lock.png"
         },
         "content-3" :{
-          "lock" : true,
+          "lock" : false,
           "position" :{
             "x" : "1843470.01",
             "y" : "5164312.59",
