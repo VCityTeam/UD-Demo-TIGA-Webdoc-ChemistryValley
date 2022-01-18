@@ -1,4 +1,4 @@
-import '../src/episode.css'
+import '../src/episode.css';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
@@ -15,69 +15,69 @@ export class EpisodeVisualizer {
    * @param {View3D} view3D the view where you put all your content 
    * @param {Array} listContents list of JSON data of your episode
    */
-    constructor(name, view3D = new udviz.Views.View3D(), listContents) {
-      this.name = name;
-      this.view3D = view3D;
+  constructor(name, view3D = new udviz.Views.View3D(), listContents) {
+    this.name = name;
+    this.view3D = view3D;
 
-      //TO-DO create a list of content of your episode / maybe should be a class
-      this.pinsObject = new THREE.Sprite(); 
+    //TO-DO create a list of content of your episode / maybe should be a class
+    this.pinsObject = new THREE.Sprite(); 
       
-      //List of content 
-      this.listContents = listContents;
-    }
+    //List of content 
+    this.listContents = listContents;
+  }
 
-    /**
+  /**
      * Function who add Sprite object in the scene to create Pins and 
      * @param {THREE.Vector3} position coordinate of your pins in ud-viz scene
      * @param {string} imageSrc path to the image source unlock
      * @param {string} imageSrcLock path to the image source unlock
      * @param {boolean} lock lock or unlock pins
     */
-    createPin(position,imageSrc,imageSrcLock, lock){
-      let colorLock = "rgb(255,255,255)";
-      let pictureTexture;
+  createPin(position,imageSrc,imageSrcLock, lock){
+    let colorLock = 'rgb(255,255,255)';
+    let pictureTexture;
 
-      if (lock)
-        pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
-      else
-        pictureTexture = new THREE.TextureLoader().load(imageSrc);
+    if (lock)
+      pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
+    else
+      pictureTexture = new THREE.TextureLoader().load(imageSrc);
       
-      //Pins object
-        const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
-        const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: "rgb(255, 255, 255)"  } );
-        const pinsSprite = new THREE.Sprite( pinsMaterial );
+    //Pins object
+    const pinsTexture = new THREE.TextureLoader().load('../assets/img/1200px-Google_Maps_pin.svg.png');
+    const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: 'rgb(255, 255, 255)'  } );
+    const pinsSprite = new THREE.Sprite( pinsMaterial );
         
-        pinsSprite.position.set(position.x, position.y, position.z); 
-        pinsSprite.scale.set(60,100,1);
-        pinsSprite.updateMatrixWorld();
-        pinsSprite.name = this.name;
+    pinsSprite.position.set(position.x, position.y, position.z); 
+    pinsSprite.scale.set(60,100,1);
+    pinsSprite.updateMatrixWorld();
+    pinsSprite.name = this.name;
 
-      //Picture on the top
-        const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
-        const pictureSprite = new THREE.Sprite( pictureMaterial );
-        pictureSprite.userData = { LOCK: lock };
+    //Picture on the top
+    const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
+    const pictureSprite = new THREE.Sprite( pictureMaterial );
+    pictureSprite.userData = { LOCK: lock };
 
-        pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
-        pictureSprite.scale.set(300,300,1);
-        pictureSprite.updateMatrixWorld();
-        pictureSprite.name = this.name;
+    pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
+    pictureSprite.scale.set(300,300,1);
+    pictureSprite.updateMatrixWorld();
+    pictureSprite.name = this.name;
           
-      //Add pins object in the scene
-        this.view3D.getScene().add(pinsSprite);
-        this.view3D.getScene().add(pictureSprite);
+    //Add pins object in the scene
+    this.view3D.getScene().add(pinsSprite);
+    this.view3D.getScene().add(pictureSprite);
 
-        this.pinsObject = pinsSprite;
+    this.pinsObject = pinsSprite;
         
-    }
+  }
 
-    // Create HMTL div to visualize details of the episode container
-    constructHtml(){
-      let episodeDiv = document.createElement('div');
-      episodeDiv.id = 'episodeWindow';
-      episodeDiv.style.display = "block"
-      document.getElementById('webgl_View3D').append(episodeDiv);
+  // Create HMTL div to visualize details of the episode container
+  constructHtml(){
+    let episodeDiv = document.createElement('div');
+    episodeDiv.id = 'episodeWindow';
+    episodeDiv.style.display = 'block';
+    document.getElementById('webgl_View3D').append(episodeDiv);
 
-      document.getElementById('episodeWindow').innerHTML = 
+    document.getElementById('episodeWindow').innerHTML = 
       '<div id="_window_document2-inspector" class="episode" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
         <div class="episode-header" id="_window_header_document2-inspector">\
           <h1 class="episode-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
@@ -99,42 +99,42 @@ export class EpisodeVisualizer {
       </div>\
       ';
 
-      // Close the window...when close button is hit
-      document.getElementById('WindowCloseButton').addEventListener(
-        'mousedown',
-        () => {
-          this.disableView();
-        },
-        false
-      );
-      return document.getElementById('WindowCloseButton');
-    } 
+    // Close the window...when close button is hit
+    document.getElementById('WindowCloseButton').addEventListener(
+      'mousedown',
+      () => {
+        this.disableView();
+      },
+      false
+    );
+    return document.getElementById('WindowCloseButton');
+  } 
 
-    /**
+  /**
      * Method to construct all the content of an episode 
      */
-    constructAllContent(){
-      for (let index = 0; index < this.listContents.length; index++) {
-        const element = this.listContents[index];
-        this.createPin(element.position, element.imgUnLock, element.imgLock, element.lock);
-      }
+  constructAllContent(){
+    for (let index = 0; index < this.listContents.length; index++) {
+      const element = this.listContents[index];
+      this.createPin(element.position, element.imgUnLock, element.imgLock, element.lock);
+    }
       
-      this.constructHtml();
-    }
+    this.constructHtml();
+  }
     
-    /////// GETTER & SETTER
-    getPinsObject(){
-      return this.pinsObject;
-    }
+  /////// GETTER & SETTER
+  getPinsObject(){
+    return this.pinsObject;
+  }
 
-    /////// MODULE VIEW MANAGEMENT
-    enableView() {
-      document
-        .getElementById('episodeWindow')
-        .style.setProperty('display', 'block');
-    }
+  /////// MODULE VIEW MANAGEMENT
+  enableView() {
+    document
+      .getElementById('episodeWindow')
+      .style.setProperty('display', 'block');
+  }
 
-    disableView() {
-      document.getElementById('episodeWindow').style.setProperty('display', 'none');
-    }
+  disableView() {
+    document.getElementById('episodeWindow').style.setProperty('display', 'none');
+  }
 }

@@ -12,7 +12,7 @@ udviz.Components.SystemUtils.File.loadJSON(
   //load episode config json - Good way to do it ?
   udviz.Components.SystemUtils.File.loadJSON(
     './assets/config/configEpisodes.json'
-    ).then(function (configEpisode){
+  ).then(function (configEpisode){
 
     //Get extents coordinates
     let min_x = parseInt(config['extents']['min_x']);
@@ -102,9 +102,9 @@ udviz.Components.SystemUtils.File.loadJSON(
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
-      if ( intersects.length > 0 && intersects[ 0 ].object.name == "episode_1") {
+      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
         if (!intersects[ 0 ].object.userData.LOCK) // display the content in a div if the content is'nt lock
-            divEpisode.style.setProperty('display','block');
+          divEpisode.style.setProperty('display','block');
       }
     }
 
@@ -113,12 +113,12 @@ udviz.Components.SystemUtils.File.loadJSON(
       event.preventDefault();
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
 
-      if ( intersects.length > 0 && intersects[ 0 ].object.name == "episode_1") {
+      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
         if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
-            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)"); // Gray
-            intersects[ 0 ].object.updateMatrixWorld();
+          intersects[ 0 ].object.material.color.set('rgb(200, 200, 200)'); // Gray
+          intersects[ 0 ].object.updateMatrixWorld();
         }else {
-          listPins.material.color.set("rgb(255, 255, 255)"); // White
+          listPins.material.color.set('rgb(255, 255, 255)'); // White
         }
       }
     }

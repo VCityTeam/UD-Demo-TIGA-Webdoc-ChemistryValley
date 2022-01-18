@@ -14,7 +14,7 @@ export class HelpWindow extends Widgets.Components.ModuleView {
     // Create DOM element
     let helpDiv = document.createElement('div');
     helpDiv.id = 'helpWindow';
-    helpDiv.style.display = "block"
+    helpDiv.style.display = 'block';
     document.getElementById('webgl_View3D').append(helpDiv);
 
     // Create HMTL div whit content
