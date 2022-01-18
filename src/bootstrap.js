@@ -101,22 +101,10 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Show episode div
     function onDocumentMouseClick( event ) {    
       event.preventDefault();
-      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                              -( event.clientY / window.innerHeight ) * 2 + 1,  
-                              0.5 );     
-                                              
-      let raycaster =  new udviz.THREE.Raycaster();                                        
-      raycaster.setFromCamera( mouse3D, view3D.getCamera());
+      let intersects = view3D.pickObjects(event);
 
-      //DEBUG
-      let pickedObject = view3D.getLayerManager().pickCityObject(event);
-      pickedObject = view3D.getItownsView().pickObjectsAt(event,5);
-      console.log(pickedObject);
-
-      //All objects hits
-      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
       if ( intersects.length > 0 ) {
-        if (!intersects[ 0 ].object.userData.LOCK)
+        if (!intersects[ 0 ].object.userData.LOCK) // display the content in a div if the content is'nt lock
             divEpisode.style.setProperty('display','block');
       }
     }
@@ -124,21 +112,14 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Highlight
     function onDocumentMouseLeave( event ) {    
       event.preventDefault();
-      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-                              -( event.clientY / window.innerHeight ) * 2 + 1,  
-                              0.5 );     
-                                              
-      let raycaster =  new udviz.THREE.Raycaster();                                        
-      raycaster.setFromCamera( mouse3D, view3D.getCamera());
+      let intersects = view3D.pickObjects(event);
 
-      //All objects hits
-      let intersects = raycaster.intersectObjects( view3D.getScene().children ); 
       if ( intersects.length > 0 ) {
-        if (!intersects[ 0 ].object.userData.LOCK){
-            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)");
+        if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
+            intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)"); // Gray
             intersects[ 0 ].object.updateMatrixWorld();
         }else {
-          listPins.material.color.set("rgb(255, 255, 255)");
+          listPins.material.color.set("rgb(255, 255, 255)"); // White
         }
       }
     }
