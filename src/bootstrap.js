@@ -100,10 +100,9 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Show episode div
     function onDocumentMouseClick( event ) {    
-      event.preventDefault();
-      let intersects = view3D.pickObjects(event);
-
-      if ( intersects.length > 0 ) {
+      event.preventDefault(); 
+      let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
+      if ( intersects.length > 0 && intersects[ 0 ].object.name == "episode_1") {
         if (!intersects[ 0 ].object.userData.LOCK) // display the content in a div if the content is'nt lock
             divEpisode.style.setProperty('display','block');
       }
@@ -112,9 +111,9 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Highlight
     function onDocumentMouseLeave( event ) {    
       event.preventDefault();
-      let intersects = view3D.pickObjects(event);
+      let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
 
-      if ( intersects.length > 0 ) {
+      if ( intersects.length > 0 && intersects[ 0 ].object.name == "episode_1") {
         if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
             intersects[ 0 ].object.material.color.set("rgb(200, 200, 200)"); // Gray
             intersects[ 0 ].object.updateMatrixWorld();
