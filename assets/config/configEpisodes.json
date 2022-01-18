@@ -1,0 +1,34 @@
+{
+    "episode-1-data":{
+        "content-1" :{
+          "lock" : true,
+          "position" :{
+            "x" : "1843554.77",
+            "y" : "5165405.73",
+            "z" : "220"
+          },
+          "imgUnlock":"/assets/img/Episode1_1.png",
+          "imgLock":"/assets/img/Episode1_1_lock.png"
+        },
+        "content-2" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1844804.07",
+            "y" : "5168372.18",
+            "z" : "260"
+          },
+          "imgUnlock":"/assets/img/Episode1_2.png",
+          "imgLock":"/assets/img/Episode1_2_lock.png"
+        },
+        "content-3" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843470.01",
+            "y" : "5164312.59",
+            "z" : "220"
+          },
+          "imgUnlock":"/assets/img/Episode1_3.png",
+          "imgLock":"/assets/img/Episode1_3_lock.png"
+        }
+    }
+}
