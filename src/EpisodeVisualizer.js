@@ -1,9 +1,7 @@
 import '../src/episode.css'
-import { EpisodeContent } from '../src/EpisodeContent';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
-import { forEach } from 'vis-util';
 
 /**
  * Class to create an episode with all his content materialized in ud-viz scene
