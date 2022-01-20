@@ -96,6 +96,43 @@ udviz.Components.SystemUtils.File.loadJSON(
       compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
     });
 
+    ////// LAYER CHOICE MODULE
+    const layerChoice = new udviz.Widgets.LayerChoice(view3D.layerManager);
+    //new udviz.Templates.AllWidget().addModuleView('layerChoice', layerChoice);
+
+    let color = new udviz.THREE.Color();
+
+    function colorSurfaceBatiments() {
+      return color.set(0x00ffff);
+    }
+
+    ////---DataGrandLyon Layers---////
+
+    let batimentsSource = new udviz.itowns.WFSSource({
+      url: 'https://download.data.grandlyon.com/wfs/grandlyon?',
+      protocol: 'wfs',
+      version: '2.0.0',
+      id: 'batiments',
+      typeName: 'cad_cadastre.cadbatiment',
+      crs: 'EPSG:3946',
+      extent: view3D.extent,
+      format: 'geojson',
+    });
+      
+    let batimentsLayer = new udviz.itowns.GeometryLayer('Batiments', new udviz.THREE.Group(), {
+      update: udviz.itowns.FeatureProcessing.update,
+      convert: udviz.itowns.Feature2Mesh.convert(),
+      source: batimentsSource,
+      style: new udviz.itowns.Style({
+        fill:{
+          base_altitude: 180.1,
+          color: colorSurfaceBatiments,
+        }
+      })
+    });
+
+    view3D.getItownsView().addLayer(batimentsLayer);
+
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
