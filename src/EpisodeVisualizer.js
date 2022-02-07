@@ -89,16 +89,17 @@ export class EpisodeVisualizer {
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
               <p class="inspector-field-title">Vallée de la chimie, ma vie, mon job</p>\
-              <p class="inspector-field" id="_window_document2-inspector_desc"> 60 000 000 Views</p>\
+              <p class="inspector-field" id="_window_document2-inspector_desc"> 68 506 513 Views</p>\
               <p class="inspector-field-title">Antoine opérateur dans la chimie</p>\
             </div>\
           </div>\
           <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
+          <button class="episode-details-button" id="WindowDetailsButton">Details</button>\
           </div>\
         </div>\
       </div>\
       ';
-
+    //https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
     // Close the window...when close button is hit
     document.getElementById('WindowCloseButton').addEventListener(
       'mousedown',
@@ -107,12 +108,22 @@ export class EpisodeVisualizer {
       },
       false
     );
-    return document.getElementById('WindowCloseButton');
+
+    // More details button
+    document.getElementById('WindowDetailsButton').addEventListener(
+      'mousedown',
+      () => {
+        window.open('https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html','EpisodeContent','popup');
+      },
+      false
+    );
+
+    //return document.getElementById('WindowCloseButton');
   } 
 
   /**
      * Method to construct all the content of an episode 
-     */
+  */
   constructAllContent(){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];

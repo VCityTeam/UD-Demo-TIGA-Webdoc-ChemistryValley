@@ -97,42 +97,87 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
 
     ////// LAYER CHOICE MODULE
-    const layerChoice = new udviz.Widgets.LayerChoice(view3D.layerManager);
+    //const layerChoice = new udviz.Widgets.LayerChoice(view3D.layerManager);
     //new udviz.Templates.AllWidget().addModuleView('layerChoice', layerChoice);
 
     let color = new udviz.THREE.Color();
 
     function colorSurfaceBatiments() {
-      return color.set(0x00ffff);
+      return color.set(0x008000);
     }
 
     ////---DataGrandLyon Layers---////
-
-    let batimentsSource = new udviz.itowns.WFSSource({
+    const bruitSource = new udviz.itowns.WFSSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?',
+      protocol: 'wms',
+      version: '1.3.0',
+      id: 'bruit',
+      typeName: 'ind_ln_p',
+      crs: 'EPSG:3946',
+      extent: view3D.extent,
+      format: 'PNG',
+    });
+      
+    const bruitLayer = new udviz.itowns.GeometryLayer('Bruit', new udviz.THREE.Group(), {
+      update: udviz.itowns.FeatureProcessing.update,
+      convert: udviz.itowns.Feature2Mesh.convert(),
+      source: bruitSource,
+      style: new udviz.itowns.Style({
+        fill:{
+          base_altitude: 170.1,
+        }
+      })
+    });
+    view3D.getItownsView().addLayer(bruitLayer);
+    
+    const espaceVegetaliseSource = new udviz.itowns.WFSSource({
+      url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.occlieneva2009&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       protocol: 'wfs',
       version: '2.0.0',
-      id: 'batiments',
-      typeName: 'cad_cadastre.cadbatiment',
+      id: 'vegetaliser',
+      typeName: 'evg_esp_veg.occlieneva2009',
       crs: 'EPSG:3946',
       extent: view3D.extent,
       format: 'geojson',
     });
       
-    let batimentsLayer = new udviz.itowns.GeometryLayer('Batiments', new udviz.THREE.Group(), {
+    const espaceVegetaliseLayer = new udviz.itowns.GeometryLayer('Vegetalise', new udviz.THREE.Group(), {
       update: udviz.itowns.FeatureProcessing.update,
       convert: udviz.itowns.Feature2Mesh.convert(),
-      source: batimentsSource,
+      source: espaceVegetaliseSource,
       style: new udviz.itowns.Style({
         fill:{
-          base_altitude: 180.1,
+          base_altitude: 170.1,
           color: colorSurfaceBatiments,
         }
       })
     });
+    // Add the Ariege ColorLayer to the view and grant it a tooltip
+    view3D.getItownsView().addLayer(espaceVegetaliseLayer);
 
-    view3D.getItownsView().addLayer(batimentsLayer);
-
+    //
+    const busSource = new udviz.itowns.FileSource({
+      url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
+      crs: 'EPSG:3946',
+      format: 'application/json',
+    });
+      // Create a ColorLayer for the Ariege area
+    const busLayer = new udviz.itowns.ColorLayer('bus', {
+      name: 'LigneBus',
+      transparent: true,
+      source: busSource,
+      style: new udviz.itowns.Style({
+        fill: {
+          color: 'yellow',
+          opacity: 0.5,
+        },
+        stroke: {
+          color: 'white',
+        },
+      }),
+    });
+      // Add the Ariege ColorLayer to the view and grant it a tooltip
+    view3D.getItownsView().addLayer(busLayer);
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
