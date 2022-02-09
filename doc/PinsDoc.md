@@ -1,6 +1,6 @@
 ## Pins documentation 
 
-Object 3D interactif pointant sur des centre d'intéret dans la scène 3D de UD-Viz.
+Objet 3D interactif pointant sur des centres d'intérets dans la scène 3D de UD-Viz. 
 Ces éléments interactifs sont representés par une bulle d'image ainsi qu'une épingle ; l'image permet de donner un aperçu sur le contenu qui sera afficher si l'utilisateur intéragit avec en cliquant sur celui-ci. 
 
 <p float="left">
@@ -9,7 +9,14 @@ Ces éléments interactifs sont representés par une bulle d'image ainsi qu'une 
 
 ### Technical details
 
-configEpisodes.json :
+Un pin est un contenu d'un épisode qui est matérialisé par la classe ``` EpisodeContent.js ```et contient toutes les informations sur un contenu d'un épisode.  La classe ``` EpisodeVisualizer.js ``` comprend la liste des contenus de l'épisode et donc une liste d'objet ```EpisodeContent``` et affiche tout le contenu de celui-ci.
+<p float="left">
+<img src="/doc/img/Episode Diagram.drawio.png" alt="pins" width="800"/>
+</p>
+
+#### configEpisodes.json :
+
+Le configEpisodes.json est le fichier JSON qui permet de configurer tout le contenu de votre épisode. C'est ici que vous allez modifier les source d'images, sa position etc... et doit suivre le template suivant :
 
  * `lock` : L'element 3D peut être vérrouillé ou dévérouillé en fonction de sa valeur dans le fichier de config. Cette valeur dépend d'ou se trouve l'utilisateur dans le visionnage d'un épisode. Le contenu pourra être accessible que si celui-ci a une valeur à **false**
  *  `position` : la position georéférence dans votre scène avec son type de projection (EPSG:3946) ainsi que deux images correspondant à l'aperçu du contenu du pins vérouillé et dévérouillé. 
@@ -22,13 +29,11 @@ configEpisodes.json :
 </p>
 
 
-Une fois dévérouillé, l'épingle est accessible et intéractive pour afficher le contenu de ce point d'intéret plus en détail. Une fenêtre html apparait et donne une description de la zone que pointe l'élement. 
+Une fois dévérouillé, l'épingle est accessible et intéractive pour afficher le contenu de ce point d'intéret plus en détail. Une fenêtre html apparait et donne une description de la zone que pointe l'élément. 
 
 <p float="middle">
 <img src="/doc/img/episodeDetails.PNG" alt="pins" width="600"/>
 </p>
-
-Un pin est un contenu d'un épisode qui est matérialisé par la classe ``` EpisodeContent.js ``` qui va parser le configEpisode.js. 
 
 #### Code exemple
 
@@ -37,5 +42,8 @@ Un pin est un contenu d'un épisode qui est matérialisé par la classe ``` Epis
     let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
     let listContents = [content_1,content_2,content_3];
+    
+    const episode_1 = new EpisodeVisualizer('episode_1', view3D, listContents);  
+    episode_1.constructAllContent();
 ```
 
