@@ -1,9 +1,9 @@
 # TIGA-Webdocumentaire
 ***
 <p float="left">
-<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/interfora.png" alt="Home" width="250"/>
-<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/liris.png" alt="Home" width="250"/>
- <img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/udl.png" alt="Home" width="250"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/interfora.png" alt="Home" width="150"/>
+<img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/liris.png" alt="Home" width="150"/>
+ <img src="https://github.com/VCityTeam/TIGA-Webdocumentaire/blob/main/documents/pictures/udl.png" alt="Home" width="150"/>
 </p>
 
 ***
@@ -28,8 +28,8 @@ Ce web-documentaire itéractif est composé de deux parties. Une première parti
 ### Maquette (Liris)
 La carte intéractive représente une grande partie de la vallée de la chimie avec en modélisation 3D les villes de Saint-fons, Feyzin, Iriginy Lyon 7, Pierre-Bénite, Grigny, Solaize, Vernaison et Givors. Cette modélisation est généré à partir des données CityGML du [DataGrandLyon](https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees) et transformé à l'aide de [py3dtilers](https://github.com/VCityTeam/py3dtilers) une librairie pour produire des 3DTiles, un format de donnée géospatial optimisé pour les applications web. 
 
-<p>
-<img src="/doc/img/maquette.PNG" alt="Home" width="250"/>
+<p float="center">
+<img src="/doc/img/maquette.PNG" alt="Home" width="500"/>
 </p>
 
 #### Documentation technique
