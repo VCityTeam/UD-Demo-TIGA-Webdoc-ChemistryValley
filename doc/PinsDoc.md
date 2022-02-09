@@ -24,7 +24,13 @@ configEpisodes.json :
 
 Une fois dévérouillé, l'épingle est accessible et intéractive pour afficher le contenu de ce point d'intéret plus en détail. Une fenêtre html apparait et donne une description de la zone que pointe l'élement. 
 
-Code exemple
+<p float="middle">
+<img src="/doc/img/episodeDetails.PNG" alt="pins" width="600"/>
+</p>
+
+Un pin est un contenu d'un épisode qui est matérialisé par la classe ``` EpisodeContent.js ``` qui va parser le configEpisode.js. 
+
+#### Code exemple
 
 ```javascript
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
