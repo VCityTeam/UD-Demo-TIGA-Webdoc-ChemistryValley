@@ -1,8 +1,10 @@
 # TIGA-Webdocumentaire
 
+<p align="center">
   <img src="documents/pictures/interfora.png" alt="Home" height="90"/>
   <img src="documents/pictures/liris.png" alt="Home" height="90"/>
   <img src="documents/pictures/udl.png" alt="Home" height="90"/>
+</p>
 
 ***
 
@@ -85,9 +87,9 @@ qui permet produire des données au format
 [3DTiles](https://github.com/CesiumGS/3d-tiles/blob/main/README.md)
 (format de données géospatiales optimisé pour les applications web).
 
-<center>
-    <img src="doc/img/maquette.PNG" alt="Home" width="500"/>
-</center>
+<p align="center">
+  <img src="doc/img/maquette.PNG" alt="Home" width="500"/>
+</p>
 
 #### Documentation technique de la maquette numérique
 
