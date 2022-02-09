@@ -97,7 +97,7 @@ Cette maquette repose sur l'ensemble de composants logiciels
 [UD-SV](https://github.com/VCityTeam/UD-SV)
 (Urban Data Services and Vizualisation), et sa méthodologie d'intégration
 associée, qui permet de réaliser une visualisation avancée de données urbaines.
-La maquette numérique de la vallée de la vallée de la chimie utilise ainsi
+La maquette numérique de la vallée de la chimie utilise ainsi
 les composants suivants :
 
 * [Tutoriel](https://github.com/VCityTeam/UD-Viz/blob/aecb5e71d17532af8d25b21c6a08addb585acc57/docs/static/Doc/User/ContributeData.md) : Documentation d'usage général d'UD-Viz.
