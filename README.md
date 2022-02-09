@@ -24,13 +24,13 @@ Ce jeu documentaire, dans lequel tout est réel, amène les participants, au tra
 Ce web-documentaire itéractif est composé de deux parties. Une première partie qui correspond à une web série ou chaque épisode aborderons un thème spécifique de la vallée de la chimie; le premier épisode sera sur l'emploi et la formation. Et d'un deuxieme format qui est une carte intéractive de la vallée ou différent éléments seront déposés sur des points clefs de l'industrie. Cela permet de proposer une déambulation plus ludique dans cette zone afin de mieux comprendre la configuration de ce territoire. 
 *** 
 ### Episodes (Interfora)
-
+ Chaque épisode de la web-série est composé de plusieurs format de média. Nous voulons impliquer un maximum l'utilisateur et rendre la visualisation plus dynamique. Des vidéos en 360 ou des interviews contradictoires vont être produit chez Interfora gràce à Unity un moteur de jeu. 
 *** 
 ### Maquette (Liris)
 La carte intéractive représente une grande partie de la vallée de la chimie avec en modélisation 3D les villes de Saint-fons, Feyzin, Iriginy Lyon 7, Pierre-Bénite, Grigny, Solaize, Vernaison et Givors. Cette modélisation est généré à partir des données CityGML du [DataGrandLyon](https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees) et transformé à l'aide de [py3dtilers](https://github.com/VCityTeam/py3dtilers) une librairie pour produire des 3DTiles, un format de donnée géospatial optimisé pour les applications web. 
 
 <p float="center">
-<img src="/doc/img/maquette.PNG" alt="Home" width="500"/>
+ <img src="/doc/img/maquette.PNG" alt="Home" width="500"/>
 </p>
 
 #### Documentation technique
