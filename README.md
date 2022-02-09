@@ -35,11 +35,11 @@ La carte intéractive représente une grande partie de la vallée de la chimie a
 #### Documentation technique
 
 Cette maquette repose sur la librairie [UD-Viz](https://github.com/VCityTeam/UD-SV) qui permet une visualisation des données urbaines de la métropole de Lyon. [UD-Viz](https://github.com/VCityTeam/UD-SV) est construit avec différents composants permettant l'amelioration à la visualisation des données urbaines. Toutefois dans cette démonstration nous n'utilisons pas tout les composants, voici la list de ceux intégré dans la vallée de la chimie :
-- Tutoriel de déambulation :
-- Intégration de 3DTiles
-- Geojson layer :
-- Pins visualizer : 
-- Compass :
+- [Tutoriel](https://github.com/VCityTeam/UD-Viz/blob/aecb5e71d17532af8d25b21c6a08addb585acc57/docs/static/Doc/User/ContributeData.md) : Documentation pour aider à l'utilisation d'UD-Viz.
+- [3DTiles](https://github.com/VCityTeam/UD-Viz/blob/master/src/Components/3DTiles/Docs/TilesManager.md) : l'integration de 3DTiles dans une scène 3D à l'aide la bibliothèque [itowns](http://www.itowns-project.org/).
+- [Geojson layer]() : Visualisation de couches de données urbaines 2D en format GeoJson.
+- [Pins visualizer](/doc/PinsDoc.md) : Element intéractif 3D disposé dans la scène pour donner plus de détails sur des points d'interêt.
+- [Compass](/doc/PinsDoc.md) : Compas pour mieux se repérer dans la scène.
 
 
 Pour installer et lancer votre demonstration en local sur votre ordinateur suivez les instructions suivantes :
