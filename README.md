@@ -1,10 +1,8 @@
 # TIGA-Webdocumentaire
 
-<center>
   <img src="documents/pictures/interfora.png" alt="Home" height="90"/>
   <img src="documents/pictures/liris.png" alt="Home" height="90"/>
   <img src="documents/pictures/udl.png" alt="Home" height="90"/>
-</center>
 
 ***
 
