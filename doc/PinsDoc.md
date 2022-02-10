@@ -5,7 +5,7 @@ Ces éléments interactifs sont representés par une bulle d'image ainsi qu'une 
 
 Chacun de ces éléments est un contenu d'un épisode et un épisode comprends plusieurs contenus. Ce contenu permet de détailler une zone spécifique sur une maquette en y ajoutant du texte ou une image. 
 
-<p float="left">
+<p align="center">
 <img src="/doc/img/pinsCapture.PNG" alt="pins" width="350"/>
 </p>
 
@@ -14,7 +14,7 @@ Chacun de ces éléments est un contenu d'un épisode et un épisode comprends p
 ### Technical details
 
 Un pin est un contenu d'un épisode qui est matérialisé par la classe ``` EpisodeContent.js ```et contient toutes les informations sur un contenu d'un épisode.  La classe ``` EpisodeVisualizer.js ``` comprend la liste des contenus de l'épisode et donc une liste d'objet ```EpisodeContent``` qui apparaissent dans la scène 3D.
-<p float="left">
+<p align="center">
 <img src="/doc/img/Episode Diagram.drawio.png" alt="pins" width="800"/>
 </p>
 
@@ -30,14 +30,14 @@ Le configEpisodes.json est le fichier JSON qui permet de configurer tout le cont
  *  `imgLock` : le chemin en direction votre image vérouillé.
 
 
-<p float="middle">
+<p float="left">
 <img src="/doc/img/configEpisode.PNG" alt="pins" width="600"/>
 </p>
 
 
 Une fois dévérouillé, l'épingle est accessible et intéractive pour afficher le contenu de ce point d'intéret plus en détail. Une fenêtre html apparait et donne une description de la zone que pointe l'élément. 
 
-<p float="middle">
+<p align="center">
 <img src="/doc/img/episodeDetails.PNG" alt="pins" width="600"/>
 </p>
 
