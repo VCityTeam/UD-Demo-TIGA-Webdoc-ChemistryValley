@@ -39,13 +39,13 @@ soumettre aux votes et aux avis des autres joueurs des actions concrètes pour f
 * Permettre à chaque citoyen de participer au débat public.
 * Proposer une documentation en continu et diachronique de la vallée de la chimie.
 
-Ce web-documentaire interactif est composé de deux parties :
+Pour impliquer un maximum le citoyen dans la compréhension de son territoire et s'éloigner des outils de médiations traditionnels statiques nous avons développé un web documentaire en 2 partie :
 
 * Une première partie, qui correspond à une
   [web série](https://fr.wikipedia.org/wiki/Web-s%C3%A9rie), où chaque épisode
   aborde un thème spécifique de la vallée de la chimie; le premier épisode
   est ainsi consacré à l'emploi et la formation.
-* Un deuxième partie, au format d'une carte interactive de la vallée, où
+* Un deuxième partie, au format d'une maquette 3D virtuelle de la vallée, où
   différents éléments sont déposés sur des points clefs de l'industrie. Cela
   permet de proposer une déambulation plus ludique de cette zone afin de mieux
   comprendre la configuration de ce territoire.
@@ -62,6 +62,7 @@ Les vidéos immersives
 [Interfora](https://www.interfora-ifaip.fr/)
 grâce au moteur de jeu
 [Unity](https://fr.wikipedia.org/wiki/Unity_(moteur_de_jeu)).
+Ces différents format ont comme base de contenu des micro-trottoire effectués par le partenaire Tùba en posant comme question au citoyen, de la métropole de Lyon, quels aprioris ils ont sur la vallée de la chimie. Cela a permis de mieux cibler les différents thèmes des épisodes et réinformer le citoyen.
 
 ***
 
@@ -73,12 +74,12 @@ avec en modélisation 3D les communes de
 * [Saint-fons](https://fr.wikipedia.org/wiki/Saint-Fons),
 * [Feyzin](https://fr.wikipedia.org/wiki/Feyzin),
 * [Irigny](https://fr.wikipedia.org/wiki/Irigny),
-* Lyon 7,
-* Pierre-Bénite,
-* Grigny,
-* Solaize,
-* Vernaison et
-* Givors.
+* [Lyon 7](https://fr.wikipedia.org/wiki/7e_arrondissement_de_Lyon),
+* [Pierre-Bénite](https://fr.wikipedia.org/wiki/Pierre-B%C3%A9nite),
+* [Grigny](https://fr.wikipedia.org/wiki/Grigny_(m%C3%A9tropole_de_Lyon)),
+* [Solaize](https://fr.wikipedia.org/wiki/Solaize),
+* [Vernaison](https://fr.wikipedia.org/wiki/Vernaison) et
+* [Givors](https://fr.wikipedia.org/wiki/Givors).
 Cette modélisation est générée à partir des données CityGML du
 [DataGrandLyon](https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees)
 et transformée à l'aide de la librairie
@@ -90,6 +91,8 @@ qui permet produire des données au format
 <p align="center">
   <img src="doc/img/maquette.PNG" alt="Home" width="500"/>
 </p>
+
+
 
 #### Documentation technique de la maquette numérique
 
@@ -104,7 +107,7 @@ les composants suivants :
 * [3DTiles](https://github.com/VCityTeam/UD-Viz/blob/master/src/Components/3DTiles/Docs/TilesManager.md) : integration/visualisation de données 3DTiles dans une scène 3D à l'aide la bibliothèque [itowns](http://www.itowns-project.org/).
 * [Geojson layer](https://github.com/VCityTeam/UD-Demo-DatAgora-Vegetalisation-PartDieu/blob/master/ud-viz-context/BaseDemo.js#L664) :
   Visualisation de couches de données urbaines 2D en format [GeoJson](https://fr.wikipedia.org/wiki/GeoJSON).
-* [Pins visualizer](doc/PinsDoc.md) : Element interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
+* [Pins visualizer](doc/PinsDoc.md) : Elément interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
 * [Compass](doc/PinsDoc.md) : Boussole permettant un repérage dans la scène.
 
 #### Installation de la maquette numérique sur un poste de travail
