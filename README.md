@@ -80,6 +80,7 @@ avec en modélisation 3D les communes de
 * [Solaize](https://fr.wikipedia.org/wiki/Solaize),
 * [Vernaison](https://fr.wikipedia.org/wiki/Vernaison) et
 * [Givors](https://fr.wikipedia.org/wiki/Givors).
+
 Cette modélisation est générée à partir des données CityGML du
 [DataGrandLyon](https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees)
 et transformée à l'aide de la librairie
@@ -92,6 +93,12 @@ qui permet produire des données au format
   <img src="doc/img/maquette.PNG" alt="Home" width="500"/>
 </p>
 
+Cette représentation 3D est alimentée d'éléments interactifs matérialisé sous deux formats :
+* Un premier format en lien avec les episodes du webdocumentaire qui sont représenté par des "bulles" d'informations disposé à des endroits stratégiques dans la carte. Ces éléments 3D sont intéractifs et renvoie vers le contenu d'un épisode qui aborde une thématique de ce territoire.
+* Un deuxième format pour contextualiser ce territoire et en savoir plus sur des quartier du couloir de la chimie à travers des documents (pdf, photo etc...) disposés dans la maquette.
+
+
+L'utilisateur peut jongler entre un visionnage des épisodes dans sa globalité sans passer par cette maquette intéractive et une déambulation sur ce territoire et mieux connaître le couloir de la chimie grâce à des documents et des épisodes disposé dans celle-ci.
 
 
 #### Documentation technique de la maquette numérique
@@ -110,8 +117,10 @@ les composants suivants :
 * [Pins visualizer](doc/PinsDoc.md) : Elément interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
 * [Compass](doc/PinsDoc.md) : Boussole permettant un repérage dans la scène.
 
-#### Installation de la maquette numérique sur un poste de travail
+L'utilisation de ces différents composants permettent une déambulation dans ce couloir de la chimie plus intéractive à travers ces éléments disposé dans la maquette et ainsi impliqué plus activement l'utilisateur dans la compréhension de ce territoire.  
 
+#### Installation de la maquette numérique sur un poste de travail
+Pour reproduire cette maquette en local sur votre poste de travail, il vous suffit de suivre les informations suivantes : 
 Ouvrez une
 [invite de commandes](https://fr.wikipedia.org/wiki/Cmd)
 puis lancez les lignes suivantes :
@@ -135,4 +144,3 @@ Ce démonstrateur de la maquette numérique peut également être lancé
   <https://www.derrierelesfumees.com/_Contenusdlf/Carte/index.html>
 
 ***
-### [Atelelier maquette hyrbide](./doc/MaquetteHybrideDoc.md)
