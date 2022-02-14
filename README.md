@@ -100,8 +100,9 @@ Cette représentation 3D est alimentée d'éléments interactifs matérialisé s
 
 L'utilisateur peut jongler entre un visionnage des épisodes dans sa globalité sans passer par cette maquette intéractive et une déambulation sur ce territoire et mieux connaître le couloir de la chimie grâce à des documents et des épisodes disposé dans celle-ci.
 
+***
 
-#### Documentation technique de la maquette numérique
+### Documentation technique de la maquette numérique
 
 Cette maquette repose sur l'ensemble de composants logiciels
 [UD-SV](https://github.com/VCityTeam/UD-SV)
@@ -117,7 +118,8 @@ les composants suivants :
 * [Pins visualizer](doc/PinsDoc.md) : Elément interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
 * [Compass](doc/PinsDoc.md) : Boussole permettant un repérage dans la scène.
 
-L'utilisation de ces différents composants permettent une déambulation dans ce couloir de la chimie plus intéractive à travers ces éléments disposé dans la maquette et ainsi impliqué plus activement l'utilisateur dans la compréhension de ce territoire.  
+L'utilisation de ces différents composants permettent une déambulation dans ce couloir de la chimie plus intéractive à travers ces éléments disposé dans la maquette et ainsi impliqué plus activement l'utilisateur dans la compréhension de ce territoire.
+De plus nous avons voulu s'inspirer de google map sur les épingles qui indiquent la fonctionnalité d'un bâtiment et la démabulation afin de ne pas perdre celui-ci.
 
 #### Installation de la maquette numérique sur un poste de travail
 Pour reproduire cette maquette en local sur votre poste de travail, il vous suffit de suivre les informations suivantes : 
