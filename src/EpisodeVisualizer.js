@@ -77,6 +77,7 @@ export class EpisodeVisualizer {
     episodeDiv.style.display = 'block';
     document.getElementById('webgl_View3D').append(episodeDiv);
 
+    //Improve to create un js ?
     document.getElementById('episodeWindow').innerHTML = 
       '<div id="_window_document2-inspector" class="episode" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
         <div class="episode-header" id="_window_header_document2-inspector">\

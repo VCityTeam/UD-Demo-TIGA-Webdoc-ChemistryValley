@@ -87,8 +87,8 @@ udviz.Components.SystemUtils.File.loadJSON(
     document.getElementById('webgl_View3D').appendChild(compass);
 
     //Compass update with camera
-    var dir = new udviz.THREE.Vector3();
-    var sph = new udviz.THREE.Spherical();
+    let dir = new udviz.THREE.Vector3();
+    let sph = new udviz.THREE.Spherical();
     view3D.getRenderer().setAnimationLoop(() => {
       view3D.getRenderer().render(scene3D, view3D.getCamera());
       view3D.getCamera().getWorldDirection(dir);
@@ -114,7 +114,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
 
       if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
-        if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
+        if (!intersects[ 0 ].object.userData.LOCK){ // if the content isn't lock 
           intersects[ 0 ].object.material.color.set('rgb(200, 200, 200)'); // Gray
           intersects[ 0 ].object.updateMatrixWorld();
         }else {
