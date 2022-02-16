@@ -33,10 +33,10 @@ export class EpisodeVisualizer {
      * @param {string} imageSrcLock path to the image source unlock
      * @param {boolean} lock lock or unlock pins
     */
-  createPin(position,imageSrc,imageSrcLock, lock){
+  createPin(episodeContent,imageSrc,imageSrcLock, lock){
     let colorLock = 'rgb(255,255,255)';
     let pictureTexture;
-
+    console.log(lock);
     if (lock)
       pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
     else
@@ -47,7 +47,7 @@ export class EpisodeVisualizer {
     const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: 'rgb(255, 255, 255)'  } );
     const pinsSprite = new THREE.Sprite( pinsMaterial );
         
-    pinsSprite.position.set(position.x, position.y, position.z); 
+    pinsSprite.position.set(episodeContent.position.x, episodeContent.position.y, episodeContent.position.z); 
     pinsSprite.scale.set(60,100,1);
     pinsSprite.updateMatrixWorld();
     pinsSprite.name = this.name;
@@ -55,7 +55,7 @@ export class EpisodeVisualizer {
     //Picture on the top
     const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock  } );
     const pictureSprite = new THREE.Sprite( pictureMaterial );
-    pictureSprite.userData = { LOCK: lock };
+    pictureSprite.userData = { Episodecontent: episodeContent };
 
     pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
     pictureSprite.scale.set(300,300,1);
@@ -85,12 +85,12 @@ export class EpisodeVisualizer {
         </div>\
         <div class="episode-content" id="_window_content_document2-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <img class="inspector-doc-img" src="../assets/img/Episode1_1_layout.PNG" alt="Document image"\
+          <img class="inspector-doc-img" id="image-content" src="../assets/img/Episode1_1_layout.PNG" alt="Document image"\
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-              <p class="inspector-field-title">Vallée de la chimie, ma vie, mon job</p>\
+              <p class="inspector-field-title" id="first-title">Vallée de la chimie, ma vie, mon job</p>\
               <p class="inspector-field" id="_window_document2-inspector_desc"> 68 506 513 Views</p>\
-              <p class="inspector-field-title">Antoine opérateur dans la chimie</p>\
+              <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
             </div>\
           </div>\
           <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
@@ -127,7 +127,7 @@ export class EpisodeVisualizer {
   constructAllContent(){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
-      this.createPin(element.position, element.imgUnLock, element.imgLock, element.lock);
+      this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
     }
       
     this.constructHtml();

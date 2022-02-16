@@ -8,7 +8,8 @@
             "z" : "220"
           },
           "imgUnlock":"/assets/img/Episode1_1.png",
-          "imgLock":"/assets/img/Episode1_1_lock.png"
+          "imgLock":"/assets/img/Episode1_1_lock.png",
+          "text": "Vallée de la chimie, ma vie, mon job"
         },
         "content-2" :{
           "lock" : false,
@@ -18,7 +19,8 @@
             "z" : "260"
           },
           "imgUnlock":"/assets/img/Episode1_2.png",
-          "imgLock":"/assets/img/Episode1_2_lock.png"
+          "imgLock":"/assets/img/Episode1_2_lock.png",
+          "text": "text 22222222222222222222222222222"
         },
         "content-3" :{
           "lock" : false,
@@ -28,7 +30,8 @@
             "z" : "220"
           },
           "imgUnlock":"/assets/img/Episode1_3.png",
-          "imgLock":"/assets/img/Episode1_3_lock.png"
+          "imgLock":"/assets/img/Episode1_3_lock.png",
+          "text": "Text 3333333333333333333333333333"
         }
     }
 }

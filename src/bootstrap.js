@@ -78,7 +78,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     let listPins = episode_1.getPinsObject();
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
-    view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
+    //view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
     //Compass img element
     const compass = document.createElement('img');
@@ -178,31 +178,39 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
       // Add the Ariege ColorLayer to the view and grant it a tooltip
     view3D.getItownsView().addLayer(busLayer);
+
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
+
       if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
-        if (!intersects[ 0 ].object.userData.LOCK) // display the content in a div if the content is'nt lock
+        let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
+
+        if (!episodeContent.lock){
           divEpisode.style.setProperty('display','block');
+          document.getElementById('first-title').textContent = episodeContent.text;
+          document.getElementById('image-content').src = episodeContent.imgUnLock;
+          console.log(episodeContent.imgUnLock);
+        } // display the content in a div if the content is'nt lock
       }
     }
 
     //Highlight
-    function onDocumentMouseLeave( event ) {    
-      event.preventDefault();
-      let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
+    // function onDocumentMouseLeave( event ) {    
+    //   event.preventDefault();
+    //   let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
 
-      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
-        if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
-          intersects[ 0 ].object.material.color.set('rgb(200, 200, 200)'); // Gray
-          intersects[ 0 ].object.updateMatrixWorld();
-        }else {
-          listPins.material.color.set('rgb(255, 255, 255)'); // White
-        }
-      }
-    }
+    //   if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
+    //     if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
+    //       intersects[ 0 ].object.material.color.set('rgb(200, 200, 200)'); // Gray
+    //       intersects[ 0 ].object.updateMatrixWorld();
+    //     }else {
+    //       listPins.material.color.set('rgb(255, 255, 255)'); // White
+    //     }
+    //   }
+    // }
   });
 });

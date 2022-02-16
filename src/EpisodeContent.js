@@ -11,9 +11,11 @@ export class EpisodeContent {
      * @param {JSON} dataContent data correspond to the content number n of your episode
      */
   constructor(dataContent){
+    this.lock = dataContent['lock'];
     this.imgLock = null;
     this.imgUnLock = null;
     this.position = this.ParsePositionContent(dataContent['position']);
+    this.text = dataContent['text'];
     this.ParseImgContent(dataContent);
   }
 
