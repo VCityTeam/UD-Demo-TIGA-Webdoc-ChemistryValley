@@ -49,6 +49,10 @@ Pour impliquer un maximum le citoyen dans la compréhension de son territoire et
   différents éléments sont déposés sur des points clefs de l'industrie. Cela
   permet de proposer une déambulation plus ludique de cette zone afin de mieux
   comprendre la configuration de ce territoire.
+  
+  <p align="center">
+  <img src="doc/img/webdoc.gif" alt="Home" height="290"/>
+</p>
 
 ***
 
@@ -63,6 +67,8 @@ Les vidéos immersives
 grâce au moteur de jeu
 [Unity](https://fr.wikipedia.org/wiki/Unity_(moteur_de_jeu)).
 Ces différents format ont comme base de contenu des micro-trottoire effectués par le partenaire Tùba en posant comme question au citoyen, de la métropole de Lyon, quels aprioris ils ont sur la vallée de la chimie. Cela a permis de mieux cibler les différents thèmes des épisodes et réinformer le citoyen.
+
+https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
 
 ***
 
@@ -94,7 +100,7 @@ qui permet produire des données au format
 </p>
 
 Cette représentation 3D est alimentée d'éléments interactifs matérialisé sous deux formats :
-* Un premier format en lien avec les episodes du webdocumentaire qui sont représenté par des "bulles" d'informations disposé à des endroits stratégiques dans la carte. Ces éléments 3D sont intéractifs et renvoie vers le contenu d'un épisode qui aborde une thématique de ce territoire.
+* Un premier format en lien avec les episodes du webdocumentaire qui sont représenté par des "bulles" d'informations disposées à des endroits stratégiques dans la carte. Ces éléments 3D sont intéractifs et renvoie vers le contenu d'un épisode qui aborde une thématique de ce territoire.
 * Un deuxième format pour contextualiser ce territoire et en savoir plus sur des quartier du couloir de la chimie à travers des documents (pdf, photo etc...) disposés dans la maquette.
 
 
@@ -113,13 +119,13 @@ les composants suivants :
 
 * [Tutoriel](https://github.com/VCityTeam/UD-Viz/blob/aecb5e71d17532af8d25b21c6a08addb585acc57/docs/static/Doc/User/ContributeData.md) : Documentation d'usage général d'UD-Viz.
 * [3DTiles](https://github.com/VCityTeam/UD-Viz/blob/master/src/Components/3DTiles/Docs/TilesManager.md) : integration/visualisation de données 3DTiles dans une scène 3D à l'aide la bibliothèque [itowns](http://www.itowns-project.org/).
-* [Geojson layer](https://github.com/VCityTeam/UD-Demo-DatAgora-Vegetalisation-PartDieu/blob/master/ud-viz-context/BaseDemo.js#L664) :
+* [Geojson layer FIXME](https://github.com/VCityTeam/UD-Demo-DatAgora-Vegetalisation-PartDieu/blob/master/ud-viz-context/BaseDemo.js#L664) :
   Visualisation de couches de données urbaines 2D en format [GeoJson](https://fr.wikipedia.org/wiki/GeoJSON).
 * [Pins visualizer](doc/PinsDoc.md) : Elément interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
 * [Compass](doc/CompassDoc.md) : Boussole permettant un repérage dans la scène.
 
 L'utilisation de ces différents composants permettent une déambulation dans ce couloir de la chimie plus intéractive à travers ces éléments disposé dans la maquette et ainsi impliqué plus activement l'utilisateur dans la compréhension de ce territoire.
-De plus nous avons voulu s'inspirer de google map sur les épingles qui indiquent la fonctionnalité d'un bâtiment et la démabulation afin de ne pas perdre celui-ci.
+De plus nous avons voulu nous inspirer de google map sur les épingles qui indiquent la fonctionnalité d'un bâtiment et la démabulation afin de ne pas perdre celui-ci.
 
 #### Installation de la maquette numérique sur un poste de travail
 Pour reproduire cette maquette en local sur votre poste de travail, il vous suffit de suivre les informations suivantes : 
