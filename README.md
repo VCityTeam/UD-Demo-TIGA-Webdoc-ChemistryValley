@@ -116,7 +116,7 @@ les composants suivants :
 * [Geojson layer](https://github.com/VCityTeam/UD-Demo-DatAgora-Vegetalisation-PartDieu/blob/master/ud-viz-context/BaseDemo.js#L664) :
   Visualisation de couches de données urbaines 2D en format [GeoJson](https://fr.wikipedia.org/wiki/GeoJSON).
 * [Pins visualizer](doc/PinsDoc.md) : Elément interactif 3D disposé dans la scène pour donner plus de détails sur des points d'intérêt.
-* [Compass](doc/PinsDoc.md) : Boussole permettant un repérage dans la scène.
+* [Compass](doc/CompassDoc.md) : Boussole permettant un repérage dans la scène.
 
 L'utilisation de ces différents composants permettent une déambulation dans ce couloir de la chimie plus intéractive à travers ces éléments disposé dans la maquette et ainsi impliqué plus activement l'utilisateur dans la compréhension de ce territoire.
 De plus nous avons voulu s'inspirer de google map sur les épingles qui indiquent la fonctionnalité d'un bâtiment et la démabulation afin de ne pas perdre celui-ci.
