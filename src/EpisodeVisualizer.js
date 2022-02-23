@@ -78,7 +78,7 @@ export class EpisodeVisualizer {
     document.getElementById('webgl_View3D').append(episodeDiv);
 
     document.getElementById('episodeWindow').innerHTML = 
-      '<div id="_window_document2-inspector" class="episode" style="left: 325px; right: 10px; top: 230px; width: 390px; z-index: 107;">\
+      '<div id="_window_document2-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 390px; z-index: 107;">\
         <div class="episode-header" id="_window_header_document2-inspector">\
           <h1 class="episode-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
           <button class="episode-close-button" id="WindowCloseButton">Close</button>\
