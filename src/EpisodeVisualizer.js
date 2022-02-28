@@ -36,7 +36,6 @@ export class EpisodeVisualizer {
   createPin(episodeContent,imageSrc,imageSrcLock, lock){
     let colorLock = 'rgb(255,255,255)';
     let pictureTexture;
-    console.log(lock);
     if (lock)
       pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
     else
