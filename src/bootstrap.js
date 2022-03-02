@@ -14,6 +14,7 @@ udviz.Components.SystemUtils.File.loadJSON(
   udviz.Components.SystemUtils.File.loadJSON(
     './assets/config/configEpisodes.json'
   ).then(function (configEpisode){
+    
 
     //Get extents coordinates
     let min_x = parseInt(config['extents']['min_x']);
@@ -33,6 +34,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       itownsControls: true,
       config: config,
     });
+    
     
     //pass the extent
     view3D.initItownsView(extent);
@@ -63,7 +65,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     const help = new HelpWindow();
 
     //Content menu
-    const contentMenu = new DocumentContent();
+    const contentMenu = new DocumentContent(view3D.getItownsView());
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Test episode visualizer

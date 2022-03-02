@@ -1,8 +1,8 @@
 #menu-document-content {
     position: fixed;
-    right: 2px;
-    top: 45%;
-    width: 150px;
+    right: 0px;
+    top: -10px;
+    width:300px;
     margin: 0 0 0 0;
 	padding: 10px 0px 10px 35px;
     font-weight: bold;
@@ -25,26 +25,21 @@
     font-size: 15px;
 }
 
-#menu-document-content a
+#menu-document-content button
 {
 display:block;
 padding: 10px;
-width:150px;
-height:15px;
+width:300px;
+height:140px;
 color:#FFFFFF;
 text-decoration:none;
-background-color: #454545;
-border-bottom: 1px solid #000000;
-border-top: 1px solid #4C4C4C
+background-color: #00000088;
+/* border-bottom: 1px solid #000000;
+border-top: 1px solid #4C4C4C */
 }
 
-#menu-document-content a:link, #_all_menu_content a:visited
-{
-color: #E6E6E6;
-text-decoration: none;
-}
 
-#menu-document-content a:hover
+#menu-document-content button:hover
 {
 background-color: #7C7C7C;
 color: #FFFFFF;
