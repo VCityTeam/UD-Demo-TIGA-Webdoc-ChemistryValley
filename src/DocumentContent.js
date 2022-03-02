@@ -12,15 +12,12 @@ export class DocumentContent {
     document.getElementById('webgl_View3D').append(contentMenuDiv);
 
     document.getElementById('menu-document-content').innerHTML = 
-      '<nav>\
-        <ul id="_all_menu_content">\
-            <li class="menu-deroulant">\
-            <a href="#">Services</a>\
+        '<ul id="_all_menu_content">\
+            <li><a href="#">Services</a>\
             <li><a href="#">Graphisme</a></li>\
             <li><a href="#">Web & App</a></li>\
             <li><a href="#">Marketing</a></li>\
         </ul>\
-       </nav>\
        ';    
   }
 
