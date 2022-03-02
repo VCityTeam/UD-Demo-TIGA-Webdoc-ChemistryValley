@@ -4,6 +4,7 @@ import * as udviz from 'ud-viz';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 import { EpisodeContent } from '../src/EpisodeContent';
+import { DocumentContent } from '../src/DocumentContent';
 
 udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
@@ -60,6 +61,10 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Help module
     const help = new HelpWindow();
+
+    //Content menu
+    const contentMenu = new DocumentContent();
+    contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Test episode visualizer
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
