@@ -101,6 +101,12 @@ udviz.Components.SystemUtils.File.loadJSON(
     //new udviz.Templates.AllWidget().addModuleView('layerChoice', layerChoice);
 
     let color = new udviz.THREE.Color();
+    
+    view3D.getScene().children[0].position.set(view3D.getScene().children[0].position.x,
+      view3D.getScene().children[0].position.y + 50,
+      view3D.getScene().children[0].position.z + 160);
+
+    console.log(view3D.getScene().children[0].position);
 
     function colorSurfaceBatiments() {
       return color.set(0x008000);
@@ -179,7 +185,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       // Add the Ariege ColorLayer to the view and grant it a tooltip
     view3D.getItownsView().addLayer(busLayer);
     */
-   
+
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
