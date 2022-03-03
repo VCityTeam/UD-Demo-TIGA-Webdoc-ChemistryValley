@@ -7,7 +7,7 @@
   "3DTilesLayers": [
     {
       "id": "Chemistry_Valley",
-      "url": "https://dataset-dl.liris.cnrs.fr/three-d-tiles-lyon-metropolis/Chemistry-Valley_2018_EPSG3857/tileset.json",
+      "url": "https://dataset-dl.liris.cnrs.fr/three-d-tiles-lyon-metropolis/Chemistry-Valley_2018_Tileset/tileset.json",
       "color": "0xFFFFFF"
     }
   ],
