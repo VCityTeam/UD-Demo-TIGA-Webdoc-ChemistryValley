@@ -45,5 +45,25 @@ background-color: #7C7C7C;
 color: #FFFFFF;
 } 
 
+
+@keyframes apparitionSousMenu {
+    0% {
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
+      border-top: 3px solid #2169EC;
+    }
+    30% {
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+    }
+    100% {
+      max-height: 50em;
+      border-top: 3px solid #2169EC;
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+    }
+}
+
+.menu-deroulant:hover > .sous-menu {
+    animation: apparitionSousMenu 1s forwards;
+}
+
   
   
