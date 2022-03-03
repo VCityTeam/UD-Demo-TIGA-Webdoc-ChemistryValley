@@ -24,10 +24,13 @@ export class DocumentContent {
 
     document.getElementById('menu-document-content').innerHTML = 
         '<ul id="_all_menu_content">\
-            <li><button id="buttondonnée"><h1>Titre donnée</h1><p>Information sur la donnée plus précise comme par exemple ça</p></button>\
-            <li><button><h1>Titre donnée</h1><p>Information sur la donnée plus précise comme par exemple ça</p></li>\
-            <li><button><h1>Titre donnée</h1><p>Information sur la donnée plus précise comme par exemple ça</p></li>\
-            <li><button><h1>Titre donnée</h1><p>Information sur la donnée plus précise comme par exemple ça</p></<button></li>\
+            <li><button id="buttondonnée"><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3><p>Données provenant de la base géographique et topologique TCL SYTRAL.</p></button>\
+            <li><button><h3>Résidences de la Métropole de Lyon</h3><p>Emprise des bâtiments d habitation multiple, verticale, portant un nom qui commence généralement par le mot Résidence, et groupes d habitations horizontales qui seront classés ultérieurement en Lotissement.</p></li>\
+            <li><button><h3>Observatoire - Vallée de la Chimie : </h3><p>Information sur la donnée plus précise comme par exemple ça</p></li>\
+            <li><button><h3>Métier de la vallée de la chimie</h3><p>Fiches métiers présentant les différents </p></<button></li>\
+            <li><button><h3>Espaces naturels sensibles de la Métropole de Lyon</h3><p>Périmètre issus de la révision de l inventaire des espaces naturels sensible du Département du Rhône en 2013. Donnée saisie sur la base de l orthophoto IGN 2011.</p></<button></li>\
+            <li><button><h3>Titre donnée</h3><p>Information sur la donnée plus précise comme par exemple ça</p></<button></li>\
+            <li><button><h3>Titre donnée</h3><p>Information sur la donnée plus précise comme par exemple ça</p></<button></li>\
         </ul>\
        ';
        
