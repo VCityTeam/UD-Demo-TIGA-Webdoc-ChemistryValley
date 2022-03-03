@@ -43,6 +43,12 @@
     text-align: left;
 }
 
+#menu-document-content img
+{
+    height: 100%;
+    right: 5px;
+}
+
 
 #menu-document-content button
 {

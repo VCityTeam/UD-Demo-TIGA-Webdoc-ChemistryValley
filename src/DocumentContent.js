@@ -80,6 +80,7 @@ export class DocumentContent {
       'mousedown',
       () => {
         this.view3D.layerManager.getLayers()[4].visible = true;
+        this.view3D.getItownsView().notifyChange();
       },
       false
     );

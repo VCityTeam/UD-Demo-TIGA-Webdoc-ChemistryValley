@@ -77,9 +77,8 @@ export class EpisodeVisualizer {
     document.getElementById('webgl_View3D').append(episodeDiv);
 
     document.getElementById('episodeWindow').innerHTML = 
-      '<div id="_window_document2-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 390px; z-index: 107;">\
+      '<div id="_window_document2-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 650px; z-index: 107;">\
         <div class="episode-header" id="_window_header_document2-inspector">\
-          <h1 class="episode-title" id="_window_header_title_document2-inspector">Episode 1</h1>\
           <button class="episode-close-button" id="WindowCloseButton">Close</button>\
         </div>\
         <div class="episode-content" id="_window_content_document2-inspector">\
@@ -87,7 +86,7 @@ export class EpisodeVisualizer {
           <img class="inspector-doc-img" id="image-content" src="../assets/img/Episode1_1_layout.PNG" alt="Document image"\
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-              <p class="inspector-field-title" id="first-title">Vallée de la chimie, ma vie, mon job</p>\
+            <h1 class="episode-title" id="_window_header_title_document2-inspector">Vallée de la chimie, ma vie, mon job</h1>\
               <p class="inspector-field" id="_window_document2-inspector_desc"> 68 506 513 Views</p>\
               <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
             </div>\

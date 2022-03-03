@@ -45,3 +45,16 @@ hr {
   height : 80px;
   width : 80px;
 }
+
+#liris{
+  position : absolute;
+  left : 5px;
+  bottom : 30px;
+  height : 80px;
+}
+#liris img{
+  margin: 10px;
+  height: 6em;
+  width: auto;
+  display: inline-block;
+}

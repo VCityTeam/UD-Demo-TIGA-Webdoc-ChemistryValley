@@ -93,6 +93,31 @@ udviz.Components.SystemUtils.File.loadJSON(
     compass.id = 'compass';
     document.getElementById('webgl_View3D').appendChild(compass);
 
+    //Logo
+    const logo = document.createElement('div');
+    //logo.src = '../assets/img/logo-liris.png';
+    logo.id = 'liris';
+    document.getElementById('webgl_View3D').appendChild(logo);
+    const liris = document.createElement('img');
+    liris.src = '../assets/img/logo-liris.png';
+    logo.appendChild(liris);
+
+    const interfora = document.createElement('img');
+    interfora.src = '../assets/img/LogoInterfora.png';
+    logo.appendChild(interfora);
+
+    const dataGrandLyon = document.createElement('img');
+    dataGrandLyon.src = '../assets/img/logo-grand-lyon.png';
+    logo.appendChild(dataGrandLyon);
+
+    const valleeChimie = document.createElement('img');
+    valleeChimie.src = '../assets/img/logoValleeChimie.png';
+    logo.appendChild(valleeChimie);
+
+    const tuba = document.createElement('img');
+    tuba.src = '../assets/img/logoTuba.png';
+    logo.appendChild(tuba);
+
     //Compass update with camera
     var dir = new udviz.THREE.Vector3();
     var sph = new udviz.THREE.Spherical();
@@ -224,10 +249,12 @@ udviz.Components.SystemUtils.File.loadJSON(
         if (!episodeContent.lock){
           divEpisode.style.setProperty('display','block');
           document.getElementById('resume').textContent = episodeContent.text;
-          document.getElementById('image-content').src = episodeContent.imgUnLock;
+          document.getElementById('image-content').src = '../assets/img/Episode1_1_layout.PNG';
         } // display the content in a div if the content is'nt lock
       }
     }
+
+
 
     //Highlight
     // function onDocumentMouseLeave( event ) {    
