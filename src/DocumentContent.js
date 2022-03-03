@@ -8,9 +8,7 @@ export class DocumentContent {
   /**
    * Create an episode
    * 
-   * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
-   * @param {Array} listContents list of JSON data of your episode
    */
   constructor(view3D = new udviz.Views.View3D()) {
     this.view3D = view3D;
@@ -24,24 +22,64 @@ export class DocumentContent {
 
     document.getElementById('menu-document-content').innerHTML = 
         '<ul id="_all_menu_content">\
-            <li><button id="buttondonnée"><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3><p>Données provenant de la base géographique et topologique TCL SYTRAL.</p></button>\
-            <li><button><h3>Résidences de la Métropole de Lyon</h3><p>Emprise des bâtiments d habitation multiple, verticale, portant un nom qui commence généralement par le mot Résidence, et groupes d habitations horizontales qui seront classés ultérieurement en Lotissement.</p></li>\
-            <li><button><h3>Observatoire - Vallée de la Chimie : </h3><p>Information sur la donnée plus précise comme par exemple ça</p></li>\
-            <li><button><h3>Métier de la vallée de la chimie</h3><p>Fiches métiers présentant les différents </p></<button></li>\
-            <li><button><h3>Espaces naturels sensibles de la Métropole de Lyon</h3><p>Périmètre issus de la révision de l inventaire des espaces naturels sensible du Département du Rhône en 2013. Donnée saisie sur la base de l orthophoto IGN 2011.</p></<button></li>\
+            <li><button id="buttonBus"><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3><p>Données provenant de la base géographique et topologique TCL SYTRAL.</p></button>\
+            <li><button id="buttonResidence"><h3>Résidences de la Métropole de Lyon</h3><p>Emprise des bâtiments d habitation multiple, verticale, portant un nom qui commence généralement par le mot Résidence, et groupes d habitations horizontales qui seront classés ultérieurement en Lotissement.</p></li>\
+            <li><button id="buttonObservatoire"><h3>Observatoire - Vallée de la Chimie : </h3><p>Information sur la donnée plus précise comme par exemple ça</p></li>\
+            <li><button id="buttonMetier"><h3>Métier de la vallée de la chimie</h3><p>Fiches métiers présentant les différents </p></<button></li>\
+            <li><button id="buttonEspace"><h3>Espaces naturels sensibles de la Métropole de Lyon</h3><p>Périmètre issus de la révision de l inventaire des espaces naturels sensible du Département du Rhône en 2013. Donnée saisie sur la base de l orthophoto IGN 2011.</p></<button></li>\
             <li><button><h3>Titre donnée</h3><p>Information sur la donnée plus précise comme par exemple ça</p></<button></li>\
             <li><button><h3>Titre donnée</h3><p>Information sur la donnée plus précise comme par exemple ça</p></<button></li>\
         </ul>\
        ';
-       
-    document.getElementById('buttondonnée').addEventListener(
+    //TO-DO : Need to be generalize
+    //Callback des bus 
+    document.getElementById('buttonBus').addEventListener(
       'mousedown',
       () => {
-        console.log(this.view3D.controls);
-        udviz.Components.focusCameraOn(this.view3D,
-          this.view3D.controls,
-          this.view3D.scene.children[4].position,
-          {duration: 1});
+        console.log(this.view3D.layerManager.getLayers());
+        udviz.Components.focusCameraOn(this.view3D.getItownsView(),
+          this.view3D.getItownsView().controls,
+          new udviz.THREE.Vector3(1842938.8426268366, 5168976.164108982, 672.5442263364985),
+          {duration: 1,
+            verticalDistance : 6200,
+            horizontalDistance : 6800});
+        this.view3D.layerManager.getLayers()[3].visible = true;
+      },
+      false
+    );
+
+    //Callback des Résidences
+    document.getElementById('buttonResidence').addEventListener(
+      'mousedown',
+      () => {
+        this.view3D.layerManager.getLayers()[5].visible = true;
+      },
+      false
+    );
+
+    //Callback de l'observatoire
+    document.getElementById('buttonObservatoire').addEventListener(
+      'mousedown',
+      () => {
+        //this.view3D.layerManager.getLayers()[3].visible = true;
+      },
+      false
+    );
+
+    //Callback des fiches métiers
+    document.getElementById('buttonMetier').addEventListener(
+      'mousedown',
+      () => {
+        //this.view3D.layerManager.getLayers()[3].visible = true;
+      },
+      false
+    );
+
+    //Callback des espace Naturel
+    document.getElementById('buttonEspace').addEventListener(
+      'mousedown',
+      () => {
+        this.view3D.layerManager.getLayers()[4].visible = true;
       },
       false
     );

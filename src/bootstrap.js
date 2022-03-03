@@ -65,7 +65,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     const help = new HelpWindow();
 
     //Content menu
-    const contentMenu = new DocumentContent(view3D.getItownsView());
+    const contentMenu = new DocumentContent(view3D);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Test episode visualizer
@@ -137,29 +137,6 @@ udviz.Components.SystemUtils.File.loadJSON(
         transparent: false,
       }
     );
-    //view3D.getItownsView().addLayer(wmsRandonneeImageryLayer);
-    // let wmsResidenceImagerySource = new udviz.itowns.WMSSource({
-    //   extent: view3D.extent,
-    //   name: 'adr_voie_lieu.adrresidence',
-    //   url: 'https://download.data.grandlyon.com/wms/grandlyon',
-    //   version: '1.3.0',
-    //   crs: view3D.projection,
-    //   format: 'image/jpeg',
-    // });
-
-    // // Add a WMS imagery layer
-    // let wmsResidenceImageryLayer = new udviz.itowns.ColorLayer(
-    //   'wms_residence',
-    //   {
-    //     updateStrategy: {
-    //       type: udviz.itowns.STRATEGY_DICHOTOMY,
-    //       options: {},
-    //     },
-    //     source: wmsResidenceImagerySource,
-    //     transparent: true,
-    //   }
-    // );
-    // view3D.getItownsView().addLayer(wmsResidenceImageryLayer);
 
     const busSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
@@ -182,6 +159,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       }),
     });
       // Add the Ariege ColorLayer to the view and grant it a tooltip
+    busLayer.visible = false;
     view3D.getItownsView().addLayer(busLayer);
 
     //EspaceNaturel à risque
@@ -206,7 +184,7 @@ udviz.Components.SystemUtils.File.loadJSON(
         },
       }),
     });
-      // Add the Ariege ColorLayer to the view and grant it a tooltip
+    espaceNaturelLayer.visible = false;
     view3D.getItownsView().addLayer(espaceNaturelLayer);
 
     //--------------------------------------------------------- Create a ColorLayer for the Ariege area ---------------------------------------------------------
@@ -230,6 +208,7 @@ udviz.Components.SystemUtils.File.loadJSON(
         },
       }),
     });
+    residenceLayer.visible = false;
     view3D.getItownsView().addLayer(residenceLayer);
 
     /* --------------------------------- EVENT --------------------------------- */
