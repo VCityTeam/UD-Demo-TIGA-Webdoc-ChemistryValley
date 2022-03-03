@@ -112,32 +112,33 @@ udviz.Components.SystemUtils.File.loadJSON(
     function colorSurfaceBatiments() {
       return color.set(0x008000);
     }
-    /*
-    ////---DataGrandLyon Layers---////
-    const bruitSource = new udviz.itowns.WFSSource({
-      url: 'https://download.data.grandlyon.com/wfs/grandlyon?',
-      protocol: 'wms',
-      version: '1.3.0',
-      id: 'bruit',
-      typeName: 'ind_ln_p',
-      crs: 'EPSG:3946',
-      extent: view3D.extent,
-      format: 'PNG',
-    });
-      
-    const bruitLayer = new udviz.itowns.GeometryLayer('Bruit', new udviz.THREE.Group(), {
-      update: udviz.itowns.FeatureProcessing.update,
-      convert: udviz.itowns.Feature2Mesh.convert(),
-      source: bruitSource,
-      style: new udviz.itowns.Style({
-        fill:{
-          base_altitude: 170.1,
-        }
-      })
-    });
-    view3D.getItownsView().addLayer(bruitLayer);
     
-    const espaceVegetaliseSource = new udviz.itowns.WFSSource({
+    ////---DataGrandLyon Layers---////
+    
+    //DEBUG
+    let wmsRandonneeImagerySource = new udviz.itowns.WMSSource({
+      extent: view3D.extent,
+      name: 'evg_esp_veg.envpdiprboucle',
+      url: 'https://download.data.grandlyon.com/wms/grandlyon',
+      version: '1.3.0',
+      projection: view3D.projection,
+      format: 'image/jpeg',
+    });
+
+    // Add a WMS imagery layer
+    let wmsRandonneeImageryLayer = new udviz.itowns.ColorLayer(
+      'wms_randonnee',
+      {
+        updateStrategy: {
+          type: udviz.itowns.STRATEGY_DICHOTOMY,
+          options: {},
+        },
+        source: wmsRandonneeImagerySource,
+        transparent: false,
+      }
+    );
+    //view3D.getItownsView().addLayer(wmsRandonneeImageryLayer);
+    /*const espaceVegetaliseSource = new udviz.itowns.WFSSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.occlieneva2009&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       protocol: 'wfs',
       version: '2.0.0',
@@ -160,9 +161,9 @@ udviz.Components.SystemUtils.File.loadJSON(
       })
     });
     // Add the Ariege ColorLayer to the view and grant it a tooltip
-    view3D.getItownsView().addLayer(espaceVegetaliseLayer);
+    view3D.getItownsView().addLayer(espaceVegetaliseLayer);*/
 
-    /*
+    
     const busSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
@@ -179,14 +180,39 @@ udviz.Components.SystemUtils.File.loadJSON(
           opacity: 0.5,
         },
         stroke: {
-          color: 'white',
+          color: 'red',
         },
       }),
     });
       // Add the Ariege ColorLayer to the view and grant it a tooltip
     view3D.getItownsView().addLayer(busLayer);
-    */
 
+    const espaceNaturelSource = new udviz.itowns.FileSource({
+      url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envens&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
+      crs: 'EPSG:3946',
+      format: 'application/json',
+    });
+      // Create a ColorLayer for the Ariege area
+    const espaceNaturelLayer = new udviz.itowns.ColorLayer('bruit', {
+      name: 'bruit',
+      transparent: true,
+      source: espaceNaturelSource,
+      style: new udviz.itowns.Style({
+        fill: {
+          color: 'green',
+          opacity: 0.5,
+        },
+        stroke: {
+          color: 'black',
+          opacity:0.2
+        },
+      }),
+    });
+      // Add the Ariege ColorLayer to the view and grant it a tooltip
+    view3D.getItownsView().addLayer(espaceNaturelLayer);
+
+
+    //https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=pvo_patrimoine_voirie.pvotrafic&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
