@@ -10,8 +10,11 @@ export class DocumentContent {
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
-  constructor(view3D = new udviz.Views.View3D()) {
+  constructor(view3D = new udviz.Views.View3D(), listContent) {
     this.view3D = view3D;
+
+    //List of an Object content : must be a list of list
+    this.listContent = listContent;
   }
 
 
@@ -64,7 +67,14 @@ export class DocumentContent {
     document.getElementById('buttonObservatoire').addEventListener(
       'mousedown',
       () => {
-        //this.view3D.layerManager.getLayers()[3].visible = true;
+        this.listContent.forEach(element => {
+          if (!element.visible){
+            element.visible = true;
+          }else{
+            element.visible = false;
+          }
+        });
+        this.view3D.getItownsView().notifyChange();
       },
       false
     );

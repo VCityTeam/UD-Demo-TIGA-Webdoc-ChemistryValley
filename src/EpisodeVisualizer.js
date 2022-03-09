@@ -20,7 +20,7 @@ export class EpisodeVisualizer {
     this.view3D = view3D;
 
     //TO-DO create a list of content of your episode / maybe should be a class
-    this.pinsObject = new THREE.Sprite(); 
+    this.pinsObject = []; 
       
     //List of content 
     this.listContents = listContents;
@@ -65,8 +65,7 @@ export class EpisodeVisualizer {
     this.view3D.getScene().add(pinsSprite);
     this.view3D.getScene().add(pictureSprite);
 
-    this.pinsObject = pinsSprite;
-        
+    return pictureSprite;    
   }
 
   // Create HMTL div to visualize details of the episode container
@@ -125,7 +124,9 @@ export class EpisodeVisualizer {
   constructAllContent(){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
-      this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
+      let pin = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
+      pin.visible= false;
+      this.pinsObject.push(pin);
     }
       
     this.constructHtml();

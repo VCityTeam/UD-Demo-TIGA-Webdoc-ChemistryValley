@@ -64,25 +64,25 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Help module
     const help = new HelpWindow();
 
-    //Content menu
-    const contentMenu = new DocumentContent(view3D);
-    contentMenu.constructMenu('_moduleID', '_modulename');
-
     //Test episode visualizer
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
     let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
     let listContents = [content_1,content_2,content_3];
 
-    const episode_1 = new EpisodeVisualizer('episode_1', view3D, listContents);  
-    episode_1.constructAllContent();
+    const observatoire = new EpisodeVisualizer('episode_1', view3D, listContents);  
+    observatoire.constructAllContent();
+
+    //Content menu
+    const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
+    contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
 
     //TO-DO make a list of object clickable
-    let listPins = episode_1.getPinsObject();
+    let listPins = observatoire.getPinsObject();
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
     //view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
@@ -225,8 +225,6 @@ udviz.Components.SystemUtils.File.loadJSON(
         } // display the content in a div if the content is'nt lock
       }
     }
-
-
 
     //Highlight
     // function onDocumentMouseLeave( event ) {    
