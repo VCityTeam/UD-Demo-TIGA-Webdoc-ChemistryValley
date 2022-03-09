@@ -1,7 +1,7 @@
 #helpWindow {
   position: absolute;
   z-index: 10;
-  width: 15%;
+  width: 25%;
   top: 10px;
   right: 10px;
   color: white;
@@ -10,6 +10,16 @@
   background-color: rgba(30, 30, 30, 0.6);
   border: 1px solid rgb(90, 90, 90);
   pointer-events: auto;
+}
+
+#helpWindow, .text {
+  z-index: 1;
+  color: #eee;
+  font: 16px 'Lucida Grande',sans-serif;
+  max-width: 40%;
+  background: #1a1a1a;
+  opacity: 0.8;
+  padding: 10px;
 }
 
 #helpWindow > div > ul {
@@ -44,17 +54,4 @@ hr {
   bottom : 5px;
   height : 80px;
   width : 80px;
-}
-
-#liris{
-  position : absolute;
-  left : 5px;
-  bottom : 30px;
-  height : 80px;
-}
-#liris img{
-  margin: 10px;
-  height: 6em;
-  width: auto;
-  display: inline-block;
 }

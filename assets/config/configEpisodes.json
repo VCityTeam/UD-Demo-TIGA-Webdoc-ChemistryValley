@@ -7,8 +7,8 @@
             "y" : "5165405.73",
             "z" : "220"
           },
-          "imgUnlock":"/assets/img/Episode1_1.png",
-          "imgLock":"/assets/img/Episode1_1_lock.png",
+          "imgUnlock":"./assets/img/Episode1_1.png",
+          "imgLock":"./assets/img/Episode1_1_lock.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         "content-2" :{
@@ -18,8 +18,8 @@
             "y" : "5168372.18",
             "z" : "260"
           },
-          "imgUnlock":"/assets/img/Episode1_2.png",
-          "imgLock":"/assets/img/Episode1_2_lock.png",
+          "imgUnlock":"./assets/img/Episode1_2.png",
+          "imgLock":"./assets/img/Episode1_2_lock.png",
           "text": "La cuisine gastronomique c’est d’abord de la cuisine, dans les règles de l’art. Ici tout se doit d’être fait rigoureusement comme il faut.Les membres de la brigade maîtrisent donc tous les fondamentaux sur le bout des doigts (et de la langue). Ils sont capables de tenir tous les postes et de réaliser toutes les préparations indispensables aux recettes classiques de la cuisine française."
         },
         "content-3" :{
@@ -29,8 +29,8 @@
             "y" : "5164312.59",
             "z" : "220"
           },
-          "imgUnlock":"/assets/img/Episode1_3.png",
-          "imgLock":"/assets/img/Episode1_3_lock.png",
+          "imgUnlock":"./assets/img/Episode1_3.png",
+          "imgLock":"./assets/img/Episode1_3_lock.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
     }

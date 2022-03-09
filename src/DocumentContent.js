@@ -36,14 +36,17 @@ export class DocumentContent {
     document.getElementById('buttonBus').addEventListener(
       'mousedown',
       () => {
-        console.log(this.view3D.layerManager.getLayers());
-        udviz.Components.focusCameraOn(this.view3D.getItownsView(),
-          this.view3D.getItownsView().controls,
-          new udviz.THREE.Vector3(1842938.8426268366, 5168976.164108982, 672.5442263364985),
-          {duration: 1,
-            verticalDistance : 6200,
-            horizontalDistance : 6800});
-        this.view3D.layerManager.getLayers()[3].visible = true;
+        if (!this.view3D.layerManager.getLayers()[3].visible){
+          udviz.Components.focusCameraOn(this.view3D.getItownsView(),
+            this.view3D.getItownsView().controls,
+            new udviz.THREE.Vector3(1842938.8426268366, 5168976.164108982, 672.5442263364985),
+            {duration: 1,
+              verticalDistance : 6200,
+              horizontalDistance : 6800});
+          this.view3D.layerManager.getLayers()[3].visible = true;
+        }else{
+          this.view3D.layerManager.getLayers()[3].visible = false;
+        }
       },
       false
     );
@@ -79,8 +82,12 @@ export class DocumentContent {
     document.getElementById('buttonEspace').addEventListener(
       'mousedown',
       () => {
-        this.view3D.layerManager.getLayers()[4].visible = true;
-        this.view3D.getItownsView().notifyChange();
+        if (!this.view3D.layerManager.getLayers()[4].visible){
+          this.view3D.layerManager.getLayers()[4].visible = true;
+          this.view3D.getItownsView().notifyChange();
+        }else{
+          this.view3D.layerManager.getLayers()[4].visible = false;
+        }
       },
       false
     );

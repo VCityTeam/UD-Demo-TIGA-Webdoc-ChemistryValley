@@ -19,16 +19,16 @@ export class HelpWindow extends Widgets.Components.ModuleView {
 
     // Create HMTL div whit content
     document.getElementById('helpWindow').innerHTML =
-      '<a href="https://github.com/VCityTeam/UD-Viz/blob/master/Doc/User/ContributeData.md">User Tutorial</a>\
-         <h3>Camera key bindings:</h3>\
+      '<a href="https://github.com/VCityTeam/UD-Viz/blob/master/Doc/User/ContributeData.md">Tutoriel</a>\
+         <h3>Control de la camera:</h3>\
          <ul>\
-            <li>Left-Click: camera translation (drag)</li>\
-            <li>Right-Click: camera translation (pan)</li>\
-            <li>Ctrl + Left-Click: camera rotation (orbit)</li>\
-            <li>Spacebar / Wheel-Click: smart zoom</li>\
-            <li>Mouse Wheel: zoom in/out</li>\
-            <li>T: orient camera to a top view</li>\
-            <li>Y: move camera to start position</li>\
+            <li>Click-gauche: translation de la camera (drag)</li>\
+            <li>Click-droit: camera translation (pan)</li>\
+            <li>Ctrl + Click-gauche: rotation de la camera (orbit)</li>\
+            <li>Espace / Click-molette: zoom sur une zone</li>\
+            <li>Molette: zoom </li>\
+            <li>T: oriente la camera au dessus de la carte</li>\
+            <li>Y: retourne votre camera à la vue initiale</li>\
          </ul>\
          <button id="CloseButton">Close</button>\
         '; 

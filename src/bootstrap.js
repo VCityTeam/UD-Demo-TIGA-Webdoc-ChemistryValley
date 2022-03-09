@@ -89,34 +89,9 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Compass img element
     const compass = document.createElement('img');
-    compass.src = '../assets/img/compass.png';
+    compass.src = './assets/img/compass.png';
     compass.id = 'compass';
     document.getElementById('webgl_View3D').appendChild(compass);
-
-    //Logo
-    const logo = document.createElement('div');
-    //logo.src = '../assets/img/logo-liris.png';
-    logo.id = 'liris';
-    document.getElementById('webgl_View3D').appendChild(logo);
-    const liris = document.createElement('img');
-    liris.src = '../assets/img/logo-liris.png';
-    logo.appendChild(liris);
-
-    const interfora = document.createElement('img');
-    interfora.src = '../assets/img/LogoInterfora.png';
-    logo.appendChild(interfora);
-
-    const dataGrandLyon = document.createElement('img');
-    dataGrandLyon.src = '../assets/img/logo-grand-lyon.png';
-    logo.appendChild(dataGrandLyon);
-
-    const valleeChimie = document.createElement('img');
-    valleeChimie.src = '../assets/img/logoValleeChimie.png';
-    logo.appendChild(valleeChimie);
-
-    const tuba = document.createElement('img');
-    tuba.src = '../assets/img/logoTuba.png';
-    logo.appendChild(tuba);
 
     //Compass update with camera
     var dir = new udviz.THREE.Vector3();
@@ -127,48 +102,15 @@ udviz.Components.SystemUtils.File.loadJSON(
       sph.setFromVector3(dir);
       compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
     });
-
-    ////// LAYER CHOICE MODULE
-    //const layerChoice = new udviz.Widgets.LayerChoice(view3D.layerManager);
-    //new udviz.Templates.AllWidget().addModuleView('layerChoice', layerChoice);
-
-    let color = new udviz.THREE.Color();
-
-    function colorSurfaceBatiments() {
-      return color.set(0x008000);
-    }
     
-    ////---DataGrandLyon Layers---////
-    
-    //Radonnnée
-    let wmsRandonneeImagerySource = new udviz.itowns.WMSSource({
-      extent: view3D.extent,
-      name: 'evg_esp_veg.envpdiprboucle',
-      url: 'https://download.data.grandlyon.com/wms/grandlyon',
-      version: '1.3.0',
-      crs: view3D.projection,
-      format: 'image/jpeg',
-    });
-
-    // Add a WMS imagery layer
-    let wmsRandonneeImageryLayer = new udviz.itowns.ColorLayer(
-      'wms_randonnee',
-      {
-        updateStrategy: {
-          type: udviz.itowns.STRATEGY_DICHOTOMY,
-          options: {},
-        },
-        source: wmsRandonneeImagerySource,
-        transparent: false,
-      }
-    );
-
+    ////---DataGrandLyon Layers---///
     const busSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
       format: 'application/json',
     });
-      // Create a ColorLayer for the Ariege area
+
+    // Create a ColorLayer for the Ariege area
     const busLayer = new udviz.itowns.ColorLayer('bus', {
       name: 'LigneBus',
       transparent: true,
@@ -183,11 +125,12 @@ udviz.Components.SystemUtils.File.loadJSON(
         },
       }),
     });
-      // Add the Ariege ColorLayer to the view and grant it a tooltip
+
+    // Add the Ariege ColorLayer to the view and grant it a tooltip
     busLayer.visible = false;
     view3D.getItownsView().addLayer(busLayer);
 
-    //EspaceNaturel à risque
+    //--------------------------------------------------------- Create a ColorLayer for Natural sources ---------------------------------------------------------
     const espaceNaturelSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envens&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
@@ -212,7 +155,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     espaceNaturelLayer.visible = false;
     view3D.getItownsView().addLayer(espaceNaturelLayer);
 
-    //--------------------------------------------------------- Create a ColorLayer for the Ariege area ---------------------------------------------------------
+    //--------------------------------------------------------- Create a ColorLayer for Residence ---------------------------------------------------------
     const residenceSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=adr_voie_lieu.adrresidence&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
@@ -235,6 +178,35 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
     residenceLayer.visible = false;
     view3D.getItownsView().addLayer(residenceLayer);
+
+    //--------------------------------------------------------- WFS quartier ---------------------------------------------------------
+    let wfsCartoSource = new udviz.itowns.WFSSource({
+      url: 'https://wxs.ign.fr/cartovecto/geoportail/wfs?',
+      version: '2.0.0',
+      typeName: 'BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie',
+      crs: 'EPSG:3946',
+      ipr: 'IGN',
+      format: 'application/json',
+    });
+
+    let wfsCartoStyle = new udviz.itowns.Style({
+      zoom: { min: 0, max: 20 },
+      text: {
+        field: '{toponyme}',
+        color: 'white',
+        transform: 'uppercase',
+        size: 15,
+        haloColor: 'rgba(20,20,20, 0.8)',
+        haloWidth: 3,
+      },
+    });
+
+    let wfsCartoLayer = new udviz.itowns.LabelLayer('wfsCarto', {
+      source: wfsCartoSource,
+      style: wfsCartoStyle,
+    });
+
+    view3D.getItownsView().addLayer(wfsCartoLayer);
 
     /* --------------------------------- EVENT --------------------------------- */
 
