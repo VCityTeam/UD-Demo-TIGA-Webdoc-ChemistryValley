@@ -1,7 +1,7 @@
 {
     "episode-1-data":{
         "content-1" :{
-          "lock" : true,
+          "lock" : false,
           "position" :{
             "x" : "1843554.77",
             "y" : "5165405.73",
@@ -32,6 +32,17 @@
           "imgUnlock":"./assets/img/Episode1_3.png",
           "imgLock":"./assets/img/Episode1_3_lock.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "content-4" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843370.01",
+            "y" : "5164012.59",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/Logo_INA.svg.png",
+          "imgLock":"./assets/img/Logo_INA.svg.png",
+          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles."
         }
     }
 }

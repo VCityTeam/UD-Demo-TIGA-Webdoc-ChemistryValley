@@ -64,14 +64,20 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Help module
     const help = new HelpWindow();
 
-    //Test episode visualizer
+    //Content episode visualizer
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
     let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
-    let listContents = [content_1,content_2,content_3];
 
-    const observatoire = new EpisodeVisualizer('episode_1', view3D, listContents);  
+    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-4']);
+
+    let listContentsObservatoire = [content_1,content_2,content_3, content_INA];
+    const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
     observatoire.constructAllContent();
+
+    let listContentsArchive = [content_INA];
+    const archive = new EpisodeVisualizer('archive', view3D, listContentsArchive);  
+    archive.constructAllContent();
 
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
@@ -80,9 +86,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
-
-    //TO-DO make a list of object clickable
-    let listPins = observatoire.getPinsObject();
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
     //view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
