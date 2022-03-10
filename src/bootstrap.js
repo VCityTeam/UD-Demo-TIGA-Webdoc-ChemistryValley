@@ -155,6 +155,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     espaceNaturelLayer.visible = false;
     view3D.getItownsView().addLayer(espaceNaturelLayer);
 
+
     //--------------------------------------------------------- Create a ColorLayer for Residence ---------------------------------------------------------
     const residenceSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=adr_voie_lieu.adrresidence&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
@@ -179,7 +180,31 @@ udviz.Components.SystemUtils.File.loadJSON(
     residenceLayer.visible = false;
     view3D.getItownsView().addLayer(residenceLayer);
 
-    //--------------------------------------------------------- WFS quartier ---------------------------------------------------------
+    //--------------------------------------------------------- POLUTION ---------------------------------------------------------
+    const wfsPollutionSource = new udviz.itowns.WMSSource({
+      url: 'https://sig.atmo-auvergnerhonealpes.fr/geoserver/csa/wms?',
+      protocol: 'wms',
+      version: '1.3.0',
+      id: 'csa_2020_GdLyon',
+      name: 'csa_2020_GdLyon',
+      crs: 'EPSG:3946',
+      extent: view3D.extent,
+      format: 'PNG',
+    });
+      
+    const wfsPollutionLayer = new udviz.itowns.GeometryLayer('Bruit', new udviz.THREE.Group(), {
+      update: udviz.itowns.FeatureProcessing.update,
+      convert: udviz.itowns.Feature2Mesh.convert(),
+      source: wfsPollutionSource,
+      style: new udviz.itowns.Style({
+        fill:{
+          base_altitude: 0,
+        }
+      })
+    });
+    view3D.getItownsView().addLayer(wfsPollutionLayer);
+
+    //--------------------------------------------------------- WFS idnice atmo ---------------------------------------------------------
     let wfsCartoSource = new udviz.itowns.WFSSource({
       url: 'https://wxs.ign.fr/cartovecto/geoportail/wfs?',
       version: '2.0.0',
@@ -225,6 +250,8 @@ udviz.Components.SystemUtils.File.loadJSON(
         } // display the content in a div if the content is'nt lock
       }
     }
+
+    console.log(view3D.itownsView);
 
     //Highlight
     // function onDocumentMouseLeave( event ) {    
