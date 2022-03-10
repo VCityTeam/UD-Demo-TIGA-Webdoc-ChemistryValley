@@ -85,8 +85,6 @@ export class EpisodeVisualizer {
           <img class="inspector-doc-img" id="image-content" src="./../assets/img/Episode1_1_layout.PNG" alt="Document image"\
           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-            <h1 class="episode-title" id="_window_header_title_document2-inspector">Vallée de la chimie, ma vie, mon job</h1>\
-              <p class="inspector-field" id="_window_document2-inspector_desc"> 68 506 513 Views</p>\
               <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
             </div>\
           </div>\
@@ -110,7 +108,7 @@ export class EpisodeVisualizer {
     document.getElementById('WindowDetailsButton').addEventListener(
       'mousedown',
       () => {
-        window.open('https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html','EpisodeContent','popup');
+        window.open('https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html','EpisodeContent').focus();
       },
       false
     );
@@ -121,15 +119,17 @@ export class EpisodeVisualizer {
   /**
      * Method to construct all the content of an episode 
   */
-  constructAllContent(){
+  constructAllContent(visibility, detailsUI){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
       let pin = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
-      pin.visible= false;
+      pin.visible = visibility;
       this.pinsObject.push(pin);
     }
-      
-    this.constructHtml();
+     
+    if (detailsUI){
+      this.constructHtml();
+    }
   }
     
   /////// GETTER & SETTER

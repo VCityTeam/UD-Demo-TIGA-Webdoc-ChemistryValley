@@ -68,16 +68,17 @@ udviz.Components.SystemUtils.File.loadJSON(
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
     let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
+    let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4']);
 
-    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-4']);
+    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5']);
 
-    let listContentsObservatoire = [content_1,content_2,content_3, content_INA];
+    let listContentsObservatoire = [content_1,content_2,content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
-    observatoire.constructAllContent();
+    observatoire.constructAllContent(false, true);
 
     let listContentsArchive = [content_INA];
-    const archive = new EpisodeVisualizer('archive', view3D, listContentsArchive);  
-    archive.constructAllContent();
+    const archive = new EpisodeVisualizer('episode_1', view3D, listContentsArchive);  
+    archive.constructAllContent(true, false);
 
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
@@ -133,6 +134,31 @@ udviz.Components.SystemUtils.File.loadJSON(
     busLayer.visible = false;
     view3D.getItownsView().addLayer(busLayer);
 
+    ////---randonnée layers---///
+    const randoSource = new udviz.itowns.FileSource({
+      url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envpdiprboucle&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
+      crs: 'EPSG:3946',
+      format: 'application/json',
+    });
+
+    // Create a ColorLayer for the Ariege area
+    const randoLayer = new udviz.itowns.ColorLayer('rando', {
+      name: 'randonne',
+      transparent: true,
+      source: randoSource,
+      style: new udviz.itowns.Style({
+        fill: {
+          color: 'green',
+          opacity: 0.5,
+        },
+        stroke: {
+          color: 'green',
+        },
+      }),
+    });
+
+    view3D.getItownsView().addLayer(randoLayer);
+
     //--------------------------------------------------------- Create a ColorLayer for Natural sources ---------------------------------------------------------
     const espaceNaturelSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envens&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
@@ -141,7 +167,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
       // Create a ColorLayer for the Ariege area
     const espaceNaturelLayer = new udviz.itowns.ColorLayer('espaceNaturel', {
-      name: 'bruit',
+      name: 'espaceNaturel',
       transparent: true,
       source: espaceNaturelSource,
       style: new udviz.itowns.Style({
@@ -160,81 +186,88 @@ udviz.Components.SystemUtils.File.loadJSON(
 
 
     //--------------------------------------------------------- Create a ColorLayer for Residence ---------------------------------------------------------
+    // const residenceSource = new udviz.itowns.FileSource({
+    //   url: 'https://download.data.grandlyon.com/wms/grandlyon',
     const residenceSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=adr_voie_lieu.adrresidence&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
       format: 'application/json',
     });
 
-    const residenceLayer = new udviz.itowns.ColorLayer('adr_voie_lieu.adrresidence', {
-      name: 'adr_voie_lieu.adrresidence',
+    // Create a ColorLayer for the Ariege area
+    const residenceLayer = new udviz.itowns.ColorLayer('residence', {
+      name: 'residence',
       transparent: true,
       source: residenceSource,
       style: new udviz.itowns.Style({
         fill: {
-          color: 'orange',
+          color: 'yellow',
           opacity: 0.5,
         },
         stroke: {
-          color: 'yellow',
+          color: 'black',
         },
       }),
     });
-    residenceLayer.visible = false;
+
     view3D.getItownsView().addLayer(residenceLayer);
 
-    //--------------------------------------------------------- POLUTION ---------------------------------------------------------
-    const wfsPollutionSource = new udviz.itowns.WMSSource({
-      url: 'https://sig.atmo-auvergnerhonealpes.fr/geoserver/csa/wms?',
-      protocol: 'wms',
-      version: '1.3.0',
-      id: 'csa_2020_GdLyon',
-      name: 'csa_2020_GdLyon',
-      crs: 'EPSG:3946',
-      extent: view3D.extent,
-      format: 'PNG',
-    });
-      
-    const wfsPollutionLayer = new udviz.itowns.GeometryLayer('Bruit', new udviz.THREE.Group(), {
-      update: udviz.itowns.FeatureProcessing.update,
-      convert: udviz.itowns.Feature2Mesh.convert(),
-      source: wfsPollutionSource,
-      style: new udviz.itowns.Style({
-        fill:{
-          base_altitude: 0,
-        }
-      })
-    });
-    view3D.getItownsView().addLayer(wfsPollutionLayer);
+    //--------------------------------------------------------- rando ---------------------------------------------------------
 
-    //--------------------------------------------------------- WFS idnice atmo ---------------------------------------------------------
-    let wfsCartoSource = new udviz.itowns.WFSSource({
-      url: 'https://wxs.ign.fr/cartovecto/geoportail/wfs?',
-      version: '2.0.0',
-      typeName: 'BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie',
+
+    // //--------------------------------------------------------- WFS idnice atmo ---------------------------------------------------------
+    // let wfsCartoSource = new udviz.itowns.WFSSource({
+    //   url: 'https://download.data.grandlyon.com/wfs/grandlyon?',
+    //   version: '2.0.0',
+    //   typeName: 'BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie',
+    //   crs: 'EPSG:3946',
+    //   ipr: 'IGN',
+    //   format: 'application/json',
+    // });
+
+    // let wfsCartoStyle = new udviz.itowns.Style({
+    //   zoom: { min: 0, max: 20 },
+    //   text: {
+    //     field: '{toponyme}',
+    //     color: 'white',
+    //     transform: 'uppercase',
+    //     size: 15,
+    //     haloColor: 'rgba(20,20,20, 0.8)',
+    //     haloWidth: 3,
+    //   },
+    // });
+
+    // let wfsCartoLayer = new udviz.itowns.LabelLayer('wfsCarto', {
+    //   source: wfsCartoSource,
+    //   style: wfsCartoStyle,
+    // });
+
+    // view3D.getItownsView().addLayer(wfsCartoLayer);
+
+    //--------------------------------------------------------- Create a ColorLayer for randonnée ---------------------------------------------------------
+    const cheminRandonneeSource = new udviz.itowns.FileSource({
+      url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envpdiprboucle&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
-      ipr: 'IGN',
       format: 'application/json',
     });
-
-    let wfsCartoStyle = new udviz.itowns.Style({
-      zoom: { min: 0, max: 20 },
-      text: {
-        field: '{toponyme}',
-        color: 'white',
-        transform: 'uppercase',
-        size: 15,
-        haloColor: 'rgba(20,20,20, 0.8)',
-        haloWidth: 3,
-      },
+      // Create a ColorLayer for the Ariege area
+    const cheminrandonneeLayer = new udviz.itowns.ColorLayer('cheminrandonne', {
+      name: 'randonnee',
+      transparent: true,
+      source: cheminRandonneeSource,
+      style: new udviz.itowns.Style({
+        fill: {
+          color: 'green',
+          opacity: 0.5,
+        },
+        stroke: {
+          color: 'black',
+          opacity:0.2
+        },
+      }),
     });
-
-    let wfsCartoLayer = new udviz.itowns.LabelLayer('wfsCarto', {
-      source: wfsCartoSource,
-      style: wfsCartoStyle,
-    });
-
-    view3D.getItownsView().addLayer(wfsCartoLayer);
+    //cheminrandonneeLayer.visible = false;
+    view3D.getItownsView().addLayer(cheminrandonneeLayer);
 
     /* --------------------------------- EVENT --------------------------------- */
 
@@ -249,12 +282,12 @@ udviz.Components.SystemUtils.File.loadJSON(
         if (!episodeContent.lock){
           divEpisode.style.setProperty('display','block');
           document.getElementById('resume').textContent = episodeContent.text;
-          document.getElementById('image-content').src = '../assets/img/Episode1_1_layout.PNG';
+          document.getElementById('image-content').src = episodeContent.imgUnLock;
         } // display the content in a div if the content is'nt lock
       }
     }
 
-    console.log(view3D.itownsView);
+    console.log(view3D.layerManager.getLayers());
 
     //Highlight
     // function onDocumentMouseLeave( event ) {    

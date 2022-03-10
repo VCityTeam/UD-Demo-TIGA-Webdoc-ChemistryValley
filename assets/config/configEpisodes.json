@@ -7,9 +7,9 @@
             "y" : "5165405.73",
             "z" : "220"
           },
-          "imgUnlock":"./assets/img/Episode1_1.png",
-          "imgLock":"./assets/img/Episode1_1_lock.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "imgUnlock":"./assets/img/Observatoire/cheminee.jpg",
+          "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
         },
         "content-2" :{
           "lock" : false,
@@ -18,9 +18,9 @@
             "y" : "5168372.18",
             "z" : "260"
           },
-          "imgUnlock":"./assets/img/Episode1_2.png",
-          "imgLock":"./assets/img/Episode1_2_lock.png",
-          "text": "La cuisine gastronomique c’est d’abord de la cuisine, dans les règles de l’art. Ici tout se doit d’être fait rigoureusement comme il faut.Les membres de la brigade maîtrisent donc tous les fondamentaux sur le bout des doigts (et de la langue). Ils sont capables de tenir tous les postes et de réaliser toutes les préparations indispensables aux recettes classiques de la cuisine française."
+          "imgUnlock":"./assets/img/Observatoire/cheminee2.jpg",
+          "imgLock":"./assets/img/Observatoire/cheminee2.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
         },
         "content-3" :{
           "lock" : false,
@@ -29,11 +29,22 @@
             "y" : "5164312.59",
             "z" : "220"
           },
-          "imgUnlock":"./assets/img/Episode1_3.png",
-          "imgLock":"./assets/img/Episode1_3_lock.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "imgUnlock":"./assets/img/Observatoire/pont.jpg",
+          "imgLock":"./assets/img/Observatoire/pont.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
         },
         "content-4" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843570.01",
+            "y" : "5164512.59",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/Observatoire/saint-fons.jpg",
+          "imgLock":"./assets/img/Observatoire/saint-fons.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
+        },
+        "content-5" :{
           "lock" : false,
           "position" :{
             "x" : "1843370.01",
