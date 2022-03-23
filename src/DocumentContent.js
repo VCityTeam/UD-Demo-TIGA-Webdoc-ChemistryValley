@@ -69,6 +69,7 @@ export class DocumentContent {
       () => {
         this.listContent.forEach(element => {
           if (!element.visible){
+
             element.visible = true;
           }else{
             element.visible = false;

@@ -212,37 +212,30 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     view3D.getItownsView().addLayer(residenceLayer);
 
-    //--------------------------------------------------------- rando ---------------------------------------------------------
+    // //--------------------------------------------------------- WMS indice atmo ---------------------------------------------------------
+    let wmsAtmoSource = new udviz.itowns.WMSSource({
+      extent: view3D.extent,
+      name: 'mod_aura_2016_no2_moyan',
+      url: 'https://sig.atmo-auvergnerhonealpes.fr/geoserver/mod_aura_region_2016/wms',
+      version: '1.3.0',
+      projection: 'EPSG:3946',
+      format: 'image/jpeg',
+    });
 
+    // Add a WMS imagery layer
+    let wmsImageryLayer = new udviz.itowns.ColorLayer(
+      'indiceAtmo',
+      {
+        updateStrategy: {
+          type: udviz.itowns.STRATEGY_DICHOTOMY,
+          options: {},
+        },
+        source: wmsAtmoSource,
+        transparent: true,
+      }
+    );
 
-    // //--------------------------------------------------------- WFS idnice atmo ---------------------------------------------------------
-    // let wfsCartoSource = new udviz.itowns.WFSSource({
-    //   url: 'https://download.data.grandlyon.com/wfs/grandlyon?',
-    //   version: '2.0.0',
-    //   typeName: 'BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie',
-    //   crs: 'EPSG:3946',
-    //   ipr: 'IGN',
-    //   format: 'application/json',
-    // });
-
-    // let wfsCartoStyle = new udviz.itowns.Style({
-    //   zoom: { min: 0, max: 20 },
-    //   text: {
-    //     field: '{toponyme}',
-    //     color: 'white',
-    //     transform: 'uppercase',
-    //     size: 15,
-    //     haloColor: 'rgba(20,20,20, 0.8)',
-    //     haloWidth: 3,
-    //   },
-    // });
-
-    // let wfsCartoLayer = new udviz.itowns.LabelLayer('wfsCarto', {
-    //   source: wfsCartoSource,
-    //   style: wfsCartoStyle,
-    // });
-
-    // view3D.getItownsView().addLayer(wfsCartoLayer);
+    view3D.getItownsView().addLayer(wmsImageryLayer);
 
     //--------------------------------------------------------- Create a ColorLayer for randonnée ---------------------------------------------------------
     const cheminRandonneeSource = new udviz.itowns.FileSource({
@@ -268,6 +261,36 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
     //cheminrandonneeLayer.visible = false;
     view3D.getItownsView().addLayer(cheminrandonneeLayer);
+
+    //--------------------------------------------------------- WFS city name source ---------------------------------------------------------
+    let wfsCartoSource = new udviz.itowns.WFSSource({
+      url: 'https://wxs.ign.fr/cartovecto/geoportail/wfs?',
+      version: '2.0.0',
+      typeName: 'BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie',
+      crs: 'EPSG:3946',
+      ipr: 'IGN',
+      format: 'application/json',
+    });
+
+    let wfsCartoStyle = new udviz.itowns.Style({
+      zoom: { min: 0, max: 20 },
+      text: {
+        field: '{toponyme}',
+        color: 'white',
+        transform: 'uppercase',
+        size: 15,
+        haloColor: 'rgba(20,20,20, 0.8)',
+        haloWidth: 3,
+      },
+    });
+
+    let wfsCartoLayer = new udviz.itowns.LabelLayer('wfsCarto', {
+      source: wfsCartoSource,
+      style: wfsCartoStyle,
+    });
+
+    view3D.getItownsView().addLayer(wfsCartoLayer);
+
 
     /* --------------------------------- EVENT --------------------------------- */
 
