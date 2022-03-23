@@ -209,7 +209,7 @@ udviz.Components.SystemUtils.File.loadJSON(
         },
       }),
     });
-
+    residenceLayer.visible = false;
     view3D.getItownsView().addLayer(residenceLayer);
 
     // //--------------------------------------------------------- WMS indice atmo ---------------------------------------------------------
@@ -234,7 +234,8 @@ udviz.Components.SystemUtils.File.loadJSON(
         transparent: true,
       }
     );
-
+    
+    wmsImageryLayer.visible = false;
     view3D.getItownsView().addLayer(wmsImageryLayer);
 
     //--------------------------------------------------------- Create a ColorLayer for randonnée ---------------------------------------------------------

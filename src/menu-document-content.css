@@ -1,3 +1,16 @@
+
+@keyframes movement {
+    0% {
+      right: 0px;
+    }
+    50% {
+      right: -500px;
+    }
+    100% {
+      right: -8000px;
+    }
+}
+
 #menu-document-content {
     position: fixed;
     right: 0px;
@@ -14,6 +27,7 @@
     border-radius: 35px 10px 10px 10px;
 	/* Générateur de code couleur -- http://www.workwithcolor.com/hsl-color-picker-01.htm */
 	z-index: 2;
+    transition: right 2s;
 }
 
 #menu-document-content ul .scroll-container
@@ -68,32 +82,29 @@ background-color: #7C7C7C;
 color: #FFFFFF;
 } 
 
-
-@keyframes apparitionSousMenu {
-    0% {
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
-      border-top: 3px solid #2169EC;
-    }
-    30% {
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-    }
-    100% {
-      max-height: 50em;
-      border-top: 3px solid #2169EC;
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-    }
-}
-
-.menu-deroulant:hover > .sous-menu {
-    animation: apparitionSousMenu 1s forwards;
-}
+/* #menu-document-content:hover {
+    animation: movement 4s;
+} */
 
 .scroll-container {
     width: 350px;
     height: 200px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-  }
+}
+
+ #btn:focus ~ #_all_menu_content{
+    background-color: yellow;
+} 
+
+/* #btn:focus ~ #menu-document-content{
+    background-color: yellow;
+} */
+
+/* .hide{
+    opacity: 0;
+    transition: movement 4s;
+} */
 
   
   
