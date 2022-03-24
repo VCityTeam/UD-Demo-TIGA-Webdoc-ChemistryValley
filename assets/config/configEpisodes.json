@@ -15,8 +15,8 @@
         "content-2" :{
           "lock" : false,
           "position" :{
-            "x" : "1844804.07",
-            "y" : "5168372.18",
+            "x" : "1839247.20",  
+            "y" : "5157285.35", 
             "z" : "260"
           },
           "imgUnlock":"./assets/img/Observatoire/cheminee2.jpg",
@@ -27,9 +27,9 @@
         "content-3" :{
           "lock" : false,
           "position" :{
-            "x" : "1843470.01",
-            "y" : "5164312.59",
-            "z" : "220"
+            "x" : "1843021.12", 
+            "y" : "5160129.19",
+            "z" : "230"
           },
           "imgUnlock":"./assets/img/Observatoire/pont.jpg",
           "imgLock":"./assets/img/Observatoire/pont.jpg",
@@ -59,6 +59,42 @@
           "imgLock":"./assets/img/Logo_INA.svg.png",
           "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
           "src":"https://www.ina.fr/"
+        },
+        "content-episode-1" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843070.01",
+            "y" : "5163512.59",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/Episode1_2.png",
+          "imgLock":"./assets/img/catastrophe_de_Feyzin.jpg",
+          "text": "A l'occasion du dixième anniversaire de sa création, reportage sur la raffinerie de Feyzin avec de nombreux plans de ses installations. La population est très scéptique envers l'usine et met en cause la pollution qu'elle engendre. De plus, la catastrophe de 1966 n'est pas oubliée. Les responsables tentent de la faire accepter",
+          "src":"https://www.youtube.com/watch?v=aI9cFVq88SE"
+        },
+        "content-episode-2" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1842483.93", 
+            "y" : "5165242.68",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/Episode1_1.png",
+          "imgLock":"./assets/img/Episode1_1_layout.png",
+          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
+          "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
+        },
+        "content-episode-3" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843335.678969116",
+            "y" : "5166021.056339052",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/Episode1_3.png",
+          "imgLock":"./assets/img/Episode1_3.png",
+          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
+          "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
         }
     }
 }

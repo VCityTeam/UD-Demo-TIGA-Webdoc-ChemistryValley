@@ -52,12 +52,13 @@ export class EpisodeVisualizer {
     pinsSprite.name = this.name;
 
     //Picture on the top
-    const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock, sizeAttenuation : false  } );
+    const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, color: colorLock, sizeAttenuation : true  } );
     const pictureSprite = new THREE.Sprite( pictureMaterial );
     pictureSprite.userData = { Episodecontent: episodeContent };
 
     pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
-    pictureSprite.scale.set(0.300 / 6, 0.300 / 6, 0.001 / 6);
+    const scale = 1;
+    pictureSprite.scale.set(300 / scale, 300 / scale, 10 / scale);
     pictureSprite.updateMatrixWorld();
     pictureSprite.name = this.name;
           

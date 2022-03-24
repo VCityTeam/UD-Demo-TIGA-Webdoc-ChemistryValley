@@ -64,21 +64,34 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Help module
     const help = new HelpWindow();
 
-    //Content episode visualizer
+    //Content episode Observatoire
     let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
     let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
     let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4']);
 
+    //Content video INA
     let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5']);
 
-    let listContentsObservatoire = [content_1,content_2,content_3, content_4];
+    //Content episode
+    let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1']);
+    let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2']);
+    let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3']);
+
+    //Observatoire visualizer
+    let listContentsObservatoire = [content_1, content_2, content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false, true);
 
+    //INA vizualizer
     let listContentsArchive = [content_INA];
     const archive = new EpisodeVisualizer('episode_1', view3D, listContentsArchive);  
     archive.constructAllContent(true, false);
+
+    //Episode vizualizer
+    let listContentsEpisode = [content_1_episode, content_2_episode, content_3_episode];
+    const episodes = new EpisodeVisualizer('episode_1', view3D, listContentsEpisode);  
+    episodes.constructAllContent(true, false);
 
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
@@ -89,7 +102,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     divEpisode.style.setProperty('display','none');
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
-    //view3D.html().addEventListener( 'pointermove', onDocumentMouseLeave );
 
     //Compass img element
     const compass = document.createElement('img');
@@ -107,7 +119,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
     });
     
-    ////---DataGrandLyon Layers---///
+    ////--------------------------------DataGrandLyon Layers--------------------------------///
     const busSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
@@ -306,7 +318,7 @@ udviz.Components.SystemUtils.File.loadJSON(
         if (!episodeContent.lock){
           divEpisode.style.setProperty('display','block');
           document.getElementById('resume').textContent = episodeContent.text;
-          document.getElementById('image-content').src = episodeContent.imgUnLock;
+          document.getElementById('image-content').src = episodeContent.imgLock;
           //Details button
           document.getElementById('WindowDetailsButton').addEventListener(
             'mousedown',
@@ -318,22 +330,5 @@ udviz.Components.SystemUtils.File.loadJSON(
         } // display the content in a div if the content is'nt lock
       }
     }
-
-    console.log(view3D.layerManager.getLayers());
-
-    //Highlight
-    // function onDocumentMouseLeave( event ) {    
-    //   event.preventDefault();
-    //   let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
-
-    //   if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
-    //     if (!intersects[ 0 ].object.userData.LOCK){ // if the content isnt lock 
-    //       intersects[ 0 ].object.material.color.set('rgb(200, 200, 200)'); // Gray
-    //       intersects[ 0 ].object.updateMatrixWorld();
-    //     }else {
-    //       listPins.material.color.set('rgb(255, 255, 255)'); // White
-    //     }
-    //   }
-    // }
   });
 });
