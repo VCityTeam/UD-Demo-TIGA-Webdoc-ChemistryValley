@@ -9,7 +9,8 @@
           },
           "imgUnlock":"./assets/img/Observatoire/cheminee.jpg",
           "imgLock":"./assets/img/Observatoire/cheminee.jpg",
-          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-2" :{
           "lock" : false,
@@ -20,7 +21,8 @@
           },
           "imgUnlock":"./assets/img/Observatoire/cheminee2.jpg",
           "imgLock":"./assets/img/Observatoire/cheminee2.jpg",
-          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-3" :{
           "lock" : false,
@@ -31,7 +33,8 @@
           },
           "imgUnlock":"./assets/img/Observatoire/pont.jpg",
           "imgLock":"./assets/img/Observatoire/pont.jpg",
-          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-4" :{
           "lock" : false,
@@ -42,7 +45,8 @@
           },
           "imgUnlock":"./assets/img/Observatoire/saint-fons.jpg",
           "imgLock":"./assets/img/Observatoire/saint-fons.jpg",
-          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69"
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-5" :{
           "lock" : false,
@@ -53,7 +57,8 @@
           },
           "imgUnlock":"./assets/img/Logo_INA.svg.png",
           "imgLock":"./assets/img/Logo_INA.svg.png",
-          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles."
+          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
+          "src":"https://www.ina.fr/"
         }
     }
 }

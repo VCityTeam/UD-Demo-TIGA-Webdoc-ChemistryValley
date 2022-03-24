@@ -103,17 +103,6 @@ export class EpisodeVisualizer {
       },
       false
     );
-
-    // More details button
-    document.getElementById('WindowDetailsButton').addEventListener(
-      'mousedown',
-      () => {
-        window.open('https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html','EpisodeContent').focus();
-      },
-      false
-    );
-
-    //return document.getElementById('WindowCloseButton');
   } 
 
   /**

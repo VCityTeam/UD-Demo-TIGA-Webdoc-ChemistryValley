@@ -16,6 +16,7 @@ export class EpisodeContent {
     this.imgUnLock = null;
     this.position = this.ParsePositionContent(dataContent['position']);
     this.text = dataContent['text'];
+    this.src = dataContent['src'];
     this.ParseImgContent(dataContent);
   }
 
