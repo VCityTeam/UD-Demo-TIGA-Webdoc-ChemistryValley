@@ -12,6 +12,7 @@
 }
 
 #menu-document-content {
+    display: flex;
     position: fixed;
     right: 0px;
     top: -10px;
@@ -64,27 +65,23 @@
 }
 
 
-#menu-document-content button
+#_all_menu_content button
 {
     display:block;
     padding: 10px;
     width:300px;
-    height:150px;
+    height:160px;
     color:#FFFFFF;
     text-decoration:none;
     background-color: #00000088;
 }
 
 
-#menu-document-content button:hover
+#_all_menu_content button:hover
 {
 background-color: #7C7C7C;
 color: #FFFFFF;
 } 
-
-/* #menu-document-content:hover {
-    animation: movement 4s;
-} */
 
 .scroll-container {
     width: 350px;
@@ -93,18 +90,11 @@ color: #FFFFFF;
     scroll-behavior: smooth;
 }
 
- #btn:focus ~ #_all_menu_content{
-    background-color: yellow;
-} 
-
-/* #btn:focus ~ #menu-document-content{
-    background-color: yellow;
-} */
-
-/* .hide{
-    opacity: 0;
-    transition: movement 4s;
-} */
+#toggleButton{
+    object-fit: cover;
+    right : 50px;
+    background-color: aqua;
+}
 
   
   
