@@ -61,6 +61,8 @@ udviz.Components.SystemUtils.File.loadJSON(
       ambientLight
     );
 
+    console.log(udviz.itowns);
+
     //Help module
     const help = new HelpWindow();
 

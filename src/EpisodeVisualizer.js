@@ -42,7 +42,7 @@ export class EpisodeVisualizer {
       pictureTexture = new THREE.TextureLoader().load(imageSrc);
       
     //Pins object
-    const pinsTexture = new THREE.TextureLoader().load('./../assets/img/1200px-Google_Maps_pin.svg.png');
+    const pinsTexture = new THREE.TextureLoader().load('./assets/img/1200px-Google_Maps_pin.svg.png');
     const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, color: 'rgb(255, 255, 255)', sizeAttenuation : true  } );
     const pinsSprite = new THREE.Sprite( pinsMaterial );
         
