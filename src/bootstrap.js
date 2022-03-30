@@ -61,7 +61,10 @@ udviz.Components.SystemUtils.File.loadJSON(
       ambientLight
     );
 
-    console.log(udviz.itowns);
+    // Initialize itowns view
+    view3D.getCamera().position.set(1840766.783175912,5151234.984514551,5849.461536000241);
+    view3D.getCamera().rotation.set(1.0873827670833387,-0.014590877488550718, -0.007659166706490413);
+
 
     //Help module
     const help = new HelpWindow();
@@ -301,6 +304,24 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.getItownsView().addLayer(wfsCartoLayer);
 
 
+    //   {
+    //     "_x": 0.5173049636053407,
+    //     "_y": -0.00426239096475169,
+    //     "_z": -0.007051140431125545,
+    //     "_w": 0.8557614668067038
+    // }
+    //   {
+    //     "x": 1840766.783175912,
+    //     "y": 5151234.984514551,
+    //     "z": 5849.461536000241
+    // }
+
+    //   {
+    //     "_x": 1.0873827670833387,
+    //     "_y": -0.014590877488550718,
+    //     "_z": -0.007659166706490413,
+    //     "_order": "XYZ"
+    // }
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div

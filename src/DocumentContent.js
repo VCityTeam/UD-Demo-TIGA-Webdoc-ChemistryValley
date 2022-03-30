@@ -35,7 +35,7 @@ export class DocumentContent {
         </ul>\
        ';
     //TO-DO : Need to be generalize
-    //Callback des bus 
+    //Bus Callback 
     document.getElementById('buttonBus').addEventListener(
       'mousedown',
       () => {
@@ -53,7 +53,7 @@ export class DocumentContent {
       },
       false
     );
-    //Callback de l'observatoire
+    //Observatory Callback
     document.getElementById('buttonObservatoire').addEventListener(
       'mousedown',
       () => {
@@ -70,7 +70,7 @@ export class DocumentContent {
       false
     );
 
-    //Callback des fiches métiers
+    //Work document Callback
     document.getElementById('buttonMetier').addEventListener(
       'mousedown',
       () => {
@@ -79,7 +79,7 @@ export class DocumentContent {
       false
     );
 
-    //Callback des espace Naturel
+    //Natural spaces Callback
     document.getElementById('buttonEspace').addEventListener(
       'mousedown',
       () => {
@@ -93,7 +93,7 @@ export class DocumentContent {
       false
     );
 
-    //Callback des indices atmo
+    //Polution Callback
     document.getElementById('buttonIndiceAtmo').addEventListener(
       'mousedown',
       () => {
@@ -124,7 +124,7 @@ export class DocumentContent {
           menuContent.style.right = '-260px'; // hide html element
         } else {
           menuContent.style.right = '0px';
-          toggleButton.style.transform = 'scaleX(1)';
+          toggleButton.style.transform = 'scaleX(1)'; // Show html element
         }
       },
       false
