@@ -84,7 +84,7 @@ export class EpisodeVisualizer {
         <div class="episode-content" id="_window_content_document2-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
           <img class="inspector-doc-img" id="image-content" src="./../assets/img/Episode1_1_layout.PNG" alt="Document image"\
-          id="" title="CTRL + Click to open the image">\
+           id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
               <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
             </div>\
@@ -100,16 +100,55 @@ export class EpisodeVisualizer {
     document.getElementById('WindowCloseButton').addEventListener(
       'mousedown',
       () => {
-        this.disableView();
+        this.disableView('episodeWindow');
       },
       false
     );
-  } 
+  }
+
+  // Create HMTL div to visualize details of the episode container
+  constructHtmlVideos(){
+    let episodeDiv = document.createElement('div');
+    episodeDiv.id = 'episodeWindowVideo';
+    episodeDiv.style.display = 'block';
+    document.getElementById('webgl_View3D').append(episodeDiv);
+
+    document.getElementById('episodeWindowVideo').innerHTML = 
+      '<div id="_window_document3-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 650px; z-index: 107;">\
+        <div class="episode-header" id="_window_header_document3-inspector">\
+          <button class="episode-close-button" id="WindowCloseButtonVideo">Close</button>\
+        </div>\
+        <div class="episode-content" id="_window_content_document3-inspector">\
+          <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
+          <video id="video-content" src="./../assets/SoireeDeLaChimie-1.m4v" width=640  height=480 controls ">\
+            <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
+              <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
+            </div>\
+          </div>\
+          <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
+          <button class="episode-details-button" id="WindowDetailsButtonVideo">Details</button>\
+          </div>\
+        </div>\
+      </div>\
+      ';
+    // \
+    // 
+    //https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
+    // Close the window...when close button is hit
+    document.getElementById('WindowCloseButtonVideo').addEventListener(
+      'mousedown',
+      () => {
+        this.disableView('episodeWindowVideo');
+      },
+      false
+    );
+  }
+
 
   /**
      * Method to construct all the content of an episode 
   */
-  constructAllContent(visibility, detailsUI){
+  constructAllContent(visibility, videos){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
       let pin = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
@@ -117,7 +156,9 @@ export class EpisodeVisualizer {
       this.pinsObject.push(pin);
     }
      
-    if (detailsUI){
+    if (videos){
+      this.constructHtmlVideos();
+    }else{
       this.constructHtml();
     }
   }
@@ -134,7 +175,7 @@ export class EpisodeVisualizer {
       .style.setProperty('display', 'block');
   }
 
-  disableView() {
-    document.getElementById('episodeWindow').style.setProperty('display', 'none');
+  disableView(elementId) {
+    document.getElementById(elementId).style.setProperty('display', 'none');
   }
 }

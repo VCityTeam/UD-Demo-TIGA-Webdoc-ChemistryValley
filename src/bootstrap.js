@@ -70,23 +70,26 @@ udviz.Components.SystemUtils.File.loadJSON(
     const help = new HelpWindow();
 
     //Content episode Observatoire
-    let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1']);
-    let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2']);
-    let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3']);
-    let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4']);
+    let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1'], false);
+    let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2'], false);
+    let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3'], false);
+    let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4'], false);
 
     //Content video INA
-    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5']);
+    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
 
     //Content episode
-    let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1']);
-    let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2']);
-    let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3']);
+    let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1'], false);
+    let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2'], false);
+    let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3'], false);
+
+    //Video content 
+    let video_1_episode = new EpisodeContent(configEpisode['episode-1-data']['episode-video'], true);
 
     //Observatoire visualizer
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
-    observatoire.constructAllContent(false, true);
+    observatoire.constructAllContent(false, false);
 
     //INA vizualizer
     let listContentsArchive = [content_INA];
@@ -98,6 +101,11 @@ udviz.Components.SystemUtils.File.loadJSON(
     const episodes = new EpisodeVisualizer('episode_1', view3D, listContentsEpisode);  
     episodes.constructAllContent(true, false);
 
+    //Video vizualizer
+    let listVideosEpisode = [video_1_episode];
+    const videos = new EpisodeVisualizer('episode_1', view3D, listVideosEpisode);  
+    videos.constructAllContent(true, true);
+
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
     contentMenu.constructMenu('_moduleID', '_modulename');
@@ -105,6 +113,10 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
+
+    //Div of the episode build
+    let divEpisodeVideo = document.getElementById('episodeWindowVideo');
+    divEpisodeVideo.style.setProperty('display','none');
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
 
@@ -304,24 +316,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.getItownsView().addLayer(wfsCartoLayer);
 
 
-    //   {
-    //     "_x": 0.5173049636053407,
-    //     "_y": -0.00426239096475169,
-    //     "_z": -0.007051140431125545,
-    //     "_w": 0.8557614668067038
-    // }
-    //   {
-    //     "x": 1840766.783175912,
-    //     "y": 5151234.984514551,
-    //     "z": 5849.461536000241
-    // }
-
-    //   {
-    //     "_x": 1.0873827670833387,
-    //     "_y": -0.014590877488550718,
-    //     "_z": -0.007659166706490413,
-    //     "_order": "XYZ"
-    // }
     /* --------------------------------- EVENT --------------------------------- */
 
     //Show episode div
@@ -333,9 +327,16 @@ udviz.Components.SystemUtils.File.loadJSON(
         let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
 
         if (!episodeContent.lock){
-          divEpisode.style.setProperty('display','block');
+          
           document.getElementById('resume').textContent = episodeContent.text;
-          document.getElementById('image-content').src = episodeContent.imgLock;
+          
+          if (episodeContent.isVideo){
+            divEpisodeVideo.style.setProperty('display','block');
+            console.log(document.getElementById('video-content').src = episodeContent.imgLock); //= episodeContent.imgLock;
+          }else{
+            divEpisode.style.setProperty('display','block');
+            document.getElementById('image-content').src = episodeContent.imgLock;
+          }
           //Details button
           document.getElementById('WindowDetailsButton').addEventListener(
             'mousedown',

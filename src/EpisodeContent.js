@@ -10,7 +10,8 @@ export class EpisodeContent {
      * 
      * @param {JSON} dataContent data correspond to the content number n of your episode
      */
-  constructor(dataContent){
+  constructor(dataContent, isVideo){
+    this.isVideo = isVideo;
     this.lock = dataContent['lock'];
     this.imgLock = null;
     this.imgUnLock = null;
