@@ -40,7 +40,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.initItownsView(extent);
 
     //Setup skybox
-    udviz.Game.Shared.Components.THREEUtils.addEquiRectangularMap(
+    udviz.Game.Components.THREEUtils.addEquiRectangularMap(
       './assets/img/sky.jpg',
       view3D.getRenderer(),
       view3D.getScene()
@@ -51,8 +51,8 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Lighting
     const directionalLight = new udviz.THREE.DirectionalLight(0xffffff, 0.7);
     const ambientLight = new udviz.THREE.AmbientLight(0xffffff, 0.7);
-    udviz.Game.Shared.Components.THREEUtils.addLights(view3D.getScene());
-    udviz.Game.Shared.Components.THREEUtils.bindLightTransform(
+    udviz.Game.Components.THREEUtils.addLights(view3D.getScene());
+    udviz.Game.Components.THREEUtils.bindLightTransform(
       10,
       Math.PI / 4,
       Math.PI / 4,
@@ -64,6 +64,13 @@ udviz.Components.SystemUtils.File.loadJSON(
     // Initialize itowns view
     view3D.getCamera().position.set(1840766.783175912,5151234.984514551,5849.461536000241);
     view3D.getCamera().rotation.set(1.0873827670833387,-0.014590877488550718, -0.007659166706490413);
+
+    // Clamp camera
+    view3D.itownsView.controls.minZenithAngle = 40;
+    view3D.itownsView.controls.maxZenithAngle = 180;
+    view3D.itownsView.controls.maxAltitude = 6000;
+    view3D.itownsView.controls.groundLevel = 500;
+    view3D.itownsView.controls.handleCollision = true;
 
 
     //Help module
