@@ -1,11 +1,11 @@
 /** @format */
 
 import * as udviz from 'ud-viz';
+import '../node_modules/itowns/dist/itowns_widgets.js';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 import { EpisodeContent } from '../src/EpisodeContent';
 import { DocumentContent } from '../src/DocumentContent';
-import 'itowns/examples/js/plugins/FeatureToolTip.js';
 
 udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
@@ -82,16 +82,21 @@ udviz.Components.SystemUtils.File.loadJSON(
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3'], false);
     let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4'], false);
 
-    //Content video INA
-    let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
+    //Content episode Observatoire
+    let content_1_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-1'], true);
+    let content_2_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-2'], true);
+    let content_3_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
+
+    // //Content video INA
+    // let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
 
     //Content episode
-    let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1'], false);
-    let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2'], false);
-    let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3'], false);
+    // let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1'], false);
+    // let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2'], false);
+    // let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3'], false);
 
     //Video content 
-    let video_1_episode = new EpisodeContent(configEpisode['episode-1-data']['episode-video'], true);
+    let video_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
 
     //Observatoire visualizer
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
@@ -99,19 +104,23 @@ udviz.Components.SystemUtils.File.loadJSON(
     observatoire.constructAllContent(false, false);
 
     //INA vizualizer
-    let listContentsArchive = [content_INA];
-    const archive = new EpisodeVisualizer('episode_1', view3D, listContentsArchive);  
-    archive.constructAllContent(true, false);
+    // let listContentsArchive = [content_INA];
+    // const archive = new EpisodeVisualizer('episode_1', view3D, listContentsArchive);  
+    // archive.constructAllContent(true, false);
 
     //Episode vizualizer
-    let listContentsEpisode = [content_1_episode, content_2_episode, content_3_episode];
-    const episodes = new EpisodeVisualizer('episode_1', view3D, listContentsEpisode);  
-    episodes.constructAllContent(true, false);
+    // let listContentsEpisode = [content_1_episode, content_2_episode, content_3_episode];
+    // const episodes = new EpisodeVisualizer('episode_1', view3D, listContentsEpisode);  
+    // episodes.constructAllContent(true, false);
+
+    let listContentsInterview = [content_1_interview, content_2_interview, content_3_interview];
+    const interviews = new EpisodeVisualizer('episode_1', view3D, listContentsInterview);  
+    interviews.constructAllContent(true, true);
 
     //Video vizualizer
     let listVideosEpisode = [video_1_episode];
     const videos = new EpisodeVisualizer('episode_1', view3D, listVideosEpisode);  
-    videos.constructAllContent(true, true);
+    // videos.constructAllContent(true, true);
 
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);

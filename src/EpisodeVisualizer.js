@@ -131,8 +131,7 @@ export class EpisodeVisualizer {
         </div>\
       </div>\
       ';
-    // \
-    // 
+    console.log('created');
     //https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
     // Close the window...when close button is hit
     document.getElementById('WindowCloseButtonVideo').addEventListener(
@@ -155,8 +154,9 @@ export class EpisodeVisualizer {
       pin.visible = visibility;
       this.pinsObject.push(pin);
     }
-     
+    console.log(videos);
     if (videos){
+      
       this.constructHtmlVideos();
     }else{
       this.constructHtml();

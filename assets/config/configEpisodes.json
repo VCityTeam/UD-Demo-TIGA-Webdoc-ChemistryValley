@@ -48,18 +48,6 @@
           "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
           "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
-        "content-5" :{
-          "lock" : false,
-          "position" :{
-            "x" : "1843370.01",
-            "y" : "5164012.59",
-            "z" : "220"
-          },
-          "imgUnlock":"./assets/img/Logo_INA.svg.png",
-          "imgLock":"./assets/img/Logo_INA.svg.png",
-          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
-          "src":"https://www.ina.fr/"
-        },
         "content-episode-1" :{
           "lock" : false,
           "position" :{
@@ -84,18 +72,6 @@
           "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
           "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
         },
-        "content-episode-3" :{
-          "lock" : false,
-          "position" :{
-            "x" : "1843335.678969116",
-            "y" : "5166021.056339052",
-            "z" : "220"
-          },
-          "imgUnlock":"./assets/img/Episode1_3.png",
-          "imgLock":"./assets/img/Episode1_3.png",
-          "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
-          "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
-        },
         "episode-video" :{
           "lock" : false,
           "position" :{
@@ -106,6 +82,42 @@
           "imgUnlock":"./assets/img/Episode1_3.png",
           "imgLock":"./assets/SoireeDeLaChimie-1.m4v",
           "text": "A St Fons, dans la vallée de la chimie. Cette commune subit la mutation de l'industrie chimique avec de nombreuses fermetures d'usines. Rencontres avec : - Michel Denis, maire de St Fons (Parti Radical) - Bernard Verrière, employé chez Rhodia, une usine de la vallée de la chimie - Marc Tavernier, responsable des travaux à Ciba/Huntsman, une usine qui produit des colorants textiles.",
+          "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
+        },
+        "content-interview-1" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1842451.34",
+            "y" : "5162057.53",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/IFP_Logo.png",
+          "imgLock":"./../../../Videos/Caroline Aymard-1.m4v",
+          "text": "IFNPE - Ingénieur de recherche Caroline Aymard",
+          "src":"https://www.youtube.com/watch?v=aI9cFVq88SE"
+        },
+        "content-interview-2" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1844232.16", 
+            "y" : "5165242.68",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/emploieFormation.PNG",
+          "imgLock":"./../../../Videos/Delphine Naillon-1.m4v",
+          "text": " Directrice maison de l'emploi - Delphine Naillon ",
+          "src":"https://www.youtube.com/watch?v=aI9cFVq88SE"
+        },
+        "content-interview-3" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1844984.11", 
+            "y" : "5169086.46",
+            "z" : "220"
+          },
+          "imgUnlock":"./assets/img/AdjointeMairieSaintFons.PNG",
+          "imgLock":"./../../../Videos/Dominique Baldivia-1.m4v",
+          "text": "Mairie de Saint-Fons",
           "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
         }
     }

@@ -28,7 +28,6 @@ export class DocumentContent {
         '<ul id="_all_menu_content">\
             <li><button id="buttonBus"><img src="./assets/icons/layers.svg" /><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3></button>\
             <li><button id="buttonObservatoire"><img src="./assets/icons/layers.svg" /><h3>Observatoire - Vallée de la Chimie</h3><p>Observatoire - Vallée de la Chimie</p></li>\
-            <li><button id="buttonMetier"><img src="./assets/icons/layers.svg" /><h3>Métier de la vallée de la chimie</h3></<button></li>\
             <li><button id="buttonEspace"><img src="./assets/icons/layers.svg" /><h3>Espaces naturels sensibles de la Métropole de Lyon</h3></<button></li>\
             <li><button id="buttonIndiceAtmo"><img src="./assets/icons/cO2.svg" /><h3>Indice atmosphérique 2016</h3></<button></li>\
             <li></li>\
@@ -66,15 +65,6 @@ export class DocumentContent {
           }
         });
         this.view3D.getItownsView().notifyChange();
-      },
-      false
-    );
-
-    //Work document Callback
-    document.getElementById('buttonMetier').addEventListener(
-      'mousedown',
-      () => {
-        //this.view3D.layerManager.getLayers()[3].visible = true;
       },
       false
     );
