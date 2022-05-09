@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 #helpWindow {
   position: absolute;
-  z-index: 10;
   width: 25%;
   top: 10px;
   right: 10px;
-  color: white;
   font-size: 75%;
   padding: 0 1rem;
   background-color: rgba(30, 30, 30, 0.6);
@@ -15,7 +15,7 @@
 #helpWindow, .text {
   z-index: 1;
   color: #eee;
-  font: 16px 'Lucida Grande',sans-serif;
+  font: 16px 'Roboto', sans-serif;
   max-width: 40%;
   background: #1a1a1a;
   opacity: 0.8;

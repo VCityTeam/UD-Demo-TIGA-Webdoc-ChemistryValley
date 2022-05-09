@@ -2,10 +2,13 @@
 
 import * as udviz from 'ud-viz';
 import '../node_modules/itowns/dist/itowns_widgets.js';
+import './styles.css';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
 import { EpisodeContent } from '../src/EpisodeContent';
 import { DocumentContent } from '../src/DocumentContent';
+import { QuestionContent } from '../src/QuestionContent';
+
 
 udviz.Components.SystemUtils.File.loadJSON(
   './assets/config/config.json'
@@ -125,6 +128,10 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
     contentMenu.constructMenu('_moduleID', '_modulename');
+
+    //Content menu
+    const questionMenu = new QuestionContent(view3D, observatoire.pinsObject);
+    questionMenu.constructMenu('_moduleID', '_modulename');
 
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');

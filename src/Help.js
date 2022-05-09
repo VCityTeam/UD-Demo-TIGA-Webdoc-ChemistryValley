@@ -27,8 +27,6 @@ export class HelpWindow extends Widgets.Components.ModuleView {
             <li>Ctrl + Click-gauche: rotation de la camera (orbit)</li>\
             <li>Espace / Click-molette: zoom sur une zone</li>\
             <li>Molette: zoom </li>\
-            <li>T: oriente la camera au dessus de la carte</li>\
-            <li>Y: retourne votre camera à la vue initiale</li>\
          </ul>\
          <button id="CloseButton">Close</button>\
         '; 
