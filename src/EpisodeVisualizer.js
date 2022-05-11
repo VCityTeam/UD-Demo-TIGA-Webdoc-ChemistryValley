@@ -58,7 +58,7 @@ export class EpisodeVisualizer {
 
     pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
     const scale = 1;
-    pictureSprite.scale.set(300 / scale, 300 / scale, 10 / scale);
+    pictureSprite.scale.set(300 / scale, 250 / scale, 10 / scale);
     pictureSprite.updateMatrixWorld();
     pictureSprite.name = this.name;
           
@@ -131,8 +131,6 @@ export class EpisodeVisualizer {
         </div>\
       </div>\
       ';
-    console.log('created');
-    //https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
     // Close the window...when close button is hit
     document.getElementById('WindowCloseButtonVideo').addEventListener(
       'mousedown',
@@ -154,9 +152,7 @@ export class EpisodeVisualizer {
       pin.visible = visibility;
       this.pinsObject.push(pin);
     }
-    console.log(videos);
     if (videos){
-      
       this.constructHtmlVideos();
     }else{
       this.constructHtml();

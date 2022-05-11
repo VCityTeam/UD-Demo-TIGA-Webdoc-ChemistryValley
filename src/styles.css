@@ -22,7 +22,7 @@ body{
     padding: 10px 10px 10px 770px ;
 }
 .fixed-top{
-    height: 10%;
+    height: 15%;
 }
 
 
@@ -39,37 +39,37 @@ body{
 #Question1{
     color: chocolate;
     background-color: rgb(255, 255, 255);
-    padding: 15px 20px 15px 20px;
-    border-radius: 20px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
     border:solid 1px chocolate; 
-    margin-right: 50px;
+    margin-right: 45px;
 }
 
 #Question2{
     color: rgb(30, 159, 210);
-    border-radius: 20px;
     border:solid 1px rgb(30, 159, 210); 
     background-color: rgb(255, 255, 255);
-    padding: 15px 20px 15px 20px;
-    margin-right: 50px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    margin-right: 45px;
 }
 
 #Question3{
     color: rgb(210, 198, 30);
-    border-radius: 20px;
     border:solid 1px rgb(210, 198, 30); 
     background-color: rgb(255, 255, 255);
-    padding: 15px 20px 15px 20px;
-    margin-right: 50px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    margin-right: 45px;
 }
 
 #Question4{
     color: rgb(30, 36, 210);
-    border-radius: 20px;
     border:solid 1px rgb(30, 36, 210); 
     background-color: rgb(255, 255, 255);
-    padding: 15px 20px 15px 20px;
-    margin-right: 50px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    margin-right: 45px;
 }
 
 #Question5{
@@ -83,11 +83,11 @@ body{
 
 #Question6{
     color: rgb(210, 30, 30);
-    border-radius: 20px;
     border:solid 1px rgb(210, 30, 30); 
     background-color: rgb(255, 255, 255);
-    padding: 15px 20px 15px 20px;
-    margin-right: 50px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    margin-right: 45px;
 }
 
 

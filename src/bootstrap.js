@@ -75,6 +75,9 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.itownsView.controls.groundLevel = 500;
     view3D.itownsView.controls.handleCollision = true;
 
+    // console.log(document.getElementsByClassName('navbar fixed-top navbar-light bg-light').);
+    view3D.rootWebGL.style.marginTop = '10%';
+
 
     //Help module
     const help = new HelpWindow();
@@ -92,6 +95,19 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     // //Content video INA
     // let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
+
+    //Question 
+    let q1 = configEpisode['questions']['q1'];
+    let q1r1 = new EpisodeContent(q1['r1'], true);
+    let q1r2 = new EpisodeContent(q1['r2'], true);
+    let q1r3 = new EpisodeContent(q1['r3'], true);
+    let q1r4 = new EpisodeContent(q1['r4'], true);
+
+    //Questions visualizer
+    let listQ1 = [q1r1, q1r2, q1r3, q1r4];
+    console.log(listQ1);
+    const question1Vizu = new EpisodeVisualizer('episode_1', view3D, listQ1);  
+    question1Vizu.constructAllContent(true, true);
 
     //Content episode
     // let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1'], false);
@@ -355,7 +371,7 @@ udviz.Components.SystemUtils.File.loadJSON(
           
           if (episodeContent.isVideo){
             divEpisodeVideo.style.setProperty('display','block');
-            console.log(document.getElementById('video-content').src = episodeContent.imgLock); //= episodeContent.imgLock;
+            document.getElementById('video-content').src = episodeContent.imgLock; //= episodeContent.imgLock;
           }else{
             divEpisode.style.setProperty('display','block');
             document.getElementById('image-content').src = episodeContent.imgLock;

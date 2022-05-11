@@ -120,5 +120,57 @@
           "text": "Mairie de Saint-Fons",
           "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
         }
+    },
+    "questions":{
+      "q1":{
+        "r1" :{
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interfora.png",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "src":""
+      },
+        "r2" :{
+        "lock" : false,
+        "position" :{
+          "x" : "1843554.77",
+          "y" : "5165405.73",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/Observatoire/cheminee.jpg",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "src":""
+      },
+      "r3" :{
+        "lock" : false,
+        "position" :{
+          "x" : "1842451.34",
+          "y" : "5162057.53",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/IFP_Logo.png",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "src":""
+      },
+      "r4" :{
+        "lock" : false,
+        "position" :{
+          "x" : "1844515.97",
+          "y" : "5168878.97",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interfora.png",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "src":""
+      }
     }
+  }
 }
