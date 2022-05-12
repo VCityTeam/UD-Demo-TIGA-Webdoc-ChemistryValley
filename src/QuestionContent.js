@@ -1,4 +1,4 @@
-import '../assets/css/question.css';
+import '../assets/css/menu-document-content.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jQuery from 'jquery';
 import * as udviz from 'ud-viz';
