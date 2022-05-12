@@ -1,4 +1,4 @@
-import '../src/menu-document-content.css';
+import '../assets/css/question.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jQuery from 'jquery';
 import * as udviz from 'ud-viz';
@@ -22,7 +22,7 @@ export class QuestionContent {
 
   constructMenu(){
     let questionMenuDiv = document.createElement('div');
-    questionMenuDiv.id = 'menu-question-content';
+    questionMenuDiv.id = 'menu-question';
     document.getElementById('webgl_View3D').append(questionMenuDiv);
 
     // const uiViewElement =  document.createElement('div');
@@ -33,7 +33,7 @@ export class QuestionContent {
     new Promise((resolve, reject) => {
       jQuery.ajax({
         type: 'GET',
-        url: '../assets/html/categorie.html',
+        url: '../assets/html/question.html',
         datatype: 'html',
         success: (data) => {
           questionMenuDiv.innerHTML += data;

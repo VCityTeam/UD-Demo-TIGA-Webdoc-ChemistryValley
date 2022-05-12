@@ -25,7 +25,7 @@
     font-size: large;
     text-align: left;
 	text-indent: 10px;
-	z-index: 2;
+	z-index: 3;
     transition: right 2s;
 }
 

@@ -75,10 +75,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.itownsView.controls.groundLevel = 500;
     view3D.itownsView.controls.handleCollision = true;
 
-    // console.log(document.getElementsByClassName('navbar fixed-top navbar-light bg-light').);
-    view3D.rootWebGL.style.marginTop = '10%';
-
-
     //Help module
     const help = new HelpWindow();
 
@@ -105,7 +101,6 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Questions visualizer
     let listQ1 = [q1r1, q1r2, q1r3, q1r4];
-    console.log(listQ1);
     const question1Vizu = new EpisodeVisualizer('episode_1', view3D, listQ1);  
     question1Vizu.constructAllContent(true, true);
 
