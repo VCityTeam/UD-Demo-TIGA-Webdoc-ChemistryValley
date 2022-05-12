@@ -2,6 +2,7 @@ import '../src/episode.css';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
+import { forEach } from 'vis-util';
 
 /**
  * Class to create an episode with all his content materialized in ud-viz scene
@@ -21,9 +22,14 @@ export class EpisodeVisualizer {
 
     //TO-DO create a list of content of your episode / maybe should be a class
     this.pinsObject = []; 
+
+    //Pins sprite ton point on a center of interest
+    this.pinsSprite = [];
       
     //List of content 
     this.listContents = listContents;
+
+    this.visibility = false;
   }
 
   /**
@@ -66,7 +72,7 @@ export class EpisodeVisualizer {
     this.view3D.getScene().add(pinsSprite);
     this.view3D.getScene().add(pictureSprite);
 
-    return pictureSprite;    
+    return [pictureSprite, pinsSprite];    
   }
 
   // Create HMTL div to visualize details of the episode container
@@ -148,9 +154,12 @@ export class EpisodeVisualizer {
   constructAllContent(visibility, videos){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
-      let pin = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
-      pin.visible = visibility;
-      this.pinsObject.push(pin);
+      let pinObjets = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
+      this.visibility = visibility;
+      pinObjets[0].visible = visibility;
+      pinObjets[1].visible = visibility;
+      this.pinsObject.push(pinObjets[0]);
+      this.pinsSprite.push(pinObjets[1]);
     }
     if (videos){
       this.constructHtmlVideos();
@@ -173,5 +182,15 @@ export class EpisodeVisualizer {
 
   disableView(elementId) {
     document.getElementById(elementId).style.setProperty('display', 'none');
+  }
+
+  setVisibility(visibility = Boolean){
+    this.visibility = visibility;
+    this.pinsObject.forEach(element => {
+      element.visible = visibility;
+    });
+    this.pinsSprite.forEach(element => {
+      element.visible = visibility;
+    });
   }
 }

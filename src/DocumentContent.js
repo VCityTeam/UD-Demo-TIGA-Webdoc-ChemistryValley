@@ -1,4 +1,5 @@
-import '../src/menu-document-content.css';
+import '../assets/css/menu-document-content.css';
+import jQuery from 'jquery';
 import * as udviz from 'ud-viz';
 /**
  * Class to create menu content
@@ -10,11 +11,11 @@ export class DocumentContent {
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
-  constructor(view3D = new udviz.Views.View3D(), listContent) {
+  constructor(view3D = new udviz.Views.View3D(), listEpisodeVisualizer) {
     this.view3D = view3D;
 
     //List of an Object content : must be a list of list
-    this.listContent = listContent;
+    this.listEpisodeVisualizer = listEpisodeVisualizer;
   }
 
 
@@ -33,6 +34,22 @@ export class DocumentContent {
             <li></li>\
         </ul>\
        ';
+
+    // new Promise((resolve, reject) => {
+    //   jQuery.ajax({
+    //     type: 'GET',
+    //     url: '../assets/html/data.html',
+    //     datatype: 'html',
+    //     success: (data) => {
+    //       contentMenuDiv.innerHTML += data;
+    //       resolve();
+    //     },
+    //     error: (e) => {
+    //       console.error(e);
+    //       reject();
+    //     },
+    //   });
+    // });   
     //TO-DO : Need to be generalize
     //Bus Callback 
     document.getElementById('buttonBus').addEventListener(
@@ -56,14 +73,11 @@ export class DocumentContent {
     document.getElementById('buttonObservatoire').addEventListener(
       'mousedown',
       () => {
-        this.listContent.forEach(element => {
-          if (!element.visible){
-
-            element.visible = true;
-          }else{
-            element.visible = false;
-          }
-        });
+        if (this.listEpisodeVisualizer.visibility == true){
+          this.listEpisodeVisualizer.setVisibility(false);
+        }else{
+          this.listEpisodeVisualizer.setVisibility(true);
+        }
         this.view3D.getItownsView().notifyChange();
       },
       false

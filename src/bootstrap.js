@@ -137,7 +137,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     // videos.constructAllContent(true, true);
 
     //Content menu
-    const contentMenu = new DocumentContent(view3D, observatoire.pinsObject);
+    const contentMenu = new DocumentContent(view3D, observatoire);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Content menu

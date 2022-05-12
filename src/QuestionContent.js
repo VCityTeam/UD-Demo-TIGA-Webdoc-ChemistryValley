@@ -24,11 +24,6 @@ export class QuestionContent {
     let questionMenuDiv = document.createElement('div');
     questionMenuDiv.id = 'menu-question';
     document.getElementById('webgl_View3D').append(questionMenuDiv);
-
-    // const uiViewElement =  document.createElement('div');
-    // uiViewElement.id = 'UI_categories';
-    // uiViewElement.className = 'divCategories';
-    // rootDivElement.append(uiViewElement);
     
     new Promise((resolve, reject) => {
       jQuery.ajax({
