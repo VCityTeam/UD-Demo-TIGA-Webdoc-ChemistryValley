@@ -25,8 +25,8 @@
 
 #menu-document-content {
     display: flex;
-    position: fixed;
-    right: 110px;
+    position: absolute;
+    right: 0px;
     top: 0;
     width:20%;
     height: 100%;
@@ -34,9 +34,6 @@
     transition: right 2s;
 }
 
-/* #menu-document-content .button{
-    font-family: 'Roboto', sans-serif;
-} */
 #menu-question ul
 {
     margin:auto 0;
@@ -117,13 +114,13 @@
     font-weight : bold;
 }
 
-@media (max-width: 960px) and (min-width: 501px) {
-    #menu-document-content li { width: 50%; } /* Show 2 logos per row on medium devices (tablets, phones in landscape) */
+/* @media (max-width: 960px) and (min-width: 501px) {
+    #menu-document-content li { width: 50%; } 
 }
 
 @media (max-width: 500px) {
-    #menu-document-content li { width: 100%; } /* On small screens, show one logo per row */
-}
+    #menu-document-content li { width: 100%; } 
+} */
 
   
   

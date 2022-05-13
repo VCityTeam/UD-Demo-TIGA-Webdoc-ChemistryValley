@@ -12,11 +12,11 @@ export class QuestionContent {
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
-  constructor(view3D = new udviz.Views.View3D(), listContent) {
+  constructor(view3D = new udviz.Views.View3D(), listQuestionObject) {
     this.view3D = view3D;
 
     //List of an Object content : must be a list of list
-    this.listContent = listContent;
+    this.listQuestionObject = listQuestionObject;
   }
 
 
@@ -24,39 +24,30 @@ export class QuestionContent {
     let questionMenuDiv = document.createElement('div');
     questionMenuDiv.id = 'menu-question';
     document.getElementById('webgl_View3D').append(questionMenuDiv);
-    
-    new Promise((resolve, reject) => {
-      jQuery.ajax({
-        type: 'GET',
-        url: '../assets/html/question.html',
-        datatype: 'html',
-        success: (data) => {
-          questionMenuDiv.innerHTML += data;
-          resolve();
-        },
-        error: (e) => {
-          console.error(e);
-          reject();
-        },
-      });
-    });
 
-    //TO-DO : Need to be generalize
-    //Bus Callback 
-    document.getElementById('buttonBus').addEventListener(
+    document.getElementById('menu-question').innerHTML = 
+        '<ul id="_all_menu_content">\
+          <li id="dataTitle">Interviews :</li>\
+          <li><button id="Q1">L’industrie chimique est-elle sale, polluante et mauvaise ?</button>\
+          <li><button id="Q2">La motivation suffit-elle pour travailler dans l’industrie chimique ?</li>\
+          <li><button id="Q3">Tout le monde peut-il travailler dans l’industrie chimique ?</<button></li>\
+          <li><button id="Q4">Les métiers de l’industrie n’évoluent pas dans le bon sens ?</<button></li>\
+          <li><button id="Q5">Dans l’industrie les salaires sont bas, et le travail est précaire </<button></li>\
+          <li><button id="Q6">L’industrie chimique a-t-elle un avenir ?</<button></li>\
+          <li></li>\
+        </ul>\
+       ';
+
+    //Q1 button
+    document.getElementById('Q1').addEventListener(
       'mousedown',
       () => {
-        if (!this.view3D.layerManager.getLayers()[3].visible){
-          udviz.Components.focusCameraOn(this.view3D.getItownsView(),
-            this.view3D.getItownsView().controls,
-            new udviz.THREE.Vector3(1842938.8426268366, 5168976.164108982, 672.5442263364985),
-            {duration: 1,
-              verticalDistance : 6200,
-              horizontalDistance : 6800});
-          this.view3D.layerManager.getLayers()[3].visible = true;
+        if (this.listQuestionObject[0].visibility == true){
+          this.listQuestionObject[0].setVisibility(false);
         }else{
-          this.view3D.layerManager.getLayers()[3].visible = false;
+          this.listQuestionObject[0].setVisibility(true);
         }
+        this.view3D.getItownsView().notifyChange();
       },
       false
     );

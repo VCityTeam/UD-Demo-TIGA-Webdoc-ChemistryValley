@@ -141,9 +141,10 @@ udviz.Components.SystemUtils.File.loadJSON(
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Content menu
-    const questionMenu = new QuestionContent(view3D, observatoire.pinsObject);
+    let listQuestionObjects = [question1Vizu];
+    const questionMenu = new QuestionContent(view3D, listQuestionObjects);
     questionMenu.constructMenu('_moduleID', '_modulename');
-
+    
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
