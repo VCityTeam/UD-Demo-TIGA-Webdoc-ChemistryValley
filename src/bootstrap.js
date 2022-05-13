@@ -144,7 +144,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     let listQuestionObjects = [question1Vizu];
     const questionMenu = new QuestionContent(view3D, listQuestionObjects);
     questionMenu.constructMenu('_moduleID', '_modulename');
-    
+
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
@@ -357,11 +357,10 @@ udviz.Components.SystemUtils.File.loadJSON(
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
-
-      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1') {
+      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1' && intersects[ 0 ].object.visible == true) {
         let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
 
-        if (!episodeContent.lock){
+        if (!episodeContent.lock ){
           
           document.getElementById('resume').textContent = episodeContent.text;
           

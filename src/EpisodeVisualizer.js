@@ -62,6 +62,8 @@ export class EpisodeVisualizer {
     const pictureSprite = new THREE.Sprite( pictureMaterial );
     pictureSprite.userData = { Episodecontent: episodeContent };
 
+    // pictureSprite.
+
     pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
     const scale = 1;
     pictureSprite.scale.set(300 / scale, 250 / scale, 10 / scale);

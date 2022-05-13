@@ -43,13 +43,21 @@ export class QuestionContent {
       'mousedown',
       () => {
         if (this.listQuestionObject[0].visibility == true){
+
           this.listQuestionObject[0].setVisibility(false);
         }else{
+          this.selectQuestions(false);
           this.listQuestionObject[0].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
       },
       false
     );
+  }
+
+  selectQuestions(visibility){
+    this.listQuestionObject.forEach(element => {
+      element.setVisibility(visibility);
+    });
   }
 }
