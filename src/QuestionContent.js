@@ -17,6 +17,7 @@ export class QuestionContent {
 
     //List of an Object content : must be a list of list
     this.listQuestionObject = listQuestionObject;
+    console.log(listQuestionObject);
   }
 
 
@@ -48,6 +49,86 @@ export class QuestionContent {
         }else{
           this.selectQuestions(false);
           this.listQuestionObject[0].setVisibility(true);
+        }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Q2 button
+    document.getElementById('Q2').addEventListener(
+      'mousedown',
+      () => {
+        if (this.listQuestionObject[1].visibility == true){
+
+          this.listQuestionObject[1].setVisibility(false);
+        }else{
+          this.selectQuestions(false);
+          this.listQuestionObject[1].setVisibility(true);
+        }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Q3 button
+    document.getElementById('Q3').addEventListener(
+      'mousedown',
+      () => {
+        if (this.listQuestionObject[2].visibility == true){
+
+          this.listQuestionObject[2].setVisibility(false);
+        }else{
+          this.selectQuestions(false);
+          this.listQuestionObject[2].setVisibility(true);
+        }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Q4 button
+    document.getElementById('Q4').addEventListener(
+      'mousedown',
+      () => {
+        if (this.listQuestionObject[3].visibility == true){
+
+          this.listQuestionObject[3].setVisibility(false);
+        }else{
+          this.selectQuestions(false);
+          this.listQuestionObject[3].setVisibility(true);
+        }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Q5 button
+    document.getElementById('Q5').addEventListener(
+      'mousedown',
+      () => {
+        if (this.listQuestionObject[4].visibility == true){
+
+          this.listQuestionObject[4].setVisibility(false);
+        }else{
+          this.selectQuestions(false);
+          this.listQuestionObject[4].setVisibility(true);
+        }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Q6 button
+    document.getElementById('Q6').addEventListener(
+      'mousedown',
+      () => {
+        if (this.listQuestionObject[5].visibility == true){
+
+          this.listQuestionObject[5].setVisibility(false);
+        }else{
+          this.selectQuestions(false);
+          this.listQuestionObject[5].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
       },

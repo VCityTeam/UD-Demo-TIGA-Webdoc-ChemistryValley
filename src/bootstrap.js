@@ -92,22 +92,23 @@ udviz.Components.SystemUtils.File.loadJSON(
     // //Content video INA
     // let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
 
-    //Question 
-    let q1 = configEpisode['questions']['q1'];
-    let q1r1 = new EpisodeContent(q1['r1'], true);
-    let q1r2 = new EpisodeContent(q1['r2'], true);
-    let q1r3 = new EpisodeContent(q1['r3'], true);
-    let q1r4 = new EpisodeContent(q1['r4'], true);
+    let questions = configEpisode['questions'];
+    let listQuestionObjects = [];
+    for (let question of questions){
+      let listQ = [];
+      for ( let answer of question){
+        listQ.push(new EpisodeContent(answer, true));
+      }
+      listQuestionObjects.push(listQ);
+    }
 
-    //Questions visualizer
-    let listQ1 = [q1r1, q1r2, q1r3, q1r4];
-    const question1Vizu = new EpisodeVisualizer('episode_1', view3D, listQ1);  
-    question1Vizu.constructAllContent(true, true);
-
-    //Content episode
-    // let content_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-1'], false);
-    // let content_2_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-2'], false);
-    // let content_3_episode = new EpisodeContent(configEpisode['episode-1-data']['content-episode-3'], false);
+    //Questions2 visualizer
+    let episodeVisualizerList = [];
+    for (let questionObject of listQuestionObjects){
+      const questionVizu = new EpisodeVisualizer('episode_1', view3D, questionObject);  
+      questionVizu.constructAllContent(false, true);
+      episodeVisualizerList.push(questionVizu);
+    }
 
     //Video content 
     let video_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
@@ -117,32 +118,17 @@ udviz.Components.SystemUtils.File.loadJSON(
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false, false);
 
-    //INA vizualizer
-    // let listContentsArchive = [content_INA];
-    // const archive = new EpisodeVisualizer('episode_1', view3D, listContentsArchive);  
-    // archive.constructAllContent(true, false);
-
-    //Episode vizualizer
-    // let listContentsEpisode = [content_1_episode, content_2_episode, content_3_episode];
-    // const episodes = new EpisodeVisualizer('episode_1', view3D, listContentsEpisode);  
-    // episodes.constructAllContent(true, false);
-
     let listContentsInterview = [content_1_interview, content_2_interview, content_3_interview];
     const interviews = new EpisodeVisualizer('episode_1', view3D, listContentsInterview);  
     interviews.constructAllContent(true, true);
-
-    //Video vizualizer
-    let listVideosEpisode = [video_1_episode];
-    const videos = new EpisodeVisualizer('episode_1', view3D, listVideosEpisode);  
-    // videos.constructAllContent(true, true);
 
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
-    //Content menu
-    let listQuestionObjects = [question1Vizu];
-    const questionMenu = new QuestionContent(view3D, listQuestionObjects);
+    //Question reponse menu
+    // let listQuestionObjects = [question1Vizu, question2Vizu, question3Vizu, question4Vizu, question5Vizu, question6Vizu];
+    const questionMenu = new QuestionContent(view3D, episodeVisualizerList);
     questionMenu.constructMenu('_moduleID', '_modulename');
 
     //Div of the episode build

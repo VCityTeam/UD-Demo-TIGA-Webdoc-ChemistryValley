@@ -120,57 +120,343 @@
           "text": "Mairie de Saint-Fons",
           "src":"https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html"
         }
-    },
-    "questions":{
-      "q1":{
-        "r1" :{
+      },
+  "questions":[
+    [
+      {
         "lock" : false,
         "position" :{
           "x" : "1844357.28",
           "y" : "5168875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interfora.png",
+        "imgUnlock":"./assets/img/interforaInterview.PNG",
         "imgLock":"./assets/img/interfora.png",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       },
-        "r2" :{
+      {
         "lock" : false,
         "position" :{
           "x" : "1843554.77",
           "y" : "5165405.73",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/Observatoire/cheminee.jpg",
+        "imgUnlock":"./assets/img/interview_2.PNG",
         "imgLock":"./assets/img/Observatoire/cheminee.jpg",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       },
-      "r3" :{
+      {
         "lock" : false,
         "position" :{
-          "x" : "1842451.34",
+          "x" : "1842341.34",
           "y" : "5162057.53",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/IFP_Logo.png",
+        "imgUnlock":"./assets/img/IFP_interview.png",
         "imgLock":"./assets/img/Observatoire/cheminee.jpg",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       },
-      "r4" :{
+      {
         "lock" : false,
         "position" :{
           "x" : "1844515.97",
           "y" : "5168878.97",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interfora.png",
+        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
         "imgLock":"./assets/img/interfora.png",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       }
+    ], 
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844032.16", 
+          "y" : "5165242.68",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/emploieFormation.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+        "src":""
+    },
+    {
+      "lock" : false,
+      "position" :{
+        "x" : "1844357.28",
+        "y" : "5168875.27",
+        "z" : "220"
+      },
+      "imgUnlock":"./assets/img/interforaInterview.PNG",
+      "imgLock":"./assets/img/interfora.png",
+      "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+      "src":""
+    },
+    {
+      "lock" : false,
+      "position" :{
+        "x" : "1843127.78",
+        "y" : "5163088.19",
+        "z" : "220"
+      },
+      "imgUnlock":"./assets/img/total_interview.PNG",
+      "imgLock":"./assets/img/interfora.png",
+      "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+      "src":""
     }
-  }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interforaInterview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844057.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interfora_alternant_Interview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844147.58",
+          "y" : "5166881.05",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview_3.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844557.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844032.16", 
+          "y" : "5165242.68",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/emploieFormation.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844157.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843127.78",
+          "y" : "5163088.19",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/total_interview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844057.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844557.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843327.78",
+          "y" : "5163088.19",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/total_interview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interforaInterview.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842341.34",
+          "y" : "5162057.53",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/IFP_interview.png",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844557.28",
+          "y" : "5168775.27",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
+        "imgLock":"./assets/img/interfora.png",
+        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842041.34",
+          "y" : "5162257.53",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/IFP_interview_1.png",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842041.34",
+          "y" : "5162257.53",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/IFP_interview_1.png",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "L’industrie chimique a-t-elle un avenir ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843554.77",
+          "y" : "5165405.73",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/interview_2.PNG",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "L’industrie chimique a-t-elle un avenir ?",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842241.34",
+          "y" : "5162557.53",
+          "z" : "220"
+        },
+        "imgUnlock":"./assets/img/IFP_interview.png",
+        "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+        "text": "L’industrie chimique a-t-elle un avenir ?",
+        "src":""
+      }
+    ]
+  ]
 }
