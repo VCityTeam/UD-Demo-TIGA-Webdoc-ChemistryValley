@@ -53,6 +53,28 @@ export class QuestionContent {
       },
       false
     );
+
+    //Toggle button
+    let toggleButton = document.createElement('button');
+    toggleButton.id = 'toggleButtonLeft';
+    toggleButton.src = './assets/icons/icons8-arrow-24.png';
+    questionMenuDiv.append(toggleButton);
+    toggleButton.innerHTML = '<img src="./assets/icons/icons8-arrow-24.png" />';
+    //Toggle button in JS because CSS is bad
+    toggleButton.addEventListener(
+      'mousedown',
+      () => {
+        let menuQuestion = document.getElementById('menu-question');
+        if (menuQuestion.style.left == '-2%') {
+          toggleButton.style.transform = 'scaleX(1)';
+          menuQuestion.style.left = '-25%'; // hide html element
+        } else {
+          menuQuestion.style.left = '-2%';
+          toggleButton.style.transform = 'scaleX(-1)'; // Show html element
+        }
+      },
+      false
+    );
   }
 
   selectQuestions(visibility){

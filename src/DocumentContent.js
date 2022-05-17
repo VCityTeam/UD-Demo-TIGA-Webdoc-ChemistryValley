@@ -29,7 +29,7 @@ export class DocumentContent {
         '<ul id="_all_menu_content">\
             <li id="dataTitle">Données de la vallée de la chimie :</li>\
             <li><button id="buttonBus"><img src="./assets/icons/layers.svg" /><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3></button>\
-            <li><button id="buttonObservatoire"><img src="./assets/icons/layers.svg" /><h3>Observatoire - Vallée de la Chimie</h3><p>Observatoire - Vallée de la Chimie</p></li>\
+            <li><button id="buttonObservatoire"><img src="./assets/icons/layers.svg" /><h3>Observatoire - Vallée de la Chimie</h3></li>\
             <li><button id="buttonEspace"><img src="./assets/icons/layers.svg" /><h3>Espaces naturels sensibles de la Métropole de Lyon</h3></<button></li>\
             <li><button id="buttonIndiceAtmo"><img src="./assets/icons/cO2.svg" /><h3>Indice atmosphérique 2016</h3></<button></li>\
             <li></li>\
@@ -124,11 +124,11 @@ export class DocumentContent {
       'mousedown',
       () => {
         let menuContent = document.getElementById('menu-document-content');
-        if (menuContent.style.right == '110px') {
+        if (menuContent.style.right == '0%') {
           toggleButton.style.transform = 'scaleX(-1)';
-          menuContent.style.right = '-250px'; // hide html element
+          menuContent.style.right = '-25%'; // hide html element
         } else {
-          menuContent.style.right = '110px';
+          menuContent.style.right = '0%';
           toggleButton.style.transform = 'scaleX(1)'; // Show html element
         }
       },
