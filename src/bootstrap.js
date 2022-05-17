@@ -89,9 +89,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     let content_2_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-2'], true);
     let content_3_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
 
-    // //Content video INA
-    // let content_INA = new EpisodeContent(configEpisode['episode-1-data']['content-5'], false);
-
     let questions = configEpisode['questions'];
     let listQuestionObjects = [];
     for (let question of questions){
@@ -102,7 +99,8 @@ udviz.Components.SystemUtils.File.loadJSON(
       listQuestionObjects.push(listQ);
     }
 
-    //Questions2 visualizer
+    /* ---- Visualizer object ---- */
+    //Questions
     let episodeVisualizerList = [];
     for (let questionObject of listQuestionObjects){
       const questionVizu = new EpisodeVisualizer('episode_1', view3D, questionObject);  
@@ -110,27 +108,26 @@ udviz.Components.SystemUtils.File.loadJSON(
       episodeVisualizerList.push(questionVizu);
     }
 
-    //Video content 
-    let video_1_episode = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
-
-    //Observatoire visualizer
+    //Observatoire 
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false, false);
 
+    //Full Interview
     let listContentsInterview = [content_1_interview, content_2_interview, content_3_interview];
     const interviews = new EpisodeVisualizer('episode_1', view3D, listContentsInterview);  
     interviews.constructAllContent(true, true);
 
+    /* ---- UI ---- */
     //Content menu
     const contentMenu = new DocumentContent(view3D, observatoire);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
-    //Question reponse menu
-    // let listQuestionObjects = [question1Vizu, question2Vizu, question3Vizu, question4Vizu, question5Vizu, question6Vizu];
+    //Question answer menu
     const questionMenu = new QuestionContent(view3D, episodeVisualizerList);
     questionMenu.constructMenu('_moduleID', '_modulename');
 
+    /* ---- HTML integration ---- */
     //Div of the episode build
     let divEpisode = document.getElementById('episodeWindow');
     divEpisode.style.setProperty('display','none');
