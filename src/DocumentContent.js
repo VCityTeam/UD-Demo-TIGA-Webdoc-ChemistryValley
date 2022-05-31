@@ -20,38 +20,33 @@ export class DocumentContent {
 
 
   constructMenu(){
+
+    //UI
+    let dataDiv = document.createElement('div');
+    dataDiv.id = 'data-title';
+    document.getElementById('webgl_View3D').append(dataDiv);
+
+    document.getElementById('data-title').innerHTML = 
+        '<p>Les data de la vallée</p>\
+       ';
+
     let contentMenuDiv = document.createElement('div');
     contentMenuDiv.id = 'menu-document-content';
     document.getElementById('webgl_View3D').append(contentMenuDiv);
 
-
     document.getElementById('menu-document-content').innerHTML = 
         '<ul id="_all_menu_content">\
-            <li id="dataTitle">Données de la vallée de la chimie :</li>\
-            <li><button id="buttonBus"><img src="./assets/icons/layers.svg" /><h3>Lignes de bus du réseau Transports en Commun Lyonnais</h3></button>\
-            <li><button id="buttonObservatoire"><img src="./assets/icons/layers.svg" /><h3>Observatoire - Vallée de la Chimie</h3></li>\
-            <li><button id="buttonEspace"><img src="./assets/icons/layers.svg" /><h3>Espaces naturels sensibles de la Métropole de Lyon</h3></<button></li>\
-            <li><button id="buttonIndiceAtmo"><img src="./assets/icons/cO2.svg" /><h3>Indice atmosphérique 2016</h3></<button></li>\
+            <h1>Les data</h1>\
+            <h2>De la vallée de la chimie</h2>\
+            <li><button id="buttonBus">Lignes de bus du réseau Transports en Commun Lyonnais</button>\
+            <li><button id="buttonObservatoire">Observatoire - Vallée de la Chimie</li>\
+            <li><button id="buttonEspace">Espaces naturels sensibles de la Métropole de Lyon</<button></li>\
+            <li><button id="buttonIndiceAtmo">Indice atmosphérique 2016</<button></li>\
             <li></li>\
         </ul>\
        ';
 
-    // new Promise((resolve, reject) => {
-    //   jQuery.ajax({
-    //     type: 'GET',
-    //     url: '../assets/html/data.html',
-    //     datatype: 'html',
-    //     success: (data) => {
-    //       contentMenuDiv.innerHTML += data;
-    //       resolve();
-    //     },
-    //     error: (e) => {
-    //       console.error(e);
-    //       reject();
-    //     },
-    //   });
-    // });   
-    //TO-DO : Need to be generalize
+    contentMenuDiv.hidden = true;
     //Bus Callback 
     document.getElementById('buttonBus').addEventListener(
       'mousedown',
@@ -117,19 +112,16 @@ export class DocumentContent {
     let toggleButton = document.createElement('button');
     toggleButton.id = 'toggleButton';
     toggleButton.src = './assets/icons/icons8-arrow-24.png';
-    contentMenuDiv.append(toggleButton);
-    toggleButton.innerHTML = '<img src="./assets/icons/icons8-arrow-24.png" />';
+    dataDiv.append(toggleButton);
+    toggleButton.innerHTML = '<img src="./assets/icons/logoDeroulantJaune.png" />';
     //Toggle button in JS because CSS is bad
     toggleButton.addEventListener(
       'mousedown',
       () => {
-        let menuContent = document.getElementById('menu-document-content');
-        if (menuContent.style.right == '0%') {
-          toggleButton.style.transform = 'scaleX(-1)';
-          menuContent.style.right = '-25%'; // hide html element
+        if (contentMenuDiv.hidden == true) {
+          contentMenuDiv.hidden = false; 
         } else {
-          menuContent.style.right = '0%';
-          toggleButton.style.transform = 'scaleX(1)'; // Show html element
+          contentMenuDiv.hidden = true; 
         }
       },
       false

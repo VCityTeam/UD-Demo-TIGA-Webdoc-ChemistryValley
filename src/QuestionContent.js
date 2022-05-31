@@ -41,9 +41,6 @@ export class QuestionContent {
         '<ul id="_all_menu_content">\
           <h1>Derrière les fumées</h1>\
           <h2>De la vallée de la chimie de l’intérieur</h2>\
-          <li id="dataTitle"></li>\
-          <li id="dataTitle"></li>\
-          <li id="dataTitle"></li>\
           <li><button id="Q1">La perception de l’industrie chimique</button>\
           <li><button id="Q2">Les compétences nécessaire</li>\
           <li><button id="Q3">Qui peut travailler dans l’industrie chimique</<button></li>\
@@ -177,7 +174,6 @@ export class QuestionContent {
     toggleButton.addEventListener(
       'mousedown',
       () => {
-        let menuQuestion = document.getElementById('menu-question');
         if (questionMenuDiv.hidden == true) {
           questionMenuDiv.hidden = false;
         } else {
