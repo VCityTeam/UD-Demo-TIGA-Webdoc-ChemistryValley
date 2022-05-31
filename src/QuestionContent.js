@@ -17,6 +17,8 @@ export class QuestionContent {
 
     //List of an Object content : must be a list of list
     this.listQuestionObject = listQuestionObject;
+
+    let listButton = [];
   }
 
 
@@ -46,8 +48,8 @@ export class QuestionContent {
           <li><button id="Q2">Les compétences nécessaire</li>\
           <li><button id="Q3">Qui peut travailler dans l’industrie chimique</<button></li>\
           <li><button id="Q4">Le travail dans l’industrie chimique</<button></li>\
-          <li><button id="Q5">Dans l’industrie les salaires sont bas, et le travail est précaire </<button></li>\
-          <li><button id="Q6">L’industrie chimique a-t-elle un avenir ?</<button></li>\
+          <li><button id="Q5">L’évolution des métiers</<button></li>\
+          <li><button id="Q6">L’avenir de l’industrie chimique</<button></li>\
           <li></li>\
         </ul>\
        ';
@@ -55,13 +57,16 @@ export class QuestionContent {
     questionMenuDiv.hidden = true;
 
     //Q1 button
-    document.getElementById('Q1').addEventListener(
+    let elementButton1 =  document.getElementById('Q1');
+    elementButton1.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[0].visibility == true){
-
+          this.unSelectedButton(elementButton1);
           this.listQuestionObject[0].setVisibility(false);
         }else{
+          
+          this.selectedButton(elementButton1);
           this.selectQuestions(false);
           this.listQuestionObject[0].setVisibility(true);
         }
@@ -71,14 +76,16 @@ export class QuestionContent {
     );
 
     //Q2 button
-    document.getElementById('Q2').addEventListener(
+    let elementButton2 =  document.getElementById('Q2');
+    elementButton2.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[1].visibility == true){
-
+          this.unSelectedButton(elementButton2);
           this.listQuestionObject[1].setVisibility(false);
         }else{
           this.selectQuestions(false);
+          this.selectedButton(elementButton2);
           this.listQuestionObject[1].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
@@ -87,14 +94,16 @@ export class QuestionContent {
     );
 
     //Q3 button
-    document.getElementById('Q3').addEventListener(
+    let elementButton3 =  document.getElementById('Q3');
+    elementButton3.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[2].visibility == true){
-
+          this.unSelectedButton(elementButton3);
           this.listQuestionObject[2].setVisibility(false);
         }else{
           this.selectQuestions(false);
+          this.selectedButton(elementButton3);
           this.listQuestionObject[2].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
@@ -103,14 +112,16 @@ export class QuestionContent {
     );
 
     //Q4 button
-    document.getElementById('Q4').addEventListener(
+    let elementButton4 = document.getElementById('Q4');
+    elementButton4.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[3].visibility == true){
-
+          this.unSelectedButton(elementButton4);
           this.listQuestionObject[3].setVisibility(false);
         }else{
           this.selectQuestions(false);
+          this.selectedButton(elementButton4);
           this.listQuestionObject[3].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
@@ -119,14 +130,16 @@ export class QuestionContent {
     );
 
     //Q5 button
-    document.getElementById('Q5').addEventListener(
+    let elementButton5 = document.getElementById('Q5');
+    elementButton5.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[4].visibility == true){
-
+          this.unSelectedButton(elementButton5);
           this.listQuestionObject[4].setVisibility(false);
         }else{
           this.selectQuestions(false);
+          this.selectedButton(elementButton5);
           this.listQuestionObject[4].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
@@ -135,20 +148,24 @@ export class QuestionContent {
     );
 
     //Q6 button
-    document.getElementById('Q6').addEventListener(
+    let elementButton6 = document.getElementById('Q6');
+    elementButton6.addEventListener(
       'mousedown',
       () => {
         if (this.listQuestionObject[5].visibility == true){
-
+          this.unSelectedButton();
           this.listQuestionObject[5].setVisibility(false);
         }else{
           this.selectQuestions(false);
+          this.selectedButton(elementButton6);
           this.listQuestionObject[5].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
       },
       false
     );
+
+    this.listButton = [elementButton1, elementButton2, elementButton3, elementButton4, elementButton5, elementButton6];
 
     //Toggle button
     let toggleButton = document.createElement('button');
@@ -174,6 +191,20 @@ export class QuestionContent {
   selectQuestions(visibility){
     this.listQuestionObject.forEach(element => {
       element.setVisibility(visibility);
+    });
+  }
+
+  selectedButton(elementButton){
+    this.unSelectedButton();
+    elementButton.style.fontSize = '30px';
+    elementButton.style.color = '#ff5851';
+    elementButton.style.fontWeight = 'bold';
+  }
+  unSelectedButton(){
+    this.listButton.forEach(button => {
+      button.style.fontSize = '15px';
+      button.style.color = '#FFFFFF';
+      button.style.fontWeight = '';
     });
   }
 }
