@@ -17,7 +17,6 @@ export class QuestionContent {
 
     //List of an Object content : must be a list of list
     this.listQuestionObject = listQuestionObject;
-    console.log(listQuestionObject);
   }
 
 

@@ -43,7 +43,7 @@
     font-family: 'Roboto', sans-serif;
     text-align: right;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 
@@ -76,7 +76,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-align: left;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 
@@ -124,7 +124,7 @@
 #_all_menu_content #dataTitle {
     /* background-color: #00000088; */
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     color:#c530ac;
     font-weight : bold;
 }

@@ -94,11 +94,10 @@ export class EpisodeVisualizer {
           <img class="inspector-doc-img" id="image-content" src="./../assets/img/Episode1_1_layout.PNG" alt="Document image"\
            id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-              <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
+              <p class="inspector-field-title" id="resumePhoto">Antoine opérateur dans la chimie</p>\
             </div>\
           </div>\
           <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
-          <button class="episode-details-button" id="WindowDetailsButton">Details</button>\
           </div>\
         </div>\
       </div>\
@@ -124,17 +123,16 @@ export class EpisodeVisualizer {
     document.getElementById('episodeWindowVideo').innerHTML = 
       '<div id="_window_document3-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 650px; z-index: 107;">\
         <div class="episode-header" id="_window_header_document3-inspector">\
+          <p class="inspector-field-title" id="resumeVideo">Antoine opérateur dans la chimie</p>\
           <button class="episode-close-button" id="WindowCloseButtonVideo">Close</button>\
         </div>\
         <div class="episode-content" id="_window_content_document3-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
           <video id="video-content" src="./../assets/SoireeDeLaChimie-1.m4v" width=640  height=480 controls ">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-              <p class="inspector-field-title" id="resume">Antoine opérateur dans la chimie</p>\
             </div>\
           </div>\
           <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
-          <button class="episode-details-button" id="WindowDetailsButtonVideo">Details</button>\
           </div>\
         </div>\
       </div>\

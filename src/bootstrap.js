@@ -344,24 +344,26 @@ udviz.Components.SystemUtils.File.loadJSON(
         let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
 
         if (!episodeContent.lock ){
+          console.log(document.getElementById('resume'));
           
-          document.getElementById('resume').textContent = episodeContent.text;
           
           if (episodeContent.isVideo){
+            document.getElementById('resumeVideo').textContent = episodeContent.text;
             divEpisodeVideo.style.setProperty('display','block');
             document.getElementById('video-content').src = episodeContent.imgLock; //= episodeContent.imgLock;
           }else{
+            document.getElementById('resumePhoto').textContent = episodeContent.text;
             divEpisode.style.setProperty('display','block');
             document.getElementById('image-content').src = episodeContent.imgLock;
           }
           //Details button
-          document.getElementById('WindowDetailsButton').addEventListener(
-            'mousedown',
-            () => {
-              window.open(episodeContent.src,'EpisodeContent').focus();
-            },
-            false
-          );
+          // document.getElementById('WindowDetailsButton').addEventListener(
+          //   'mousedown',
+          //   () => {
+          //     window.open(episodeContent.src,'EpisodeContent').focus();
+          //   },
+          //   false
+          // );
         } // display the content in a div if the content is'nt lock
       }
     }
