@@ -84,11 +84,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3'], false);
     let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4'], false);
 
-    //Content episode Observatoire
-    let content_1_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-1'], true);
-    let content_2_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-2'], true);
-    let content_3_interview = new EpisodeContent(configEpisode['episode-1-data']['content-interview-3'], true);
-
     let questions = configEpisode['questions'];
     let listQuestionObjects = [];
     for (let question of questions){
@@ -112,11 +107,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false, false);
-
-    //Full Interview
-    let listContentsInterview = [content_1_interview, content_2_interview, content_3_interview];
-    const interviews = new EpisodeVisualizer('episode_1', view3D, listContentsInterview);  
-    interviews.constructAllContent(true, true);
 
     /* ---- UI ---- */
     //Content menu
