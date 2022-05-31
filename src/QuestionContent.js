@@ -21,22 +21,38 @@ export class QuestionContent {
 
 
   constructMenu(){
+    //UI
+    let MenuDiv = document.createElement('div');
+    MenuDiv.id = 'question-title';
+    document.getElementById('webgl_View3D').append(MenuDiv);
+
+    document.getElementById('question-title').innerHTML = 
+        '<p>Derrière les fumées</p>\
+       ';
+
+    //Button pannel
     let questionMenuDiv = document.createElement('div');
     questionMenuDiv.id = 'menu-question';
     document.getElementById('webgl_View3D').append(questionMenuDiv);
 
     document.getElementById('menu-question').innerHTML = 
         '<ul id="_all_menu_content">\
-          <li id="dataTitle">Interviews :</li>\
-          <li><button id="Q1">L’industrie chimique est-elle sale, polluante et mauvaise ?</button>\
-          <li><button id="Q2">La motivation suffit-elle pour travailler dans l’industrie chimique ?</li>\
-          <li><button id="Q3">Tout le monde peut-il travailler dans l’industrie chimique ?</<button></li>\
-          <li><button id="Q4">Les métiers de l’industrie n’évoluent pas dans le bon sens ?</<button></li>\
+          <h1>Derrière les fumées</h1>\
+          <h2>De la vallée de la chimie de l’intérieur</h2>\
+          <li id="dataTitle"></li>\
+          <li id="dataTitle"></li>\
+          <li id="dataTitle"></li>\
+          <li><button id="Q1">La perception de l’industrie chimique</button>\
+          <li><button id="Q2">Les compétences nécessaire</li>\
+          <li><button id="Q3">Qui peut travailler dans l’industrie chimique</<button></li>\
+          <li><button id="Q4">Le travail dans l’industrie chimique</<button></li>\
           <li><button id="Q5">Dans l’industrie les salaires sont bas, et le travail est précaire </<button></li>\
           <li><button id="Q6">L’industrie chimique a-t-elle un avenir ?</<button></li>\
           <li></li>\
         </ul>\
        ';
+
+    questionMenuDiv.hidden = true;
 
     //Q1 button
     document.getElementById('Q1').addEventListener(
@@ -138,19 +154,17 @@ export class QuestionContent {
     let toggleButton = document.createElement('button');
     toggleButton.id = 'toggleButtonLeft';
     toggleButton.src = './assets/icons/icons8-arrow-24.png';
-    questionMenuDiv.append(toggleButton);
-    toggleButton.innerHTML = '<img src="./assets/icons/icons8-arrow-24.png" />';
+    MenuDiv.append(toggleButton);
+    toggleButton.innerHTML = '<img src="./assets/icons/logoDeroulant.png" />';
     //Toggle button in JS because CSS is bad
     toggleButton.addEventListener(
       'mousedown',
       () => {
         let menuQuestion = document.getElementById('menu-question');
-        if (menuQuestion.style.left == '-2%') {
-          toggleButton.style.transform = 'scaleX(1)';
-          menuQuestion.style.left = '-25%'; // hide html element
+        if (questionMenuDiv.hidden == true) {
+          questionMenuDiv.hidden = false;
         } else {
-          menuQuestion.style.left = '-2%';
-          toggleButton.style.transform = 'scaleX(-1)'; // Show html element
+          questionMenuDiv.hidden = true;
         }
       },
       false

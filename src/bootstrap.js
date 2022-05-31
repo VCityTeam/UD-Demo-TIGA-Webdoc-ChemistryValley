@@ -346,15 +346,7 @@ udviz.Components.SystemUtils.File.loadJSON(
             divEpisode.style.setProperty('display','block');
             document.getElementById('image-content').src = episodeContent.imgLock;
           }
-          //Details button
-          // document.getElementById('WindowDetailsButton').addEventListener(
-          //   'mousedown',
-          //   () => {
-          //     window.open(episodeContent.src,'EpisodeContent').focus();
-          //   },
-          //   false
-          // );
-        } // display the content in a div if the content is'nt lock
+        }
       }
     }
   });
