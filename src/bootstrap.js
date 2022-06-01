@@ -65,8 +65,8 @@ udviz.Components.SystemUtils.File.loadJSON(
     );
 
     // Initialize itowns view
-    view3D.getCamera().position.set(1840766.783175912,5151234.984514551,5849.461536000241);
-    view3D.getCamera().rotation.set(1.0873827670833387,-0.014590877488550718, -0.007659166706490413);
+    view3D.getCamera().position.set(1842602.2358639822, 5163108.602663754, 1584.6026942525132);
+    view3D.getCamera().rotation.set(1.0619838785677609,-0.3043337605398328, -0.16561814175954986);
 
     // Clamp camera
     view3D.itownsView.controls.minZenithAngle = 40;

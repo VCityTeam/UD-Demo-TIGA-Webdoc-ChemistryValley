@@ -128,7 +128,7 @@ export class EpisodeVisualizer {
         </div>\
         <div class="episode-content" id="_window_content_document3-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <video id="video-content" src="./../assets/SoireeDeLaChimie-1.m4v" width=640  height=480 controls ">\
+          <video id="video-content" src="" width=640  height=480 controls ">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
             </div>\
           </div>\
