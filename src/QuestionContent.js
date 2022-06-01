@@ -44,7 +44,7 @@ export class QuestionContent {
           <h1>Derrière les fumées</h1>\
           <h2>De la vallée de la chimie de l’intérieur</h2>\
           <li><button id="Q1">La perception de l’industrie chimique</button>\
-          <li><button id="Q2">Les compétences nécessaire</li>\
+          <li><button id="Q2">Les compétences nécessaires</li>\
           <li><button id="Q3">Qui peut travailler dans l’industrie chimique</<button></li>\
           <li><button id="Q4">Le travail dans l’industrie chimique</<button></li>\
           <li><button id="Q5">L’évolution des métiers</<button></li>\
@@ -82,7 +82,7 @@ export class QuestionContent {
     elementButton1.addEventListener(
       'mousedown',
       () => {
-        let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie','./../Contenus sup/Chap01/Qu-est-ce que la chimie/story.html']];
+        let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
         this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', this.listQuestionObject[0]);
         questionMenuDiv.hidden = true;        
       },
@@ -106,7 +106,7 @@ export class QuestionContent {
     elementButton3.addEventListener(
       'mousedown',
       () => {
-        let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
+        let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
         this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', this.listQuestionObject[2]);
         questionMenuDiv.hidden = true;  
       },
@@ -118,7 +118,7 @@ export class QuestionContent {
     elementButton4.addEventListener(
       'mousedown',
       () => {
-        let dataButtonChap4 = [['C’est quoi une raffinerie', './../Contenus sup/Chap04/C’est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap03/Commen fidéliser/story.html']];
+        let dataButtonChap4 = [['C’est quoi une raffinerie ?', './../Contenus sup/Chap04/C est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap04/Commen fidéliser/story.html']];
         this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html', this.listQuestionObject[3]);
         questionMenuDiv.hidden = true;  
       },
@@ -161,6 +161,9 @@ export class QuestionContent {
     toggleButton.addEventListener(
       'mousedown',
       () => {
+        this.listQuestionObject.forEach(element => {
+          element.setVisibility(false);
+        });
         this.contentDivUI.hidden = true;
         this.contentDivUI.innerHTML = '';
         if (questionMenuDiv.hidden == true) {
