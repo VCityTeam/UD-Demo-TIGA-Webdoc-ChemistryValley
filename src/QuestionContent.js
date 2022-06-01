@@ -19,21 +19,19 @@ export class QuestionContent {
     this.listQuestionObject = listQuestionObject;
 
     let divInteractiveContent;
-
+    let contentDivUI;
     let iframe;
-
   }
 
 
-  constructMenu(){
-    this.createContentChap01('Test', 4);
+  constructMenu(){    
     //UI
     let MenuDiv = document.createElement('div');
     MenuDiv.id = 'question-title';
     document.getElementById('webgl_View3D').append(MenuDiv);
 
     document.getElementById('question-title').innerHTML = 
-        '<p>Derrière les fumées</p>\
+        '<h1>Derrière les fumées</h1>\
        ';
 
     //Button pannel
@@ -70,6 +68,12 @@ export class QuestionContent {
       this.iframe.src = '';
     };
 
+    //Content Menu initialize
+    this.contentDivUI = document.createElement('div');
+    this.contentDivUI.id = 'content-ui';
+    document.getElementById('webgl_View3D').append(this.contentDivUI);
+    this.contentDivUI.hidden = true;
+
     this.divInteractiveContent.hidden = true;
     questionMenuDiv.hidden = true;
 
@@ -78,13 +82,14 @@ export class QuestionContent {
     elementButton1.addEventListener(
       'mousedown',
       () => {
+        let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Q01','./../Contenus sup/Chap01/Q01/story.html'],['Qu’est-ce que la chimie','./../Contenus sup/Chap01/Qu-est-ce que la chimie/story.html']];
+        this.createContentChap01(elementButton1.textContent, dataButtonChap1);
+        questionMenuDiv.hidden = true;
+
+        //Setvisibility of 3D element
         if (this.listQuestionObject[0].visibility == true){
-          this.unSelectedButton(elementButton1);
           this.listQuestionObject[0].setVisibility(false);
         }else{
-          
-          this.selectedButton(elementButton1);
-          this.selectQuestions(false);
           this.listQuestionObject[0].setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
@@ -97,6 +102,7 @@ export class QuestionContent {
     elementButton2.addEventListener(
       'mousedown',
       () => {
+
         if (this.listQuestionObject[1].visibility == true){
           this.unSelectedButton(elementButton2);
           this.listQuestionObject[1].setVisibility(false);
@@ -194,6 +200,8 @@ export class QuestionContent {
     toggleButton.addEventListener(
       'mousedown',
       () => {
+        this.contentDivUI.hidden = true;
+        this.contentDivUI.innerHTML = '';
         if (questionMenuDiv.hidden == true) {
           questionMenuDiv.hidden = false;
         } else {
@@ -224,28 +232,25 @@ export class QuestionContent {
     });
   }
 
-  createContentChap01(chapName, nbButton){
-    //UI des contenus
-    let contentDivUI = document.createElement('div');
-    contentDivUI.id = 'content-ui';
-    document.getElementById('webgl_View3D').append(contentDivUI);
-    contentDivUI.innerHTML = 
-        '<h1>'+chapName+'</h1>\
-       ';
+  createContentChap01(chapName, data){
 
+    let h1Element = document.createElement('h1');
+    h1Element.textContent = chapName;
+    this.contentDivUI.append(h1Element);
     let ulElement = document.createElement('ul');
-    contentDivUI.append(ulElement);
-    // ulElement.id = 'ul-content-ui';
-    console.log('TEST');
-    for (let i = 0; i < nbButton ; i++){
+    this.contentDivUI.append(ulElement);
+
+    this.contentDivUI.hidden = false;
+
+    for (let i = 0; i < data.length ; i++){
       let itemButton = document.createElement('button');
       itemButton.id = 'button_' + i;
-      itemButton.innerText = 'Focus = ' + i;
+      itemButton.innerText = data[i][0]; // button name
       ulElement.append(itemButton);
 
       itemButton.onclick = () => {
         this.divInteractiveContent.hidden = false;
-        this.iframe.src = './assets/html/story.html';
+        this.iframe.src = data[i][1]; //path to iframe to show
       };
     }
   }

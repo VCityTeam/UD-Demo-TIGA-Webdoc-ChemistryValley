@@ -146,16 +146,20 @@
     top : 0px;
     width:4%;
     height: 100%;
-	z-index: 1;
+	z-index: 2;
 }
 
-#question-title p{
+#question-title h1{
+    position: fixed;
     font: bold 45px 'Roboto', sans-serif;
     letter-spacing: 2px;
     color: #fff;
-    width: 520px;
-    height: 520px;
+    left: -210px;
+    top: 250px;
+    width: 500px;
+    height: 70px;
     transform: rotate(270deg);
+    z-index: 0;
 }
 
 #data-title {
@@ -165,7 +169,7 @@
     top : 0px;
     width:4%;
     height: 100%;
-	z-index: 1;
+	z-index: 2;
 }
 
 #data-title p{
