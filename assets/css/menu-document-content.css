@@ -139,13 +139,6 @@
     color: #FFFFFF;
 }
 
-#_all_menu_content #dataTitle {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    color:#ffffff;
-    font-weight : bold;
-}
-
 #question-title {
     position: fixed;
     background-color: #00000088;
@@ -176,7 +169,7 @@
 }
 
 #data-title p{
-    font: bold 45px 'Roboto', sans-serif;
+    font: bold 40px 'Roboto', sans-serif;
     letter-spacing: 2px;
     color: #fff;
     width: 520px;

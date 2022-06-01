@@ -1,6 +1,6 @@
 import '../assets/css/menu-document-content.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jQuery from 'jquery';
+import '../assets/css/content-ui.css';
 import * as udviz from 'ud-viz';
 /**
  * Class to create menu content
@@ -18,11 +18,15 @@ export class QuestionContent {
     //List of an Object content : must be a list of list
     this.listQuestionObject = listQuestionObject;
 
-    let listButton = [];
+    let divInteractiveContent;
+
+    let iframe;
+
   }
 
 
   constructMenu(){
+    this.createContentChap01('Test', 4);
     //UI
     let MenuDiv = document.createElement('div');
     MenuDiv.id = 'question-title';
@@ -51,6 +55,22 @@ export class QuestionContent {
         </ul>\
        ';
 
+    // Interactive content HMTL
+    this.divInteractiveContent = document.createElement('div');
+    this.divInteractiveContent.id = 'interview';
+    document.getElementById('webgl_View3D').append(this.divInteractiveContent);
+    this.divInteractiveContent.innerHTML = 
+      '<button id="close"><img src="./assets/icons/logoCroixRouge.png" /></button>\
+      ';
+    this.iframe = document.createElement('iframe');
+    this.divInteractiveContent.append(this.iframe);
+    //Button close
+    document.getElementById('close').onclick = () => {
+      this.divInteractiveContent.hidden = true;
+      this.iframe.src = '';
+    };
+
+    this.divInteractiveContent.hidden = true;
     questionMenuDiv.hidden = true;
 
     //Q1 button
@@ -202,5 +222,31 @@ export class QuestionContent {
       button.style.color = '#FFFFFF';
       button.style.fontWeight = '';
     });
+  }
+
+  createContentChap01(chapName, nbButton){
+    //UI des contenus
+    let contentDivUI = document.createElement('div');
+    contentDivUI.id = 'content-ui';
+    document.getElementById('webgl_View3D').append(contentDivUI);
+    contentDivUI.innerHTML = 
+        '<h1>'+chapName+'</h1>\
+       ';
+
+    let ulElement = document.createElement('ul');
+    contentDivUI.append(ulElement);
+    // ulElement.id = 'ul-content-ui';
+    console.log('TEST');
+    for (let i = 0; i < nbButton ; i++){
+      let itemButton = document.createElement('button');
+      itemButton.id = 'button_' + i;
+      itemButton.innerText = 'Focus = ' + i;
+      ulElement.append(itemButton);
+
+      itemButton.onclick = () => {
+        this.divInteractiveContent.hidden = false;
+        this.iframe.src = './assets/html/story.html';
+      };
+    }
   }
 }

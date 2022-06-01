@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+
+
+#content-ui {
+    /* background-color: #00000088; */
+    display: inline-block;
+    position: fixed;
+    left: 5%;
+    top: 0%;
+    height: 20%;
+    width: 90%;
+    z-index: 3;
+}
+
+#content-ui ul
+{
+    /* margin:px 0; */
+    /* display: list-item; */
+    display: inline;
+    list-style-type:none;
+}
+
+
+#content-ui h1{
+    font-family: 'Roboto';
+    /* text-align: right; */
+    font-weight: bold;
+    font-size: 40px;
+    color: #ff5851;
+}
+
+#content-ui button{
+    display: inline;
+    padding: 5px;
+    color:#FFFFFF;
+    background-color: #ff5851; 
+    border-color: #FFFFFF;
+    border-width: 5px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#content-ui button:hover{
+    background-color: #ff433c; 
+    border-color: #d4d2d2;
+}
+
+#interview {
+    /* display: inline-block; */
+    position: absolute;
+    left: 25%;
+    top:25%;
+    background-color: #00000088;
+    height: 50%;
+    width: 50%;
+    z-index: 3;
+}
+
+#interview button{
+    position: absolute;
+    left: 95%;
+    top : -5%;
+    border-width: 0;
+    background-color: #ffffff00;
+}
+
+#interview img{
+    /* width: 10%; */
+    height: 35px;
+}
+
+#interview iframe{
+    width: 100%;
+    height: 100%;
+}
