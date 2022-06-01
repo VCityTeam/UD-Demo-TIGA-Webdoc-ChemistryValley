@@ -82,17 +82,9 @@ export class QuestionContent {
     elementButton1.addEventListener(
       'mousedown',
       () => {
-        let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Q01','./../Contenus sup/Chap01/Q01/story.html'],['Qu’est-ce que la chimie','./../Contenus sup/Chap01/Qu-est-ce que la chimie/story.html']];
-        this.createContentChap01(elementButton1.textContent, dataButtonChap1);
-        questionMenuDiv.hidden = true;
-
-        //Setvisibility of 3D element
-        if (this.listQuestionObject[0].visibility == true){
-          this.listQuestionObject[0].setVisibility(false);
-        }else{
-          this.listQuestionObject[0].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie','./../Contenus sup/Chap01/Qu-est-ce que la chimie/story.html']];
+        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', this.listQuestionObject[0]);
+        questionMenuDiv.hidden = true;        
       },
       false
     );
@@ -102,16 +94,9 @@ export class QuestionContent {
     elementButton2.addEventListener(
       'mousedown',
       () => {
-
-        if (this.listQuestionObject[1].visibility == true){
-          this.unSelectedButton(elementButton2);
-          this.listQuestionObject[1].setVisibility(false);
-        }else{
-          this.selectQuestions(false);
-          this.selectedButton(elementButton2);
-          this.listQuestionObject[1].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
+        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html', this.listQuestionObject[1]);
+        questionMenuDiv.hidden = true;   
       },
       false
     );
@@ -121,15 +106,9 @@ export class QuestionContent {
     elementButton3.addEventListener(
       'mousedown',
       () => {
-        if (this.listQuestionObject[2].visibility == true){
-          this.unSelectedButton(elementButton3);
-          this.listQuestionObject[2].setVisibility(false);
-        }else{
-          this.selectQuestions(false);
-          this.selectedButton(elementButton3);
-          this.listQuestionObject[2].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
+        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', this.listQuestionObject[2]);
+        questionMenuDiv.hidden = true;  
       },
       false
     );
@@ -139,15 +118,9 @@ export class QuestionContent {
     elementButton4.addEventListener(
       'mousedown',
       () => {
-        if (this.listQuestionObject[3].visibility == true){
-          this.unSelectedButton(elementButton4);
-          this.listQuestionObject[3].setVisibility(false);
-        }else{
-          this.selectQuestions(false);
-          this.selectedButton(elementButton4);
-          this.listQuestionObject[3].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap4 = [['C’est quoi une raffinerie', './../Contenus sup/Chap04/C’est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap03/Commen fidéliser/story.html']];
+        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html', this.listQuestionObject[3]);
+        questionMenuDiv.hidden = true;  
       },
       false
     );
@@ -157,15 +130,9 @@ export class QuestionContent {
     elementButton5.addEventListener(
       'mousedown',
       () => {
-        if (this.listQuestionObject[4].visibility == true){
-          this.unSelectedButton(elementButton5);
-          this.listQuestionObject[4].setVisibility(false);
-        }else{
-          this.selectQuestions(false);
-          this.selectedButton(elementButton5);
-          this.listQuestionObject[4].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
+        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html', this.listQuestionObject[4]);
+        questionMenuDiv.hidden = true;  
       },
       false
     );
@@ -175,15 +142,9 @@ export class QuestionContent {
     elementButton6.addEventListener(
       'mousedown',
       () => {
-        if (this.listQuestionObject[5].visibility == true){
-          this.unSelectedButton();
-          this.listQuestionObject[5].setVisibility(false);
-        }else{
-          this.selectQuestions(false);
-          this.selectedButton(elementButton6);
-          this.listQuestionObject[5].setVisibility(true);
-        }
-        this.view3D.getItownsView().notifyChange();
+        let dataButtonChap6 = [[]];
+        this.createContentChap(elementButton6.textContent, dataButtonChap6,'./../Contenus sup/Chap06/Q06/story.html', this.listQuestionObject[5]);
+        questionMenuDiv.hidden = true;  
       },
       false
     );
@@ -232,26 +193,56 @@ export class QuestionContent {
     });
   }
 
-  createContentChap01(chapName, data){
+  createContentChap(chapName, listData, stringQuestionUser, listInterview){
 
+    //Title
     let h1Element = document.createElement('h1');
     h1Element.textContent = chapName;
     this.contentDivUI.append(h1Element);
+
+    //List Button
     let ulElement = document.createElement('ul');
     this.contentDivUI.append(ulElement);
 
     this.contentDivUI.hidden = false;
 
-    for (let i = 0; i < data.length ; i++){
+    //Button with iframe
+    for (let i = 0; i < listData.length ; i++){
       let itemButton = document.createElement('button');
-      itemButton.id = 'button_' + i;
-      itemButton.innerText = data[i][0]; // button name
+      itemButton.id = 'button-iframe';
+      itemButton.innerText = listData[i][0]; // button name
       ulElement.append(itemButton);
 
       itemButton.onclick = () => {
         this.divInteractiveContent.hidden = false;
-        this.iframe.src = data[i][1]; //path to iframe to show
+        this.iframe.src = listData[i][1]; //path to iframe to show
       };
     }
+
+    //Button for 3D content
+    let button3DContent = document.createElement('button');
+    button3DContent.id = 'button_3D_content';
+    button3DContent.textContent = 'L’avis de la rue';
+    this.contentDivUI.append(button3DContent);
+    button3DContent.onclick = () => {
+      if (listInterview.visibility == true){
+        listInterview.setVisibility(false);
+      }else{
+        listInterview.setVisibility(true);
+        this.view3D.getItownsView().notifyChange();
+      }
+      
+    };
+
+    //Button for user response
+    let buttonUserResponse = document.createElement('button');
+    buttonUserResponse.id = 'button_user_response';
+    buttonUserResponse.textContent = 'Votre avis';
+    this.contentDivUI.append(buttonUserResponse);
+
+    buttonUserResponse.onclick = () => {
+      this.divInteractiveContent.hidden = false;
+      this.iframe.src = stringQuestionUser; //path to iframe to show
+    };
   }
 }

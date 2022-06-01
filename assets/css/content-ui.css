@@ -34,7 +34,6 @@
     display: inline;
     padding: 5px;
     color:#FFFFFF;
-    background-color: #ff5851; 
     border-color: #FFFFFF;
     border-width: 5px;
     font-family: 'Roboto', sans-serif;
@@ -43,7 +42,11 @@
     font-weight: bold;
 }
 
-#content-ui button:hover{
+#content-ui #button-iframe{
+    background-color: #ff5851; 
+}
+
+#content-ui #button-iframe:hover{
     background-color: #ff433c; 
     border-color: #d4d2d2;
 }
@@ -56,7 +59,7 @@
     background-color: #00000088;
     height: 50%;
     width: 50%;
-    z-index: 3;
+    z-index: 5;
 }
 
 #interview button{
@@ -75,4 +78,28 @@
 #interview iframe{
     width: 100%;
     height: 100%;
+}
+
+#button_3D_content {
+    position: absolute;
+    top: 95%;
+    left: 35%;
+    background-color: #414a6b;
+}
+
+#button_3D_content:hover {
+    background-color: #303c66; 
+    border-color: #d4d2d2;
+}
+
+#button_user_response {
+    position: absolute;
+    top: 95%;
+    right: 35%;
+    background-color: #f3c130; 
+}
+
+#button_user_response:hover {
+    background-color: #f5be1b; 
+    border-color: #d4d2d2;
 }
