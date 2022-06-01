@@ -91,7 +91,7 @@ export class EpisodeVisualizer {
         </div>\
         <div class="episode-content" id="_window_content_document2-inspector">\
           <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <img class="inspector-doc-img" id="image-content" src="./../assets/img/Episode1_1_layout.PNG" alt="Document image"\
+          <img class="inspector-doc-img" id="image-content" src="" alt="Document image"\
            id="" title="CTRL + Click to open the image">\
             <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
               <p class="inspector-field-title" id="resumePhoto">Antoine opérateur dans la chimie</p>\
