@@ -99,14 +99,16 @@ udviz.Components.SystemUtils.File.loadJSON(
     let episodeVisualizerList = [];
     for (let questionObject of listQuestionObjects){
       const questionVizu = new EpisodeVisualizer('episode_1', view3D, questionObject);  
-      questionVizu.constructAllContent(false, true);
+      questionVizu.constructAllContent(false);
       episodeVisualizerList.push(questionVizu);
     }
 
     //Observatoire 
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
     const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
-    observatoire.constructAllContent(false, false);
+    observatoire.constructAllContent(false);
+
+    observatoire.constructHtmlVideos();
 
     /* ---- UI ---- */
     //Content menu
@@ -116,15 +118,6 @@ udviz.Components.SystemUtils.File.loadJSON(
     //Question answer menu
     const questionMenu = new QuestionContent(view3D, episodeVisualizerList);
     questionMenu.constructMenu('_moduleID', '_modulename');
-
-    /* ---- HTML integration ---- */
-    //Div of the episode build
-    let divEpisode = document.getElementById('episodeWindow');
-    divEpisode.style.setProperty('display','none');
-
-    //Div of the episode build
-    let divEpisodeVideo = document.getElementById('episodeWindowVideo');
-    divEpisodeVideo.style.setProperty('display','none');
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
 
@@ -343,23 +336,14 @@ udviz.Components.SystemUtils.File.loadJSON(
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
+      console.log(intersects);
       if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1' && intersects[ 0 ].object.visible == true) {
+        console.log('lol');
         let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
-
-        if (!episodeContent.lock ){
-          console.log(document.getElementById('resume'));
-          
-          
-          if (episodeContent.isVideo){
-            document.getElementById('resumeVideo').textContent = episodeContent.text;
-            divEpisodeVideo.style.setProperty('display','block');
-            document.getElementById('video-content').src = episodeContent.imgLock; //= episodeContent.imgLock;
-          }else{
-            document.getElementById('resumePhoto').textContent = episodeContent.text;
-            divEpisode.style.setProperty('display','block');
-            document.getElementById('image-content').src = episodeContent.imgLock;
-          }
-        }
+        document.getElementById('resumeVideo').textContent = episodeContent.text;
+        document.getElementById('episodeWindowVideo').hidden = false;
+        document.getElementById('episodeWindowVideo').style.display = 'block';
+        document.getElementById('video-content').src = episodeContent.imgLock; //= episodeContent.imgLock;
       }
     }
   });

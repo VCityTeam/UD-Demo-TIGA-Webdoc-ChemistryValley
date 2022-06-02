@@ -18,10 +18,6 @@ export class QuestionContent {
     //List of an Object content : must be a list of list
     this.listQuestionObject = listQuestionObject;
 
-    let divInteractiveContent;
-    let contentDivUI;
-    let iframe;
-    let video;
   }
 
 
@@ -43,7 +39,7 @@ export class QuestionContent {
     document.getElementById('menu-question').innerHTML = 
         '<ul id="_all_menu_content">\
           <h1>Derrière les fumées</h1>\
-          <h2>De la vallée de la chimie de l’intérieur</h2>\
+          <h2>La vallée de la chimie de l’intérieur</h2>\
           <li><button id="Q1">La perception de l’industrie chimique</button>\
           <li><button id="Q2">Les compétences nécessaires</li>\
           <li><button id="Q3">Qui peut travailler dans l’industrie chimique</<button></li>\
@@ -60,17 +56,13 @@ export class QuestionContent {
     document.getElementById('webgl_View3D').append(this.divInteractiveContent);
     this.divInteractiveContent.innerHTML = 
       '<button id="close"><img src="./assets/icons/logoCroixRouge.png" /></button>\
+       <div id="iframe-video"></div>\
       ';
-    this.iframe = document.createElement('iframe');
-    this.video = document.createElement('video');
-    this.video.setAttribute('controls','controls');
-    this.divInteractiveContent.append(this.iframe);
-    this.divInteractiveContent.append(this.video);
+
     //Button close
     document.getElementById('close').onclick = () => {
       this.divInteractiveContent.hidden = true;
-      this.iframe.src = '';
-      this.video.src = '';
+      document.getElementById('iframe-video').innerHTML = '';
     };
 
     //Content Menu initialize
@@ -238,18 +230,20 @@ export class QuestionContent {
 
       itemButton.onclick = () => {
         this.divInteractiveContent.hidden = false;
-        this.iframe.src = listData[i][1]; //path to iframe to show
+        document.getElementById('iframe-video').innerHTML = 
+        '<iframe src="' + listData[i][1] + '"></iframe>';
       };
     }
 
-    //Button for 3D content
+    //Button for videos
     let button3DContent = document.createElement('button');
     button3DContent.id = 'button_3D_content';
     button3DContent.textContent = 'L’avis de la rue';
     this.contentDivUI.append(button3DContent);
     button3DContent.onclick = () => {
       this.divInteractiveContent.hidden = false;
-      this.video.src = './assets/test.mkv';  
+      document.getElementById('iframe-video').innerHTML = 
+      '<video src="./assets/test.mkv" controls></iframe>';
     };
 
     //Button for user response
@@ -260,6 +254,7 @@ export class QuestionContent {
 
     buttonUserResponse.onclick = () => {
       this.divInteractiveContent.hidden = false;
+      this.video.hidden = false;
       this.iframe.src = stringQuestionUser; //path to iframe to show
     };
   }

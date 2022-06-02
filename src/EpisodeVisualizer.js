@@ -78,80 +78,37 @@ export class EpisodeVisualizer {
   }
 
   // Create HMTL div to visualize details of the episode container
-  constructHtml(){
-    let episodeDiv = document.createElement('div');
-    episodeDiv.id = 'episodeWindow';
-    episodeDiv.style.display = 'block';
-    document.getElementById('webgl_View3D').append(episodeDiv);
-
-    document.getElementById('episodeWindow').innerHTML = 
-      '<div id="_window_document2-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 650px; z-index: 107;">\
-        <div class="episode-header" id="_window_header_document2-inspector">\
-          <button class="episode-close-button" id="WindowCloseButton">Close</button>\
-        </div>\
-        <div class="episode-content" id="_window_content_document2-inspector">\
-          <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <img class="inspector-doc-img" id="image-content" src="" alt="Document image"\
-           id="" title="CTRL + Click to open the image">\
-            <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-              <p class="inspector-field-title" id="resumePhoto">Antoine opérateur dans la chimie</p>\
-            </div>\
-          </div>\
-          <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
-          </div>\
-        </div>\
-      </div>\
-      ';
-    //https://www.derrierelesfumees.com/_Contenusdlf/Episodes/Episodes01/index.html
-    // Close the window...when close button is hit
-    document.getElementById('WindowCloseButton').addEventListener(
-      'mousedown',
-      () => {
-        this.disableView('episodeWindow');
-      },
-      false
-    );
-  }
-
-  // Create HMTL div to visualize details of the episode container
   constructHtmlVideos(){
-    let episodeDiv = document.createElement('div');
-    episodeDiv.id = 'episodeWindowVideo';
-    episodeDiv.style.display = 'block';
-    document.getElementById('webgl_View3D').append(episodeDiv);
-
-    document.getElementById('episodeWindowVideo').innerHTML = 
-      '<div id="_window_document3-inspector" class="episode" style="left: 10px; right: 10px; top: 10px; width: 650px; z-index: 107;">\
-        <div class="episode-header" id="_window_header_document3-inspector">\
-          <p class="inspector-field-title" id="resumeVideo">Antoine opérateur dans la chimie</p>\
-          <button class="episode-close-button" id="WindowCloseButtonVideo">Close</button>\
-        </div>\
-        <div class="episode-content" id="_window_content_document3-inspector">\
-          <div class="episode-inner-content" id="_window_inner_content_document2-inspector">\
-          <video id="video-content" src="" width=640  height=480 controls ">\
-            <div class="inspector-details spoiler-box" style="max-height: 250px; overflow-y: auto;">\
-            </div>\
-          </div>\
-          <div data-ext-container="panel" data-ext-container-default="div" data-ext-class="box-section">\
-          </div>\
-        </div>\
-      </div>\
+    // Interactive content HMTL
+    let divInteractiveContent = document.createElement('div');
+    divInteractiveContent.id = 'episodeWindowVideo';
+    document.getElementById('webgl_View3D').append(divInteractiveContent);
+    divInteractiveContent.innerHTML = 
+      '<h1 id="resumeVideo"></h1>\
+      <button id="WindowCloseButtonVideo"><img src="./assets/icons/logoCroixRouge.png" /></button>\
       ';
-    // Close the window...when close button is hit
+
+    let video = document.createElement('video');
+    video.setAttribute('controls','controls');
+    divInteractiveContent.append(video);
     document.getElementById('WindowCloseButtonVideo').addEventListener(
       'mousedown',
       () => {
         this.disableView('episodeWindowVideo');
+        divInteractiveContent.hidden = true;
+        // this.image.src = '';
+        video.src = '';
       },
       false
     );
+    divInteractiveContent.hidden = true;
   }
 
 
   /**
      * Method to construct all the content of an episode 
   */
-  constructAllContent(visibility, videos){
+  constructAllContent(visibility){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
       let pinObjets = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
@@ -160,11 +117,6 @@ export class EpisodeVisualizer {
       pinObjets[1].visible = visibility;
       this.pinsObject.push(pinObjets[0]);
       this.pinsSprite.push(pinObjets[1]);
-    }
-    if (videos){
-      this.constructHtmlVideos();
-    }else{
-      this.constructHtml();
     }
   }
     

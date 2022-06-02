@@ -1,176 +1,36 @@
-.episode {
-    position: fixed;
-    background-color: #00000088;
-    margin: auto;
-    min-width: 400px;
-    min-height: 400px;
-    width: 60%;
-    height: auto;
-    padding: 0;
-    resize: both;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: 50px auto;
-    box-shadow: 0px 0px 2px 0px #00000088;
-}
-.inspector-doc-img{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: auto;
-    box-shadow: 0 0 1px 1px #00000088;
-    border-radius: 4px;
-    max-height: 400px;
-}
 
-.episode-header {
-    background-color: #00000088;
-    color: #eeeeee;
-    margin: 0;
-    padding: 10px;
-    overflow-x: hidden;
-    overflow-y: unset;
-    cursor: default;
-}
-
-.episode-header .episode-title {
-    margin: 0;
-    margin-left: 5px;
-    margin-top: -2px;
-    font-size: 18px;
-}
-
-.episode-close-button {
+#episodeWindowVideo{
     position: absolute;
-    height: 26px;
-    right: 2px;
-    top: 2px;
-    background-color: white;
-    color: rgb(0, 0, 0);
-    border: 1px solid black;
-    font-size: 13px;
-    transition: background-color 0.2s ease;
+    display: block;
+    left: 25%;
+    top:25%;
+    background-color: #00000088;
+    height: 50%;
+    width: 50%;
+    z-index: 5;
 }
-
-.episode-close-button:hover {
-    background-color: #e91e1e;
-    cursor: default;
-}
-
-.episode-details-button {
+#episodeWindowVideo button{
     position: absolute;
-    height: 26px;
-    right: 2px;
-    bottom: 2px;
-    background-color: white;
-    color: rgb(0, 0, 0);
-    border: 1px solid black;
-    font-size: 13px;
-    transition: background-color 0.2s ease;
+    left: 97%;
+    top : -4%;
+    border-width: 0;
+    background-color: #ffffff00;
 }
 
-.episode-details-button:hover {
-    background-color: #036d15;
-    cursor: default;
+#episodeWindowVideo button img{
+    /* width: 10%; */
+    height: 35px;
 }
-
-.episode-content {
-    background-color: rgba(30,30,30,0.9);
-    border: 5px solid rgba(30,30,30,0.1);
-    overflow-y: auto;
-    margin: 0;
+#episodeWindowVideo video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0%;
 }
-
-.episode-inner-content {
-    color: #f2f2f2;
-}
-
-/* Useful styles that can be used in windows */
-
-    /* A box arround a section */
-.episode-inner-content .box-section {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 1px 1px inset #00000080;
-    padding: 5px;
-}
-
-.episode-inner-content .section-title {
-    margin: 5px 0 5px 10px;
-    padding: 0;
-    font-size: 20px;
+#episodeWindowVideo h1{
+    font-family: 'Roboto';
+    /* text-align: right; */
     font-weight: bold;
-    display: block;
-}
-
-.episode-inner-content .subsection-title {
-    margin: 7px 0 7px 5px;
-    padding: 0;
-    font-size: 16px;
-    font-weight: bold;
-    display: block;
-}
-
-    /* Clickable text */
-.episode-inner-content .clickable-text {
-    cursor: pointer;
-}
-
-.episode-inner-content .clickable-text:hover {
-    text-decoration: underline;
-}
-
-    /* Some styles for a working "spoiler" div
-     * The expected structure should be the following :
-     * <input type="checkbox" class="spoiler-check" id="checkid">
-     * <label for="checkid">Click here do show the spoiler !</label>
-     * <div class="spoiler-box>
-     * </div>
-     */
-.episode-inner-content .spoiler-check {
-    display: none;
-}
-
-.episode-inner-content .spoiler-check ~
-label {
-    cursor: pointer;
-}
-
-.episode-inner-content .spoiler-check ~
-label:after {
-    content: " \25C3";
-    margin-left: 10px;
-    color: rgb(185, 185, 185);
-}
-
-.episode-inner-content .spoiler-check:checked ~
-label:after {
-    content: " \25BE";
-}
-
-.episode-inner-content .spoiler-check ~
-.spoiler-box {
-    display: none;
-}
-
-.episode-inner-content .spoiler-check:checked ~
-.spoiler-box {
-    display: block;
-}
-
-     /* Text alignment */
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-justify {
-    text-align: justify;
+    font-size: 40px;
+    color: #ffffff;
 }
