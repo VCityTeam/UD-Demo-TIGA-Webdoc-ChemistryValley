@@ -21,6 +21,7 @@ export class QuestionContent {
     let divInteractiveContent;
     let contentDivUI;
     let iframe;
+    let video;
   }
 
 
@@ -61,11 +62,15 @@ export class QuestionContent {
       '<button id="close"><img src="./assets/icons/logoCroixRouge.png" /></button>\
       ';
     this.iframe = document.createElement('iframe');
+    this.video = document.createElement('video');
+    this.video.setAttribute('controls','controls');
     this.divInteractiveContent.append(this.iframe);
+    this.divInteractiveContent.append(this.video);
     //Button close
     document.getElementById('close').onclick = () => {
       this.divInteractiveContent.hidden = true;
       this.iframe.src = '';
+      this.video.src = '';
     };
 
     //Content Menu initialize
@@ -83,8 +88,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
-        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', this.listQuestionObject[0]);
-        questionMenuDiv.hidden = true;        
+        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', );
+        questionMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listQuestionObject[0]);        
       },
       false
     );
@@ -95,8 +101,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
-        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html', this.listQuestionObject[1]);
-        questionMenuDiv.hidden = true;   
+        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html');
+        questionMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listQuestionObject[1]);     
       },
       false
     );
@@ -107,8 +114,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
-        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', this.listQuestionObject[2]);
-        questionMenuDiv.hidden = true;  
+        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html');
+        questionMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listQuestionObject[2]);    
       },
       false
     );
@@ -119,8 +127,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap4 = [['C’est quoi une raffinerie ?', './../Contenus sup/Chap04/C est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap04/Commen fidéliser/story.html']];
-        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html', this.listQuestionObject[3]);
-        questionMenuDiv.hidden = true;  
+        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html');
+        questionMenuDiv.hidden = true; 
+        this.setObjectVisibility(this.listQuestionObject[3]);   
       },
       false
     );
@@ -131,8 +140,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
-        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html', this.listQuestionObject[4]);
-        questionMenuDiv.hidden = true;  
+        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html');
+        questionMenuDiv.hidden = true; 
+        this.setObjectVisibility(this.listQuestionObject[4]);   
       },
       false
     );
@@ -143,8 +153,9 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap6 = [[]];
-        this.createContentChap(elementButton6.textContent, dataButtonChap6,'./../Contenus sup/Chap06/Q06/story.html', this.listQuestionObject[5]);
-        questionMenuDiv.hidden = true;  
+        this.createContentChap(elementButton6.textContent, dataButtonChap6,'./../Contenus sup/Chap06/Q06/story.html');
+        questionMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listQuestionObject[5]);    
       },
       false
     );
@@ -196,7 +207,16 @@ export class QuestionContent {
     });
   }
 
-  createContentChap(chapName, listData, stringQuestionUser, listInterview){
+  setObjectVisibility(listInterview){
+    if (listInterview.visibility == true){
+      listInterview.setVisibility(false);
+    }else{
+      listInterview.setVisibility(true);
+      this.view3D.getItownsView().notifyChange();
+    }
+  }
+
+  createContentChap(chapName, listData, stringQuestionUser){
 
     //Title
     let h1Element = document.createElement('h1');
@@ -228,13 +248,8 @@ export class QuestionContent {
     button3DContent.textContent = 'L’avis de la rue';
     this.contentDivUI.append(button3DContent);
     button3DContent.onclick = () => {
-      if (listInterview.visibility == true){
-        listInterview.setVisibility(false);
-      }else{
-        listInterview.setVisibility(true);
-        this.view3D.getItownsView().notifyChange();
-      }
-      
+      this.divInteractiveContent.hidden = false;
+      this.video.src = './assets/test.mkv';  
     };
 
     //Button for user response

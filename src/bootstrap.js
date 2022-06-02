@@ -326,6 +326,19 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* --------------------------------- EVENT --------------------------------- */
 
+    // let zoomDiv = document.createElement('div');
+    // zoomDiv.id = 'zoom-div';
+    // zoomDiv.innerHTML = '<input id="zoom-slider" class="slider" type="range" min="1" max="100" value="50">';
+    
+    // document.getElementById('webgl_View3D').append(zoomDiv);
+
+    // let slider = document.getElementById('zoom-slider');
+
+    // // Update the current slider value (each time you drag the slider handle)
+    // slider.oninput = function() {
+    //   console.log(this.value);
+    // };
+
     //Show episode div
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
