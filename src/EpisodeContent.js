@@ -12,7 +12,7 @@ export class EpisodeContent {
      */
   constructor(dataContent, isVideo){
     this.isVideo = isVideo;
-    this.lock = dataContent['lock'];
+    this.lock = true;
     this.imgContent = null;
     this.imgThumbnail = null;
     this.position = this.ParsePositionContent(dataContent['position']);

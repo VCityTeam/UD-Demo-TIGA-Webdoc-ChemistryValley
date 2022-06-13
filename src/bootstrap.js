@@ -97,10 +97,12 @@ udviz.Components.SystemUtils.File.loadJSON(
     /* ---- Visualizer object ---- */
     //Questions
     let episodeVisualizerList = [];
+    let pictureObjects = [];
     for (let questionObject of listQuestionObjects){
       const questionVizu = new EpisodeVisualizer('episode_1', view3D, questionObject);  
       questionVizu.constructAllContent(false);
       episodeVisualizerList.push(questionVizu);
+      Array.prototype.push.apply(pictureObjects, questionVizu.pictureObjects);
     }
 
     //Observatoire 
@@ -332,16 +334,29 @@ udviz.Components.SystemUtils.File.loadJSON(
     //   console.log(this.value);
     // };
 
+
     //Show episode div
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
-      let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
-      if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1' && intersects[ 0 ].object.visible == true) {
-        let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
-        document.getElementById('resumeVideo').textContent = episodeContent.text;
-        document.getElementById('episodeWindowVideo').hidden = false;
-        document.getElementById('episodeWindowVideo').style.display = 'block';
-        document.getElementById('video-content').src = episodeContent.imgContent; //= episodeContent.imgContent;
+
+      let raycaster =  new udviz.THREE.Raycaster();
+      let mouse3D = new udviz.THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+        -( event.clientY / window.innerHeight ) * 2 + 1,  
+        0.5 );                                        
+      raycaster.setFromCamera( mouse3D, view3D.getCamera() );
+     
+      let intersects = raycaster.intersectObjects( pictureObjects );
+
+      if ( intersects.length > 0 ){
+        intersects.forEach(elementIntersect => {
+          if(elementIntersect.object.userData.Episodecontent.lock == false){
+            let episodeContent = elementIntersect.object.userData.Episodecontent;
+            document.getElementById('resumeVideo').textContent = episodeContent.text;
+            document.getElementById('episodeWindowVideo').hidden = false;
+            document.getElementById('episodeWindowVideo').style.display = 'block';
+            document.getElementById('video-content').src = episodeContent.imgContent;
+          }
+        });
       }
     }
   });

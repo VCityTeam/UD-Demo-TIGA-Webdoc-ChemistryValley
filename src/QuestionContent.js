@@ -82,7 +82,8 @@ export class QuestionContent {
         let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
         this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
         questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[0]);        
+        this.setObjectVisibility(this.listQuestionObject[0]);
+                
       },
       false
     );
