@@ -28,6 +28,7 @@
     font-weight: bold;
     font-size: 40px;
     color: #ff5851;
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
 }
 
 #content-ui button{
@@ -36,7 +37,7 @@
     color:#FFFFFF;
     /* border-color: #FFFFFF; */
     /* border-width: 5px; */
-    border: 5px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     font-family: 'Roboto', sans-serif;
     text-align: left;
     font-size: 20px;
@@ -60,8 +61,8 @@
     left: 25%;
     top:25%;
     background-color: #00000088;
-    height: 50%;
-    width: 50%;
+    height: 540px;
+    width: 960px;
     z-index: 5;
 }
 
@@ -71,6 +72,7 @@
     top : -5%;
     border-width: 0;
     background-color: #ffffff00;
+    z-index: 6;
 }
 
 #interview img{
@@ -95,7 +97,7 @@
     width: 100%;
     height: 100%;
 }
-#button_3D_content {
+#button_avis_rue {
     position: absolute;
     top: 95%;
     left: 35%;
@@ -103,9 +105,15 @@
     border-color: #FFFFFF;
 }
 
-#button_3D_content:hover {
+#button_avis_rue:hover {
     background-color: #303c66; 
     border-color: #d4d2d2;
+}
+
+#avis_rue {
+    position: absolute;
+    top: 80%;
+    left: 40%;
 }
 
 #button_user_response {

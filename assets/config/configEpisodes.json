@@ -7,8 +7,8 @@
             "y" : "5165405.73",
             "z" : "220"
           },
-          "imgUnlock":"./assets/img/Observatoire/cheminee.jpg",
-          "imgLock":"./assets/img/Observatoire/cheminee.jpg",
+          "imgThumbnail":"./assets/img/Observatoire/cheminee.jpg",
+          "imgContent":"./assets/img/Observatoire/cheminee.jpg",
           "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
           "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
@@ -19,8 +19,8 @@
             "y" : "5157285.35", 
             "z" : "260"
           },
-          "imgUnlock":"./assets/img/Observatoire/cheminee2.jpg",
-          "imgLock":"./assets/img/Observatoire/cheminee2.jpg",
+          "imgThumbnail":"./assets/img/Observatoire/cheminee2.jpg",
+          "imgContent":"./assets/img/Observatoire/cheminee2.jpg",
           "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
           "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
@@ -31,8 +31,8 @@
             "y" : "5160129.19",
             "z" : "230"
           },
-          "imgUnlock":"./assets/img/Observatoire/pont.jpg",
-          "imgLock":"./assets/img/Observatoire/pont.jpg",
+          "imgThumbnail":"./assets/img/Observatoire/pont.jpg",
+          "imgContent":"./assets/img/Observatoire/pont.jpg",
           "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
           "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
@@ -43,8 +43,8 @@
             "y" : "5164512.59",
             "z" : "220"
           },
-          "imgUnlock":"./assets/img/Observatoire/saint-fons.jpg",
-          "imgLock":"./assets/img/Observatoire/saint-fons.jpg",
+          "imgThumbnail":"./assets/img/Observatoire/saint-fons.jpg",
+          "imgContent":"./assets/img/Observatoire/saint-fons.jpg",
           "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
           "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         }
@@ -58,8 +58,8 @@
           "y" : "5168875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interforaInterview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q1R1.mov",
+        "imgThumbnail":"./assets/img/interforaInterview.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q1R1.mov",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       },
@@ -70,8 +70,8 @@
           "y" : "5165405.73",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interview_2.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q1R2.mov",
+        "imgThumbnail":"./assets/img/interview_2.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q1R2.mov",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       },
@@ -82,20 +82,8 @@
           "y" : "5162057.53",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/IFP_interview.png",
-        "imgLock":"./../Videos/Exports films questions/Q1R3.mov",
-        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1844515.97",
-          "y" : "5168878.97",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q1R4.mov",
+        "imgThumbnail":"./assets/img/IFP_interview.png",
+        "imgContent":"./../Videos/Exports films questions/Q1R3.mov",
         "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
         "src":""
       }
@@ -108,8 +96,8 @@
           "y" : "5165242.68",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/emploieFormation.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q2R1.mov",
+        "imgThumbnail":"./assets/img/emploieFormation.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q2R1.mov",
         "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
         "src":""
       },
@@ -120,8 +108,8 @@
           "y" : "5168875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q2R2.mov",
+        "imgThumbnail":"./assets/img/interview.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q2R2.mov",
         "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
         "src":""
     },
@@ -132,8 +120,8 @@
         "y" : "5168875.27",
         "z" : "220"
       },
-      "imgUnlock":"./assets/img/interforaInterview.PNG",
-      "imgLock":"./../Videos/Exports films questions/Q2R3.mov",
+      "imgThumbnail":"./assets/img/interforaInterview.PNG",
+      "imgContent":"./../Videos/Exports films questions/Q2R3.mov",
       "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
       "src":""
     },
@@ -144,8 +132,8 @@
         "y" : "5163088.19",
         "z" : "220"
       },
-      "imgUnlock":"./assets/img/total_interview.PNG",
-      "imgLock":"./../Videos/Exports films questions/Q2R4.mov",
+      "imgThumbnail":"./assets/img/total_interview.PNG",
+      "imgContent":"./../Videos/Exports films questions/Q2R4.mov",
       "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
       "src":""
     }
@@ -154,24 +142,12 @@
       {
         "lock" : false,
         "position" :{
-          "x" : "1844357.28",
-          "y" : "5168875.27",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interforaInterview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R1.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
           "x" : "1844057.28",
           "y" : "5168875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interfora_alternant_Interview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R2.mov",
+        "imgThumbnail":"./assets/img/interfora_alternant_Interview.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q3R2.mov",
         "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
         "src":""
       },
@@ -182,32 +158,8 @@
           "y" : "5166881.05",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interview_3.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R3.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1844557.28",
-          "y" : "5168875.27",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R4.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1844357.28",
-          "y" : "5167875.27",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R5.mov",
+        "imgThumbnail":"./assets/img/interview_3.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q3R3.mov",
         "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
         "src":""
       },
@@ -218,8 +170,8 @@
           "y" : "5165242.68",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/emploieFormation.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R6.mov",
+        "imgThumbnail":"./assets/img/emploieFormation.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q3R6.mov",
         "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
         "src":""
       },
@@ -230,8 +182,8 @@
           "y" : "5167875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q3R7.mov",
+        "imgThumbnail":"./assets/img/interview_1.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q3R7.mov",
         "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
         "src":""
       }
@@ -240,24 +192,12 @@
       {
         "lock" : false,
         "position" :{
-          "x" : "1844357.28",
-          "y" : "5167875.27",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q4R1.mov",
-        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
           "x" : "1843127.78",
           "y" : "5163088.19",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/total_interview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q4R2.mov",
+        "imgThumbnail":"./assets/img/total_interview.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q4R2.mov",
         "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
         "src":""
       },
@@ -268,8 +208,8 @@
           "y" : "5167875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q4R3.mov",
+        "imgThumbnail":"./assets/img/interview_1.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q4R3.mov",
         "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
         "src":""
       },
@@ -280,20 +220,8 @@
           "y" : "5168875.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q4R4.mov",
-        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1843327.78",
-          "y" : "5163088.19",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/total_interview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q4R5.mov",
+        "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q4R4.mov",
         "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
         "src":""
       }
@@ -302,24 +230,12 @@
       {
         "lock" : false,
         "position" :{
-          "x" : "1844357.28",
-          "y" : "5168875.27",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interforaInterview.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q5R1.mov",
-        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
           "x" : "1842341.34",
           "y" : "5162057.53",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/IFP_interview.png",
-        "imgLock":"./../Videos/Exports films questions/Q5R2.mov",
+        "imgThumbnail":"./assets/img/IFP_interview.png",
+        "imgContent":"./../Videos/Exports films questions/Q5R2.mov",
         "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
         "src":""
       },
@@ -330,20 +246,8 @@
           "y" : "5168775.27",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/interforaInterview_1.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q5R3.mov",
-        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1842041.34",
-          "y" : "5162257.53",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/IFP_interview_1.png",
-        "imgLock":"./../Videos/Exports films questions/Q5R4.mov",
+        "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
+        "imgContent":"./../Videos/Exports films questions/Q5R3.mov",
         "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
         "src":""
       }
@@ -352,24 +256,12 @@
       {
         "lock" : false,
         "position" :{
-          "x" : "1842041.34",
-          "y" : "5162257.53",
+          "x" : "1842341.34",
+          "y" : "5162057.53",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/IFP_interview_1.png",
-        "imgLock":"./../Videos/Exports films questions/Q6R1.mov",
-        "text": "L’industrie chimique a-t-elle un avenir ?",
-        "src":""
-      },
-      {
-        "lock" : false,
-        "position" :{
-          "x" : "1843554.77",
-          "y" : "5165405.73",
-          "z" : "220"
-        },
-        "imgUnlock":"./assets/img/interview_2.PNG",
-        "imgLock":"./../Videos/Exports films questions/Q6R2.mov",
+        "imgThumbnail":"./assets/img/IFP_interview_1.png",
+        "imgContent":"./../Videos/Exports films questions/Q6R1.mov",
         "text": "L’industrie chimique a-t-elle un avenir ?",
         "src":""
       },
@@ -380,8 +272,8 @@
           "y" : "5162557.53",
           "z" : "220"
         },
-        "imgUnlock":"./assets/img/IFP_interview.png",
-        "imgLock":"./../Videos/Exports films questions/Q6R3.mov",
+        "imgThumbnail":"./assets/img/IFP_interview.png",
+        "imgContent":"./../Videos/Exports films questions/Q6R3.mov",
         "text": "L’industrie chimique a-t-elle un avenir ?",
         "src":""
       }

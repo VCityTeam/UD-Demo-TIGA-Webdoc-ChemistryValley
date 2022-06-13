@@ -13,8 +13,8 @@ export class EpisodeContent {
   constructor(dataContent, isVideo){
     this.isVideo = isVideo;
     this.lock = dataContent['lock'];
-    this.imgLock = null;
-    this.imgUnLock = null;
+    this.imgContent = null;
+    this.imgThumbnail = null;
     this.position = this.ParsePositionContent(dataContent['position']);
     this.text = dataContent['text'];
     this.src = dataContent['src'];
@@ -39,7 +39,7 @@ export class EpisodeContent {
      * @param {JSON} imgData 
      */
   ParseImgContent(imgData){
-    this.imgUnLock = imgData['imgUnlock'];
-    this.imgLock = imgData['imgLock'];
+    this.imgThumbnail = imgData['imgThumbnail'];
+    this.imgContent = imgData['imgContent'];
   }
 }

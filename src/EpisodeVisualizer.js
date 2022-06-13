@@ -111,7 +111,7 @@ export class EpisodeVisualizer {
   constructAllContent(visibility){
     for (let index = 0; index < this.listContents.length; index++) {
       const element = this.listContents[index];
-      let pinObjets = this.createPin(element, element.imgUnLock, element.imgLock, element.lock);
+      let pinObjets = this.createPin(element, element.imgThumbnail, element.imgContent, element.lock);
       this.visibility = visibility;
       pinObjets[0].visible = visibility;
       pinObjets[1].visible = visibility;

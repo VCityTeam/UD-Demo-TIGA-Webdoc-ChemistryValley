@@ -336,14 +336,12 @@ udviz.Components.SystemUtils.File.loadJSON(
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
       let intersects = view3D.getItownsView().pickObjectsAt(event, 1, view3D.getScene());
-      console.log(intersects);
       if ( intersects.length > 0 && intersects[ 0 ].object.name == 'episode_1' && intersects[ 0 ].object.visible == true) {
-        console.log('lol');
         let episodeContent = intersects[ 0 ].object.userData.Episodecontent;
         document.getElementById('resumeVideo').textContent = episodeContent.text;
         document.getElementById('episodeWindowVideo').hidden = false;
         document.getElementById('episodeWindowVideo').style.display = 'block';
-        document.getElementById('video-content').src = episodeContent.imgLock; //= episodeContent.imgLock;
+        document.getElementById('video-content').src = episodeContent.imgContent; //= episodeContent.imgContent;
       }
     }
   });

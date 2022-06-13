@@ -80,7 +80,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
-        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', );
+        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[0]);        
       },
@@ -93,7 +93,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
-        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html');
+        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html', './../Contenus sup/Chap02/Que_de_la_motivation_Voix.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[1]);     
       },
@@ -106,7 +106,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
-        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html');
+        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', './../Contenus sup/Chap03/De_plus_en_plus_de_competences_requises_Prof_place_Guichard.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[2]);    
       },
@@ -119,7 +119,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap4 = [['C’est quoi une raffinerie ?', './../Contenus sup/Chap04/C est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap04/Commen fidéliser/story.html']];
-        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html');
+        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html','./../Contenus sup/Chap04/Des_metiers_bien_payes_Infirmieere_Marchee.mp3');
         questionMenuDiv.hidden = true; 
         this.setObjectVisibility(this.listQuestionObject[3]);   
       },
@@ -132,7 +132,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
-        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html');
+        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html', './../Contenus sup/Chap05/Q05/Evolution_Grand_homme.mp3');
         questionMenuDiv.hidden = true; 
         this.setObjectVisibility(this.listQuestionObject[4]);   
       },
@@ -144,8 +144,7 @@ export class QuestionContent {
     elementButton6.addEventListener(
       'mousedown',
       () => {
-        let dataButtonChap6 = [[]];
-        this.createContentChap(elementButton6.textContent, dataButtonChap6,'./../Contenus sup/Chap06/Q06/story.html');
+        this.createContentChap(elementButton6.textContent, null,'./../Contenus sup/Chap06/Q06/story.html', './../Contenus sup/Chap06/Q06/Optimiste_a_long_terme_Prof_place Guichard.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[5]);    
       },
@@ -208,7 +207,7 @@ export class QuestionContent {
     }
   }
 
-  createContentChap(chapName, listData, stringQuestionUser){
+  createContentChap(chapName, listData, stringQuestionUser, avisRuePath){
 
     //Title
     let h1Element = document.createElement('h1');
@@ -222,28 +221,43 @@ export class QuestionContent {
     this.contentDivUI.hidden = false;
 
     //Button with iframe
-    for (let i = 0; i < listData.length ; i++){
-      let itemButton = document.createElement('button');
-      itemButton.id = 'button-iframe';
-      itemButton.innerText = listData[i][0]; // button name
-      ulElement.append(itemButton);
+    if (listData != null){
+      for (let i = 0; i < listData.length ; i++){
+        let itemButton = document.createElement('button');
+        itemButton.id = 'button-iframe';
+        itemButton.innerText = listData[i][0]; // button name
+        ulElement.append(itemButton);
 
-      itemButton.onclick = () => {
-        this.divInteractiveContent.hidden = false;
-        document.getElementById('iframe-video').innerHTML = 
-        '<iframe src="' + listData[i][1] + '"></iframe>';
-      };
+        itemButton.onclick = () => {
+          this.divInteractiveContent.hidden = false;
+          document.getElementById('iframe-video').innerHTML = 
+          '<iframe src="' + listData[i][1] + '"></iframe>';
+        };
+      }
     }
 
-    //Button for videos
-    let button3DContent = document.createElement('button');
-    button3DContent.id = 'button_3D_content';
-    button3DContent.textContent = 'L’avis de la rue';
-    this.contentDivUI.append(button3DContent);
-    button3DContent.onclick = () => {
-      this.divInteractiveContent.hidden = false;
-      document.getElementById('iframe-video').innerHTML = 
-      '<video src="./assets/test.mkv" controls></iframe>';
+    //Button for avis de la rue
+    let buttonAvisRue= document.createElement('button');
+    buttonAvisRue.id = 'button_avis_rue';
+    buttonAvisRue.textContent = 'L’avis de la rue';
+    this.contentDivUI.append(buttonAvisRue);
+
+
+    buttonAvisRue.onclick = () => {
+      // this.divInteractiveContent.hidden = false;
+      if (!document.getElementById('avis_rue')){
+        let audio = document.createElement('audio');
+        audio.id = 'avis_rue'; audio.setAttribute('controls','controls');
+
+        let sourceAudio = document.createElement('source');
+        sourceAudio.src = avisRuePath; sourceAudio.type = 'audio/mpeg';
+        audio.appendChild(sourceAudio);
+
+        document.getElementById('content-ui').appendChild(audio);
+      } 
+      else{
+        document.getElementById('avis_rue').remove();
+      }
     };
 
     //Button for user response
