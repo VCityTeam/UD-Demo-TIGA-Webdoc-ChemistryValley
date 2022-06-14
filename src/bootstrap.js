@@ -335,18 +335,18 @@ udviz.Components.SystemUtils.File.loadJSON(
     // };
 
     //Video of introduction
-    // let divIntro = document.createElement('div');
-    // divIntro.id = 'intro';
-    // document.getElementById('webgl_View3D').appendChild(divIntro);
-    // let videoIntro = document.createElement('video');
-    // videoIntro.src = './../Générique Dlf.m4v';
-    // videoIntro.setAttribute('controls','controls');
-    // divIntro.appendChild(videoIntro);
-    // videoIntro.autoplay = true;
+    let divIntro = document.createElement('div');
+    divIntro.id = 'intro';
+    document.getElementById('webgl_View3D').appendChild(divIntro);
+    let videoIntro = document.createElement('video');
+    videoIntro.src = './../Générique Dlf.m4v';
+    videoIntro.setAttribute('controls','controls');
+    divIntro.appendChild(videoIntro);
+    videoIntro.autoplay = true;
 
-    // videoIntro.onended = ()=>{
-    //   divIntro.remove();
-    // };
+    videoIntro.onended = ()=>{
+      divIntro.remove();
+    };
 
 
     //Show episode div

@@ -80,7 +80,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
-        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
+        this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Questions/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[0]);
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1843554.77, 5165405.73, 220), 4000, 8500);
@@ -95,7 +95,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
-        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html', './../Contenus sup/Chap02/Que_de_la_motivation_Voix.mp3');
+        this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Questions/Q02/story.html', './../Contenus sup/Chap02/Que_de_la_motivation_Voix.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[1]);  
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844147.58, 5166881.05, 220), 4000, 8800);   
@@ -109,7 +109,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
-        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', './../Contenus sup/Chap03/De_plus_en_plus_de_competences_requises_Prof_place_Guichard.mp3');
+        this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Questions/Q03/story.html', './../Contenus sup/Chap03/De_plus_en_plus_de_competences_requises_Prof_place_Guichard.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[2]); 
         
@@ -124,7 +124,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap4 = [['C’est quoi une raffinerie ?', './../Contenus sup/Chap04/C est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap04/Commen fidéliser/story.html']];
-        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html','./../Contenus sup/Chap04/Des_metiers_bien_payes_Infirmieere_Marchee.mp3');
+        this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Questions/Q04/story.html','./../Contenus sup/Chap04/Des_metiers_bien_payes_Infirmieere_Marchee.mp3');
         questionMenuDiv.hidden = true; 
         this.setObjectVisibility(this.listQuestionObject[3]);   
 
@@ -139,7 +139,7 @@ export class QuestionContent {
       'mousedown',
       () => {
         let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
-        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html', './../Contenus sup/Chap05/Q05/Evolution_Grand_homme.mp3');
+        this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Questions/Q05/story.html', './../Contenus sup/Chap05/Evolution_Grand_homme.mp3');
         questionMenuDiv.hidden = true; 
         this.setObjectVisibility(this.listQuestionObject[4]); 
         
@@ -153,7 +153,7 @@ export class QuestionContent {
     elementButton6.addEventListener(
       'mousedown',
       () => {
-        this.createContentChap(elementButton6.textContent, null,'./../Contenus sup/Chap06/Q06/story.html', './../Contenus sup/Chap06/Q06/Optimiste_a_long_terme_Prof_place Guichard.mp3');
+        this.createContentChap(elementButton6.textContent, null,'./../Questions/Q06/story.html', './../Contenus sup/Chap06/Optimiste_a_long_terme_Prof_place Guichard.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[5]);    
 
