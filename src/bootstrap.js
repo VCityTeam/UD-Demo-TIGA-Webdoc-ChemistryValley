@@ -354,6 +354,7 @@ udviz.Components.SystemUtils.File.loadJSON(
             document.getElementById('resumeVideo').textContent = episodeContent.text;
             document.getElementById('episodeWindowVideo').hidden = false;
             document.getElementById('episodeWindowVideo').style.display = 'block';
+            console.log(episodeContent.imgContent);
             document.getElementById('video-content').src = episodeContent.imgContent;
           }
         });

@@ -85,6 +85,7 @@ export class EpisodeVisualizer {
       ';
 
     let video = document.createElement('video');
+    video.id = 'video-content';
     video.setAttribute('controls','controls');
     divInteractiveContent.append(video);
     document.getElementById('WindowCloseButtonVideo').addEventListener(

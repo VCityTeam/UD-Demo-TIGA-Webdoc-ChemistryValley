@@ -242,8 +242,6 @@ export class QuestionContent {
     buttonAvisRue.id = 'button_avis_rue';
     buttonAvisRue.textContent = 'L’avis de la rue';
     this.contentDivUI.append(buttonAvisRue);
-
-
     buttonAvisRue.onclick = () => {
       // this.divInteractiveContent.hidden = false;
       if (!document.getElementById('avis_rue')){
@@ -269,8 +267,9 @@ export class QuestionContent {
 
     buttonUserResponse.onclick = () => {
       this.divInteractiveContent.hidden = false;
-      this.video.hidden = false;
-      this.iframe.src = stringQuestionUser; //path to iframe to show
+      // this.video.hidden = false;
+      document.getElementById('iframe-video').innerHTML = 
+          '<iframe src="' + stringQuestionUser + '"></iframe>';
     };
   }
 }
