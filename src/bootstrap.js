@@ -350,12 +350,13 @@ udviz.Components.SystemUtils.File.loadJSON(
       if ( intersects.length > 0 ){
         intersects.forEach(elementIntersect => {
           if(elementIntersect.object.userData.Episodecontent.lock == false){
+
             let episodeContent = elementIntersect.object.userData.Episodecontent;
             document.getElementById('resumeVideo').textContent = episodeContent.text;
             document.getElementById('episodeWindowVideo').hidden = false;
             document.getElementById('episodeWindowVideo').style.display = 'block';
-            console.log(episodeContent.imgContent);
             document.getElementById('video-content').src = episodeContent.imgContent;
+            elementIntersect.object.material.color.setRGB(0.3,0.3,0.3);
           }
         });
       }
