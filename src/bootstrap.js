@@ -321,32 +321,39 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* --------------------------------- EVENT --------------------------------- */
 
-    // let zoomDiv = document.createElement('div');
-    // zoomDiv.id = 'zoom-div';
-    // zoomDiv.innerHTML = '<input id="zoom-slider" class="slider" type="range" min="1" max="100" value="50">';
+    let zoomDiv = document.createElement('div');
+    zoomDiv.className = 'slidecontainer';
+    zoomDiv.innerHTML = '<input type="range" min="1" max="100" value="50" class="slider" id="myRange">';
     
-    // document.getElementById('webgl_View3D').append(zoomDiv);
+    document.getElementById('root_View3D').append(zoomDiv);
 
     // let slider = document.getElementById('zoom-slider');
+    var rangeslider = document.getElementById('myRange');
 
-    // // Update the current slider value (each time you drag the slider handle)
-    // slider.oninput = function() {
+    // rangeslider.addEventListener(
+    //   'mousedown',
+    //   () => {
+    //     console.log('test');
+    //   });
+
+    // Update the current slider value (each time you drag the slider handle)
+    // rangeslider.oninput = function() {
     //   console.log(this.value);
     // };
 
     //Video of introduction
-    let divIntro = document.createElement('div');
-    divIntro.id = 'intro';
-    document.getElementById('webgl_View3D').appendChild(divIntro);
-    let videoIntro = document.createElement('video');
-    videoIntro.src = './../Générique Dlf.m4v';
-    videoIntro.setAttribute('controls','controls');
-    divIntro.appendChild(videoIntro);
-    videoIntro.autoplay = true;
+    // let divIntro = document.createElement('div');
+    // divIntro.id = 'intro';
+    // document.getElementById('webgl_View3D').appendChild(divIntro);
+    // let videoIntro = document.createElement('video');
+    // videoIntro.src = './../Générique Dlf.m4v';
+    // videoIntro.setAttribute('controls','controls');
+    // divIntro.appendChild(videoIntro);
+    // videoIntro.autoplay = true;
 
-    videoIntro.onended = ()=>{
-      divIntro.remove();
-    };
+    // videoIntro.onended = ()=>{
+    //   divIntro.remove();
+    // };
 
 
     //Show episode div
