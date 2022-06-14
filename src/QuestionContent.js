@@ -159,7 +159,7 @@ export class QuestionContent {
     toggleButton.id = 'toggleButtonLeft';
     toggleButton.src = './assets/icons/icons8-arrow-24.png';
     MenuDiv.append(toggleButton);
-    toggleButton.innerHTML = '<img src="./assets/icons/logoDeroulant.png" />';
+    toggleButton.innerHTML = '<img id="themeButtonImg" src="./assets/icons/logoDeroulant.png" />';
     //Toggle button in JS because CSS is bad
     toggleButton.addEventListener(
       'mousedown',
@@ -171,8 +171,10 @@ export class QuestionContent {
         this.contentDivUI.innerHTML = '';
         if (questionMenuDiv.hidden == true) {
           questionMenuDiv.hidden = false;
+          document.getElementById('themeButtonImg').src = './assets/icons/logoCroixRouge.png';
         } else {
           questionMenuDiv.hidden = true;
+          document.getElementById('themeButtonImg').src = './assets/icons/logoDeroulant.png';
         }
       },
       false

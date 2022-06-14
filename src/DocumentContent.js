@@ -113,15 +113,17 @@ export class DocumentContent {
     toggleButton.id = 'toggleButton';
     toggleButton.src = './assets/icons/icons8-arrow-24.png';
     dataDiv.append(toggleButton);
-    toggleButton.innerHTML = '<img src="./assets/icons/logoDeroulantJaune.png" />';
+    toggleButton.innerHTML = '<img id="dataButtonImg" src="./assets/icons/logoDeroulantJaune.png" />';
     //Toggle button in JS because CSS is bad
     toggleButton.addEventListener(
       'mousedown',
       () => {
         if (contentMenuDiv.hidden == true) {
-          contentMenuDiv.hidden = false; 
+          contentMenuDiv.hidden = false; //Affiche la donnée
+          document.getElementById('dataButtonImg').src = './assets/icons/logoCroixJaune.png';
         } else {
           contentMenuDiv.hidden = true; 
+          document.getElementById('dataButtonImg').src = './assets/icons/logoDeroulantJaune.png';
         }
       },
       false
