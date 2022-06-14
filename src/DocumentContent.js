@@ -41,7 +41,7 @@ export class DocumentContent {
             <li><button id="buttonBus">Lignes de bus du réseau Transports en Commun Lyonnais</button>\
             <li><button id="buttonObservatoire">Observatoire - Vallée de la Chimie</li>\
             <li><button id="buttonEspace">Espaces naturels sensibles de la Métropole de Lyon</<button></li>\
-            <li><button id="buttonIndiceAtmo">Indice atmosphérique 2016</<button></li>\
+            <li><button id="buttonIndiceAtmo">Indice atmosphérique, Moyennes annuelles NO2</<button></li>\
             <li></li>\
         </ul>\
        ';

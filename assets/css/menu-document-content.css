@@ -36,22 +36,40 @@
     list-style-type:none;
 }
 
-#_all_menu_content h1
+#menu-document-content h1
 {
     font-family: 'Roboto';
     /* text-align: right; */
     font-weight: bold;
     font-size: 35px;
-    color:#FFFFFF;
+    color:#f3c130;
 }
 
-#_all_menu_content h2
+#menu-question h1
+{
+    font-family: 'Roboto';
+    /* text-align: right; */
+    font-weight: bold;
+    font-size: 35px;
+    color:#ff5851;
+}
+
+#menu-question h2
 {
     font-family: 'Roboto', sans-serif;
     /* text-align: right; */
     font-weight: bold;
     font-size: 15px;
-    color:#FFFFFF;
+    color:#ff5851;
+}
+
+#menu-document-content h2
+{
+    font-family: 'Roboto', sans-serif;
+    /* text-align: right; */
+    font-weight: bold;
+    font-size: 15px;
+    color:#f3c130;
 }
 
 #_all_menu_content h3

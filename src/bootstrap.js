@@ -190,7 +190,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     view3D.getItownsView().addLayer(randoLayer);
 
-    //--------------------------------------------------------- Create a ColorLayer for Natural sources ---------------------------------------------------------
+    ////--- Create a ColorLayer for Natural sources ---////
     const espaceNaturelSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envens&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
@@ -244,8 +244,8 @@ udviz.Components.SystemUtils.File.loadJSON(
     ////--- WMS indice atmo ---////
     let wmsAtmoSource = new udviz.itowns.WMSSource({
       extent: view3D.extent,
-      name: 'mod_aura_2016_no2_moyan',
-      url: 'https://sig.atmo-auvergnerhonealpes.fr/geoserver/mod_aura_region_2016/wms',
+      name: 'NO2_moyan_2021',
+      url: 'https://sig.atmo-auvergnerhonealpes.fr/geoserver/mod_aura_region_2021/wms',
       version: '1.3.0',
       projection: 'EPSG:3946',
       format: 'image/jpeg',
@@ -335,18 +335,18 @@ udviz.Components.SystemUtils.File.loadJSON(
     // };
 
     //Video of introduction
-    let divIntro = document.createElement('div');
-    divIntro.id = 'intro';
-    document.getElementById('webgl_View3D').appendChild(divIntro);
-    let videoIntro = document.createElement('video');
-    videoIntro.src = './../Générique Dlf.m4v';
-    videoIntro.setAttribute('controls','controls');
-    divIntro.appendChild(videoIntro);
-    videoIntro.autoplay = true;
+    // let divIntro = document.createElement('div');
+    // divIntro.id = 'intro';
+    // document.getElementById('webgl_View3D').appendChild(divIntro);
+    // let videoIntro = document.createElement('video');
+    // videoIntro.src = './../Générique Dlf.m4v';
+    // videoIntro.setAttribute('controls','controls');
+    // divIntro.appendChild(videoIntro);
+    // videoIntro.autoplay = true;
 
-    videoIntro.onended = ()=>{
-      divIntro.remove();
-    };
+    // videoIntro.onended = ()=>{
+    //   divIntro.remove();
+    // };
 
 
     //Show episode div

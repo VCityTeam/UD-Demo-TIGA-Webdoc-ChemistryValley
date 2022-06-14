@@ -19,16 +19,20 @@ export class HelpWindow extends Widgets.Components.ModuleView {
 
     // Create HMTL div whit content
     document.getElementById('helpWindow').innerHTML =
-      '<a href="https://github.com/VCityTeam/UD-Viz/blob/master/Doc/User/ContributeData.md">Tutoriel</a>\
-         <h3>Control de la camera:</h3>\
+      '<h1>Bienvenue sur la carte interactive de la Vallée de la Chimie </h1>\
+         <h3 id="theme">La Vallée de la chimie de l’intérieur</h3>\
+         <p>Le panneau à gauche de la carte vous permet de découvrir ce territoire à travers différentes thématiques sur celle-ci. Des micro-trottoires et des vidéos de travailleurs de la vallée sont disposés dans la carte interactive afin de mieux découvrir cet espace. </p>\
+         <h3 id="data">Les données de la vallée de la chimie</h3>\
+         <p>Le panneau de droite permet de visualiser la vallée à travers des données urbaines. L’indice atmosphérique ou le réseau de transports en communs vous permetterons de découvrir ce territoire d’une autre manière</p>\
+         <h3 id="controle">Vous pouvez vous déplacer à l’aide des contrôle de la camera</h3>\
          <ul>\
-            <li>Click-gauche: translation de la camera (drag)</li>\
-            <li>Click-droit: camera translation (pan)</li>\
-            <li>Ctrl + Click-gauche: rotation de la camera (orbit)</li>\
-            <li>Espace / Click-molette: zoom sur une zone</li>\
+            <li>Clique-gauche: translation de la camera (drag)</li>\
+            <li>Clique-droit: camera translation (pan)</li>\
+            <li>Ctrl + Clique-gauche: rotation de la camera (orbit)</li>\
+            <li>Espace / Clique-molette: zoom sur une zone</li>\
             <li>Molette: zoom </li>\
          </ul>\
-         <button id="CloseButton">Close</button>\
+         <button id="CloseButton">Fermer</button>\
         '; 
     // Close the window...when close button is hit
     document.getElementById('CloseButton').addEventListener(
