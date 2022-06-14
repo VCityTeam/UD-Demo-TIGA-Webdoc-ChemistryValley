@@ -268,12 +268,12 @@
       {
         "lock" : false,
         "position" :{
-          "x" : "1842241.34",
-          "y" : "5162557.53",
+          "x" : "1843554.77",
+          "y" : "5165405.73",
           "z" : "220"
         },
-        "imgThumbnail":"./assets/img/IFP_interview.png",
-        "imgContent":"./../Videos/Exports films questions/Q6R3.mov",
+        "imgThumbnail":"./assets/img/interview_2.PNG",
+        "imgLock":"./../Videos/Exports films questions/Q6R2.mov",
         "text": "L’industrie chimique a-t-elle un avenir ?",
         "src":""
       }

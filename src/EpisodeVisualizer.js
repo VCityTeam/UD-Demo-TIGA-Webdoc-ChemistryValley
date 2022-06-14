@@ -38,10 +38,6 @@ export class EpisodeVisualizer {
     */
   createPin(episodeContent, imgThumbnail){
     let pictureTexture;
-    // if (lock)
-    //   pictureTexture = new THREE.TextureLoader().load(imageSrcLock);
-    // else
-    //   pictureTexture = new THREE.TextureLoader().load(imageSrc);
     pictureTexture = new THREE.TextureLoader().load(imgThumbnail);
     //Pins object
     const pinsTexture = new THREE.TextureLoader().load('./assets/img/1200px-Google_Maps_pin.svg.png');

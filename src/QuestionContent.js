@@ -83,6 +83,7 @@ export class QuestionContent {
         this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Chap01/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[0]);
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1843554.77, 5165405.73, 220), 4000, 8500);
                 
       },
       false
@@ -96,7 +97,8 @@ export class QuestionContent {
         let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
         this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Chap02/Q02/story.html', './../Contenus sup/Chap02/Que_de_la_motivation_Voix.mp3');
         questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[1]);     
+        this.setObjectVisibility(this.listQuestionObject[1]);  
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844147.58, 5166881.05, 220), 4000, 8800);   
       },
       false
     );
@@ -109,7 +111,9 @@ export class QuestionContent {
         let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
         this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Chap03/Q03/story.html', './../Contenus sup/Chap03/De_plus_en_plus_de_competences_requises_Prof_place_Guichard.mp3');
         questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[2]);    
+        this.setObjectVisibility(this.listQuestionObject[2]); 
+        
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844147.58, 5166881.05, 220), 4000, 8800);
       },
       false
     );
@@ -123,6 +127,8 @@ export class QuestionContent {
         this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Chap04/Q04/story.html','./../Contenus sup/Chap04/Des_metiers_bien_payes_Infirmieere_Marchee.mp3');
         questionMenuDiv.hidden = true; 
         this.setObjectVisibility(this.listQuestionObject[3]);   
+
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844032.16, 5165242.68, 220), 4000, 8800);
       },
       false
     );
@@ -135,7 +141,9 @@ export class QuestionContent {
         let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
         this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Chap05/Q05/story.html', './../Contenus sup/Chap05/Q05/Evolution_Grand_homme.mp3');
         questionMenuDiv.hidden = true; 
-        this.setObjectVisibility(this.listQuestionObject[4]);   
+        this.setObjectVisibility(this.listQuestionObject[4]); 
+        
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844032.16, 5165242.68, 220), 4000, 9800);
       },
       false
     );
@@ -148,6 +156,8 @@ export class QuestionContent {
         this.createContentChap(elementButton6.textContent, null,'./../Contenus sup/Chap06/Q06/story.html', './../Contenus sup/Chap06/Q06/Optimiste_a_long_terme_Prof_place Guichard.mp3');
         questionMenuDiv.hidden = true;
         this.setObjectVisibility(this.listQuestionObject[5]);    
+
+        this.travellingViewToSeeContent(new udviz.THREE.Vector3(1842948.055, 5163731.63, 220), 4000, 7800);
       },
       false
     );
@@ -274,4 +284,14 @@ export class QuestionContent {
           '<iframe src="' + stringQuestionUser + '"></iframe>';
     };
   }
+
+  travellingViewToSeeContent(position, verticalDist, horizonDist){
+    udviz.Components.focusCameraOn(this.view3D.getItownsView(),
+      this.view3D.getItownsView().controls,
+      new udviz.THREE.Vector3(position.x, position.y, position.z),
+      {duration: 1,
+        verticalDistance : verticalDist,
+        horizontalDistance : horizonDist});
+  }
+
 }
