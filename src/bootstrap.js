@@ -334,6 +334,20 @@ udviz.Components.SystemUtils.File.loadJSON(
     //   console.log(this.value);
     // };
 
+    //Video of introduction
+    let divIntro = document.createElement('div');
+    divIntro.id = 'intro';
+    document.getElementById('webgl_View3D').appendChild(divIntro);
+    let videoIntro = document.createElement('video');
+    videoIntro.src = './../Générique Dlf.m4v';
+    videoIntro.setAttribute('controls','controls');
+    divIntro.appendChild(videoIntro);
+    videoIntro.autoplay = true;
+
+    videoIntro.onended = ()=>{
+      divIntro.remove();
+    };
+
 
     //Show episode div
     function onDocumentMouseClick( event ) {    
@@ -349,14 +363,14 @@ udviz.Components.SystemUtils.File.loadJSON(
 
       if ( intersects.length > 0 ){
         intersects.forEach(elementIntersect => {
-          if(elementIntersect.object.userData.Episodecontent.lock == false){
-
+          console.log();
+          if(elementIntersect.object.visible == true){
             let episodeContent = elementIntersect.object.userData.Episodecontent;
             document.getElementById('resumeVideo').textContent = episodeContent.text;
             document.getElementById('episodeWindowVideo').hidden = false;
             document.getElementById('episodeWindowVideo').style.display = 'block';
             document.getElementById('video-content').src = episodeContent.imgContent;
-            elementIntersect.object.material.color.setRGB(0.3,0.3,0.3);
+            elementIntersect.object.material.color.setRGB(0.3, 0.3, 0.3);
           }
         });
       }
