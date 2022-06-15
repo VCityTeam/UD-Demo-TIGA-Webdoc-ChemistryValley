@@ -151,7 +151,7 @@ body{
     position: absolute;
     width: 30%;
     height: 5%;
-
+    display: inline-block;
     /* Magic trick to center */
     left: 0;
     right: 0;
@@ -160,14 +160,20 @@ body{
     bottom: 50px;
     z-index: 10;
     background-color: #00000088;
+    list-style-type: none;
 
 }
+
+.slidecontainer li {
+    display: inline-block;
+    padding: 5px;
+  }
 
 /* The slider itself */
 .slider {
     -webkit-appearance: none;
     position: absolute;
-    width: 80%;
+    width: 40%;
     height: 2px;
     border-radius: 5px;  
     background: #ffffff;

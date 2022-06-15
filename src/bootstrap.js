@@ -321,9 +321,12 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* --------------------------------- EVENT --------------------------------- */
 
-    let zoomDiv = document.createElement('div');
+    let zoomDiv = document.createElement('nav');
     zoomDiv.className = 'slidecontainer';
-    zoomDiv.innerHTML = '<input type="range" min="1" max="100" value="50" class="slider" id="myRange">';
+    zoomDiv.innerHTML = 
+    '<li><h3>-</h3></li>\
+    <li><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>\
+    <li><h3>+</h3></li>';
     
     document.getElementById('root_View3D').append(zoomDiv);
 

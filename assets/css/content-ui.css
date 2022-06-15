@@ -39,7 +39,7 @@
     /* border-width: 5px; */
     border: 3px solid rgb(255, 255, 255);
     font-family: 'Roboto', sans-serif;
-    text-align: left;
+    text-align: center;
     font-size: 20px;
     font-weight: bold;
 
@@ -99,6 +99,7 @@
 }
 #button_avis_rue {
     position: absolute;
+    width: 150px;
     top: 95%;
     left: 35%;
     background-color: #414a6b;
@@ -118,6 +119,7 @@
 
 #button_user_response {
     position: absolute;
+    width: 150px;
     top: 95%;
     right: 35%;
     background-color: #f3c130; 
