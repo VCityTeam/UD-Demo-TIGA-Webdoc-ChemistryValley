@@ -120,7 +120,7 @@
 } 
 
 #toggleButton{
-    right: 30%;
+    right: 60%;
     top: 2%;
     position: absolute;
     border-width: 0;
@@ -135,7 +135,7 @@
 }
 
 #toggleButtonLeft{
-    left: 30%;
+    left: 60%;
     top: 2%;
     position: absolute;
     border-width: 0;

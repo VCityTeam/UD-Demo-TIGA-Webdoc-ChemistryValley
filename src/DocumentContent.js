@@ -42,7 +42,7 @@ export class DocumentContent {
             <li><button id="buttonObservatoire">Observatoire - Vallée de la Chimie</li>\
             <li><button id="buttonEspace">Espaces naturels sensibles de la Métropole de Lyon</<button></li>\
             <li><button id="buttonIndiceAtmo">Indice atmosphérique, Moyennes annuelles NO2</<button></li>\
-            <li></li>\
+            <li><button id="buttonReset">Réinitialiser les données</<button></li>\
         </ul>\
        ';
 
@@ -102,6 +102,19 @@ export class DocumentContent {
         }else{
           this.view3D.layerManager.getLayers()[7].visible = false;
         }
+        this.view3D.getItownsView().notifyChange();
+      },
+      false
+    );
+
+    //Reset Callback
+    document.getElementById('buttonReset').addEventListener(
+      'mousedown',
+      () => {
+        this.view3D.layerManager.getLayers()[7].visible = false;
+        this.view3D.layerManager.getLayers()[5].visible = false;
+        this.view3D.layerManager.getLayers()[3].visible = false;
+        this.listEpisodeVisualizer.setVisibility(false);
         this.view3D.getItownsView().notifyChange();
       },
       false

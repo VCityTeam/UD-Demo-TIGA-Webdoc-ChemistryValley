@@ -316,21 +316,31 @@ udviz.Components.SystemUtils.File.loadJSON(
     
     document.getElementById('root_View3D').append(zoomDiv);
 
-    // let slider = document.getElementById('zoom-slider');
-    var rangeslider = document.getElementById('myRange');
-
-    // rangeslider.addEventListener(
-    //   'mousedown',
-    //   () => {
-    //     console.log('test');
-    //   });
-
+    let rangeslider = document.getElementById('myRange');
     // Update the current slider value (each time you drag the slider handle)
+    let lastValue = 50;
     rangeslider.oninput = function() {
-      console.log(view3D.itownsView);
-      view3D.itownsView.controls.zoomInFactor ++;
+      let scaleZoom = 50;
+      if (lastValue < this.value){
+        scaleZoom = 50;
+      }else{
+        scaleZoom = -50;
+      }
+      let direction = new udviz.THREE.Vector3();
+      view3D.getCamera().getWorldDirection(direction);
+      let camera = view3D.getCamera().position;
+      
+      direction =  new udviz.THREE.Vector3(direction.x * scaleZoom, direction.y * scaleZoom, direction.z * scaleZoom);
+      camera.set(camera.x + direction.x, camera.y + direction.y, camera.z + direction.z);
+
+      lastValue = this.value;
     };
 
+    // rangeslider.on
+
+    console.log(view3D.getCamera());
+    
+    // .computeTileZoomFromDistanceCamera(this.getRange(), this.view.camera)
     //Compass update with camera
     var dir = new udviz.THREE.Vector3();
     var sph = new udviz.THREE.Spherical();

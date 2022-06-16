@@ -33,7 +33,7 @@ export class HelpWindow extends Widgets.Components.ModuleView {
             <li>Molette: zoom </li>\
          </ul>\
          <h3 id="partenaire">Les dessous de la carte</h3>\
-         <p>Projet s’appuyant sur la plateforme de recherche du LIRIS <a href="https://github.com/VCityTeam/UD-SV">UD-SV</a>. Micro-trottoirs réalisés par <a href="https://www.tuba-lyon.com/">Tubà</a>. Vidéos réalisées par <a href="https://www.interfora-ifaip.fr/">Interfora</a></p>\
+         <p>Projet s’appuyant sur la plateforme de recherche du LIRIS <a href="https://github.com/VCityTeam/UD-SV">UD-SV</a>. Micro-trottoirs réalisés par <a href="https://www.tuba-lyon.com/">Tubà</a>. Vidéos réalisées par <a href="https://www.interfora-ifaip.fr/">Interfora</a>. Les données sont issues de <a href="https://data.grandlyon.com/">data.grandlyon.com</a>.</p>\
          <button id="CloseButton">Fermer</button>\
         '; 
     // Close the window...when close button is hit
