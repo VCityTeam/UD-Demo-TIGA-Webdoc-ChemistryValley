@@ -22,6 +22,10 @@
 #helpWindow #theme{
   color: #ff5851;
 }
+#helpWindow #partenaire{
+  color: #42AAF1;
+}
+
 #helpWindow, .text {
   z-index: 2;
   color: #eee;

@@ -22,9 +22,9 @@ export class HelpWindow extends Widgets.Components.ModuleView {
       '<h1>Bienvenue sur la carte interactive de la Vallée de la Chimie </h1>\
          <h3 id="theme">La Vallée de la chimie de l’intérieur</h3>\
          <p>Le panneau à gauche de la carte vous permet de découvrir ce territoire à travers différentes thématiques sur celle-ci. Des micro-trottoires et des vidéos de travailleurs de la vallée sont disposés dans la carte interactive afin de mieux découvrir cet espace. </p>\
-         <h3 id="data">Les données de la vallée de la chimie</h3>\
+         <h3 id="data">Les données de la Vallée de la chimie</h3>\
          <p>Le panneau de droite permet de visualiser la vallée à travers des données urbaines. L’indice atmosphérique ou le réseau de transports en communs vous permetterons de découvrir ce territoire d’une autre manière</p>\
-         <h3 id="controle">Vous pouvez vous déplacer à l’aide des contrôle de la camera</h3>\
+         <h3 id="controle">Les contrôles de la caméra</h3>\
          <ul>\
             <li>Clique-gauche: translation de la camera (drag)</li>\
             <li>Clique-droit: camera translation (pan)</li>\
@@ -32,6 +32,8 @@ export class HelpWindow extends Widgets.Components.ModuleView {
             <li>Espace / Clique-molette: zoom sur une zone</li>\
             <li>Molette: zoom </li>\
          </ul>\
+         <h3 id="partenaire">Les dessous de la carte</h3>\
+         <p>Projet s’appuyant sur la plateforme de recherche du LIRIS <a href="https://github.com/VCityTeam/UD-SV">UD-SV</a>. Micro-trottoirs réalisés par <a href="https://www.tuba-lyon.com/">Tubà</a>. Vidéos réalisées par <a href="https://www.interfora-ifaip.fr/">Interfora</a></p>\
          <button id="CloseButton">Fermer</button>\
         '; 
     // Close the window...when close button is hit
