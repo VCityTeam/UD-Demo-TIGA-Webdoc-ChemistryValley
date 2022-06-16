@@ -107,9 +107,9 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Observatoire 
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
-    const observatoire = new EpisodeVisualizer('episode_1', view3D, listContentsObservatoire);  
+    const observatoire = new EpisodeVisualizer('observatoire', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false);
-
+    Array.prototype.push.apply(pictureObjects, observatoire.pictureObjects);
     observatoire.constructHtmlVideos();
 
     /* ---- UI ---- */
@@ -123,22 +123,6 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );
 
-    //Compass img element
-    const compass = document.createElement('img');
-    compass.src = './assets/img/compass.png';
-    compass.id = 'compass';
-    document.getElementById('webgl_View3D').appendChild(compass);
-
-    //Compass update with camera
-    var dir = new udviz.THREE.Vector3();
-    var sph = new udviz.THREE.Spherical();
-    view3D.getRenderer().setAnimationLoop(() => {
-      view3D.getRenderer().render(scene3D, view3D.getCamera());
-      view3D.getCamera().getWorldDirection(dir);
-      sph.setFromVector3(dir);
-      compass.style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
-    });
-    
     ////--------------------------------DataGrandLyon Layers--------------------------------///
     const busSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=tcl_sytral.tcllignebus_2_0_0&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
@@ -324,9 +308,11 @@ udviz.Components.SystemUtils.File.loadJSON(
     let zoomDiv = document.createElement('nav');
     zoomDiv.className = 'slidecontainer';
     zoomDiv.innerHTML = 
-    '<li><h3>-</h3></li>\
-    <li><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>\
-    <li><h3>+</h3></li>';
+    '<h2>Zoom</h2>\
+    <h3 id="zoomMoins">-</h3>\
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">\
+    <h3 id="zoomPlus">+</h3>\
+    <img src="./assets/img/compass.png" id="compass" style="transform: rotate(-43.4214deg);">';
     
     document.getElementById('root_View3D').append(zoomDiv);
 
@@ -340,9 +326,20 @@ udviz.Components.SystemUtils.File.loadJSON(
     //   });
 
     // Update the current slider value (each time you drag the slider handle)
-    // rangeslider.oninput = function() {
-    //   console.log(this.value);
-    // };
+    rangeslider.oninput = function() {
+      console.log(view3D.itownsView);
+      view3D.itownsView.controls.zoomInFactor ++;
+    };
+
+    //Compass update with camera
+    var dir = new udviz.THREE.Vector3();
+    var sph = new udviz.THREE.Spherical();
+    view3D.getRenderer().setAnimationLoop(() => {
+      view3D.getRenderer().render(scene3D, view3D.getCamera());
+      view3D.getCamera().getWorldDirection(dir);
+      sph.setFromVector3(dir);
+      document.getElementById('compass').style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
+    });
 
     //Video of introduction
     // let divIntro = document.createElement('div');
@@ -379,7 +376,15 @@ udviz.Components.SystemUtils.File.loadJSON(
             document.getElementById('resumeVideo').textContent = episodeContent.text;
             document.getElementById('episodeWindowVideo').hidden = false;
             document.getElementById('episodeWindowVideo').style.display = 'block';
-            document.getElementById('video-content').src = episodeContent.imgContent;
+
+            if ( elementIntersect.object.userData.Episodecontent.isVideo){             
+              document.getElementById('video-content').hidden = false;
+              document.getElementById('video-content').src = episodeContent.imgContent;
+              
+            }else{
+              document.getElementById('video-content').hidden = true;
+              document.getElementById('img-content').src = episodeContent.imgContent;
+            }
             elementIntersect.object.material.color.setRGB(0.3, 0.3, 0.3);
           }
         });

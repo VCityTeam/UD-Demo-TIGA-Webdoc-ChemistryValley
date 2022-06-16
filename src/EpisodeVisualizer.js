@@ -77,6 +77,7 @@ export class EpisodeVisualizer {
     document.getElementById('webgl_View3D').append(divInteractiveContent);
     divInteractiveContent.innerHTML = 
       '<h1 id="resumeVideo"></h1>\
+      <img id="img-content" src=""></img>\
       <button id="WindowCloseButtonVideo"><img src="./assets/icons/logoCroixRouge.png" /></button>\
       ';
 
@@ -91,6 +92,7 @@ export class EpisodeVisualizer {
         divInteractiveContent.hidden = true;
         // this.image.src = '';
         video.src = '';
+        document.getElementById('img-content').src = '';
       },
       false
     );

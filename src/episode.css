@@ -9,6 +9,16 @@
     width: 50%;
     z-index: 5;
 }
+
+#video-content {
+    width: 100%;
+    height: auto;
+}
+
+#img-content {
+    width: 100%;
+    height: auto;
+}
 #episodeWindowVideo button{
     position: absolute;
     left: 97%;

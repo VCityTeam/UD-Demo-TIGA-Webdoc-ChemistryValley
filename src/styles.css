@@ -149,7 +149,7 @@ body{
 
 .slidecontainer{
     position: absolute;
-    width: 30%;
+    width: 27%;
     height: 5%;
     display: inline-block;
     /* Magic trick to center */
@@ -164,11 +164,6 @@ body{
 
 }
 
-.slidecontainer li {
-    display: inline-block;
-    padding: 5px;
-  }
-
 /* The slider itself */
 .slider {
     -webkit-appearance: none;
@@ -180,7 +175,7 @@ body{
     outline: none;
     /* Magic trick to center */
     left: 0;
-    right: 0;
+    right: 20px;
     top: 0;
     bottom: 0;
     margin-top: auto;
@@ -214,6 +209,30 @@ body{
     border-right : 7px solid transparent;
     border-left : 8px solid transparent;
     cursor:pointer;
+  }
+
+  .slidecontainer h3{
+    color: #ffffff;
+  }
+
+  .slidecontainer h2{
+    position: absolute;
+    top : 20%;
+    left: 2%; 
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .slidecontainer #zoomPlus{
+    position: absolute;
+    right: 23%;
+    top: 20%
+  }
+
+  .slidecontainer #zoomMoins{
+    position: absolute;
+    left: 20%;
+    top: 20%
   }
 
 
