@@ -157,7 +157,7 @@ body{
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    bottom: 70px;
+    bottom: 10%;
     z-index: 10;
     background-color: #00000088;
     list-style-type: none;
@@ -213,26 +213,32 @@ body{
 
   .slidecontainer h3{
     color: #ffffff;
+    top: 20%;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .slidecontainer h2{
     position: absolute;
-    top : 20%;
     left: 2%; 
     font-size: 20px;
     color: #ffffff;
+    top: 20%;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .slidecontainer #zoomPlus{
     position: absolute;
     right: 23%;
-    top: 20%
+
   }
 
   .slidecontainer #zoomMoins{
     position: absolute;
     left: 20%;
-    top: 20%
   }
 
 

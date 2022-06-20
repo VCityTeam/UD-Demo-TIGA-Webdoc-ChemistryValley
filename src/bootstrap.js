@@ -332,7 +332,6 @@ udviz.Components.SystemUtils.File.loadJSON(
       
       direction =  new udviz.THREE.Vector3(direction.x * scaleZoom, direction.y * scaleZoom, direction.z * scaleZoom);
       camera.set(camera.x + direction.x, camera.y + direction.y, camera.z + direction.z);
-
       lastValue = this.value;
     };
 
