@@ -265,6 +265,7 @@ export class QuestionContent {
         audio.appendChild(sourceAudio);
 
         document.getElementById('content-ui').appendChild(audio);
+        audio.autoplay = true;
       } 
       else{
         document.getElementById('avis_rue').remove();
