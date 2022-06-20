@@ -12,17 +12,22 @@
 }
 #helpWindow h1{
   font-weight: bold;
+  font-size: 2vw;
 }
 #helpWindow #controle{
+  font-size: 1.5vw;
   color: #b32f77;
 }
 #helpWindow #data{
+  font-size: 1.5vw;
   color: #f3c130;
 }
 #helpWindow #theme{
+  font-size: 1.5vw;
   color: #ff5851;
 }
 #helpWindow #partenaire{
+  font-size: 1.5vw;
   color: #42AAF1;
 }
 
@@ -31,8 +36,6 @@
   color: #eee;
   font: 1vw 'Roboto', sans-serif;
   max-width: 40%;
-  /* background: #1a1a1a; */
-  /* opacity: 0.8; */
   padding: 10px;
 }
 #CloseButton{

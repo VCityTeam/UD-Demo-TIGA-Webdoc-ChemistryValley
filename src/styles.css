@@ -148,16 +148,16 @@ body{
   }
 
 .slidecontainer{
-    position: absolute;
+    position: fixed;
     width: 27%;
     height: 5%;
-    display: inline-block;
+    display: flex;
     /* Magic trick to center */
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    bottom: 10%;
+    bottom: 6%;
     z-index: 10;
     background-color: #00000088;
     list-style-type: none;
