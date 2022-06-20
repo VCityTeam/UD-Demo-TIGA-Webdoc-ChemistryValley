@@ -59,9 +59,10 @@ hr {
 }
 
 #compass{
-  position : absolute;
-  right : 5px;
-  bottom : 5px;
-  height : 10%;
-  width : 10%;
+  position : fixed;
+  display: flex;
+  right : 37%;
+  bottom : 6.5%;
+  height : 4%;
+
 }
