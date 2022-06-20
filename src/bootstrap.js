@@ -336,11 +336,6 @@ udviz.Components.SystemUtils.File.loadJSON(
       lastValue = this.value;
     };
 
-    // rangeslider.on
-
-    console.log(view3D.getCamera());
-    
-    // .computeTileZoomFromDistanceCamera(this.getRange(), this.view.camera)
     //Compass update with camera
     var dir = new udviz.THREE.Vector3();
     var sph = new udviz.THREE.Spherical();
@@ -352,18 +347,26 @@ udviz.Components.SystemUtils.File.loadJSON(
     });
 
     //Video of introduction
-    // let divIntro = document.createElement('div');
-    // divIntro.id = 'intro';
-    // document.getElementById('webgl_View3D').appendChild(divIntro);
-    // let videoIntro = document.createElement('video');
-    // videoIntro.src = './../Générique Dlf.m4v';
-    // videoIntro.setAttribute('controls','controls');
-    // divIntro.appendChild(videoIntro);
-    // videoIntro.autoplay = true;
+    let divIntro = document.createElement('div');
+    divIntro.id = 'intro';
+    document.getElementById('webgl_View3D').appendChild(divIntro);
+    let videoIntro = document.createElement('video');
+    videoIntro.src = './../Générique Dlf.m4v';
+    videoIntro.setAttribute('controls','controls');
+    divIntro.appendChild(videoIntro);
+    videoIntro.autoplay = true;
 
-    // videoIntro.onended = ()=>{
-    //   divIntro.remove();
-    // };
+    let buttonIntro = document.createElement('button');
+    buttonIntro.textContent = 'Passer l’into';
+    divIntro.appendChild(buttonIntro);
+
+    buttonIntro.addEventListener(
+      'mousedown',
+      () => { divIntro.remove(); });
+
+    videoIntro.onended = ()=>{
+      divIntro.remove();
+    };
 
 
     //Show episode div

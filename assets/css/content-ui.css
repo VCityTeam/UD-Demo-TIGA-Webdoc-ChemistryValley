@@ -100,7 +100,7 @@
 #button_avis_rue {
     position: absolute;
     width: 150px;
-    top: 95%;
+    top: 93%;
     left: 35%;
     background-color: #414a6b;
     border-color: #FFFFFF;
@@ -111,16 +111,10 @@
     border-color: #d4d2d2;
 }
 
-#avis_rue {
-    position: absolute;
-    top: 80%;
-    left: 40%;
-}
-
 #button_user_response {
     position: absolute;
     width: 150px;
-    top: 95%;
+    top: 93%;
     right: 35%;
     background-color: #f3c130; 
     border-color: #FFFFFF;
