@@ -60,7 +60,7 @@
         },
         "imgThumbnail":"./assets/img/interforaInterview.PNG",
         "imgContent":"./../Contenus sup/Videos/Q1R1.mov",
-        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "text": "La perception de l'industrie chimique : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP ",
         "src":""
       },
       {
@@ -72,7 +72,7 @@
         },
         "imgThumbnail":"./assets/img/interview_2.PNG",
         "imgContent":"./../Contenus sup/Videos/Q1R2.mov",
-        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "text": "La perception de l'industrie chimique : Yannick JAN - Directeur Site Kem One St-Fons",
         "src":""
       },
       {
@@ -84,7 +84,7 @@
         },
         "imgThumbnail":"./assets/img/IFP_interview.png",
         "imgContent":"./../Contenus sup/Videos/Q1R3.mov",
-        "text": "L’industrie chimique est-elle sale, polluante et mauvaise ?",
+        "text": "La perception de l'industrie chimique : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
         "src":""
       }
     ], 
@@ -98,7 +98,7 @@
         },
         "imgThumbnail":"./assets/img/emploieFormation.PNG",
         "imgContent":"./../Contenus sup/Videos/Q2R1.mov",
-        "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+        "text": "Les compétences nécessaires : Delphine NAILLON - Directrice la maison de l'emploi de St-Fons",
         "src":""
       },
       {
@@ -110,33 +110,33 @@
         },
         "imgThumbnail":"./assets/img/interview.PNG",
         "imgContent":"./../Contenus sup/Videos/Q2R2.mov",
-        "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
+        "text": "Les compétences nécessaires : Yannick BELLEC - HR Business Partner Elkem",
         "src":""
-    },
-    {
-      "lock" : false,
-      "position" :{
-        "x" : "1844357.28",
-        "y" : "5168875.27",
-        "z" : "220"
       },
-      "imgThumbnail":"./assets/img/interforaInterview.PNG",
-      "imgContent":"./../Contenus sup/Videos/Q2R3.mov",
-      "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
-      "src":""
-    },
-    {
-      "lock" : false,
-      "position" :{
-        "x" : "1843127.78",
-        "y" : "5163088.19",
-        "z" : "220"
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interforaInterview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R3.mov",
+        "text": "Les compétences nécessaires : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
+        "src":""
       },
-      "imgThumbnail":"./assets/img/total_interview.PNG",
-      "imgContent":"./../Contenus sup/Videos/Q2R4.mov",
-      "text": "La motivation suffit-elle pour travailler dans l’industrie chimique ?",
-      "src":""
-    }
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843127.78",
+          "y" : "5163088.19",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/total_interview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R4.mov",
+        "text": "Les compétences nécessaires : Farid BOUCHIA - Opérateur extérieur raffinerie Total Energie",
+        "src":""
+      }
     ],
     [
       {
@@ -148,7 +148,7 @@
         },
         "imgThumbnail":"./assets/img/interfora_alternant_Interview.PNG",
         "imgContent":"./../Contenus sup/Videos/Q3R2.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "text": "Qui peut travailler dans l'industrie chimique : Luca BOMBACE - Alternant Sanofi Pasteur / Interfora IFAIP",
         "src":""
       },
       {
@@ -160,7 +160,7 @@
         },
         "imgThumbnail":"./assets/img/interview_3.PNG",
         "imgContent":"./../Contenus sup/Videos/Q3R3.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "text": "Qui peut travailler dans l'industrie chimique : Élodie NOLY-COIN - HR Expert / Recrutement Elkem",
         "src":""
       },
       {
@@ -172,7 +172,7 @@
         },
         "imgThumbnail":"./assets/img/emploieFormation.PNG",
         "imgContent":"./../Contenus sup/Videos/Q3R6.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "text": "Qui peut travailler dans l'industrie chimique : Delphine NAILLON - Directrice la maison de l'emploi de St-Fons",
         "src":""
       },
       {
@@ -184,7 +184,7 @@
         },
         "imgThumbnail":"./assets/img/interview_1.PNG",
         "imgContent":"./../Contenus sup/Videos/Q3R7.mov",
-        "text": "Tout le monde peut-il travailler dans l’industrie chimique ?",
+        "text": "Qui peut travailler dans l'industrie chimique : Yannick BELLEC - HR Business Partner Elkem",
         "src":""
       }
     ],
@@ -198,7 +198,7 @@
         },
         "imgThumbnail":"./assets/img/total_interview.PNG",
         "imgContent":"./../Contenus sup/Videos/Q4R2.mov",
-        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "text": "Le travail dans l'industrie chimique : Farid BOUCHIA - Opérateur extérieur raffinerie Total Energie",
         "src":""
       },
       {
@@ -210,7 +210,7 @@
         },
         "imgThumbnail":"./assets/img/interview_1.PNG",
         "imgContent":"./../Contenus sup/Videos/Q4R3.mov",
-        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "text": "Le travail dans l'industrie chimique : Yannick BELLEC - HR Business Partner Elkem",
         "src":""
       },
       {
@@ -222,7 +222,7 @@
         },
         "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
         "imgContent":"./../Contenus sup/Videos/Q4R4.mov",
-        "text": "Les métiers de l’industrie n’évoluent pas dans le bon sens ?",
+        "text": "Le travail dans l'industrie chimique : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
         "src":""
       }
     ],
@@ -236,7 +236,7 @@
         },
         "imgThumbnail":"./assets/img/IFP_interview.png",
         "imgContent":"./../Contenus sup/Videos/Q5R2.mov",
-        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "text": "L'évolution des métiers : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
         "src":""
       },
       {
@@ -248,7 +248,7 @@
         },
         "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
         "imgContent":"./../Contenus sup/Videos/Q5R3.mov",
-        "text": "Dans l’industrie les salaires sont bas, et le travail est précaire",
+        "text": "L'évolution des métiers : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
         "src":""
       }
     ],
@@ -262,7 +262,7 @@
         },
         "imgThumbnail":"./assets/img/IFP_interview_1.png",
         "imgContent":"./../Contenus sup/Videos/Q6R1.mov",
-        "text": "L’industrie chimique a-t-elle un avenir ?",
+        "text": "L’avenir dans l'industrie chimique : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
         "src":""
       },
       {
@@ -274,7 +274,7 @@
         },
         "imgThumbnail":"./assets/img/interview_2.PNG",
         "imgLock":"./../Contenus sup/Videos/Q6R2.mov",
-        "text": "L’industrie chimique a-t-elle un avenir ?",
+        "text": "L’avenir dans l'industrie chimique : Yannick JAN - Directeur Site Kem One St-Fons",
         "src":""
       }
     ]

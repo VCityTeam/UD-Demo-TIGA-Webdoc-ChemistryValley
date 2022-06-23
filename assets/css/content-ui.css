@@ -27,6 +27,7 @@
     /* text-align: right; */
     font-weight: bold;
     font-size: 3vw;
+    margin-left: 10px;
     color: #ff5851;
     -webkit-text-stroke: 0.5px rgb(0, 0, 0);
 }
@@ -104,8 +105,8 @@
 }
 #button_avis_rue {
     position: absolute;
-    width: 150px;
-    top: 93%;
+    width: 13%;
+    bottom: 30px;
     left: 35%;
     background-color: #414a6b;
     border-color: #FFFFFF;
@@ -118,8 +119,8 @@
 
 #button_user_response {
     position: absolute;
-    width: 150px;
-    top: 93%;
+    width: 13%;
+    bottom: 30px;
     right: 35%;
     background-color: #f3c130; 
     border-color: #FFFFFF;

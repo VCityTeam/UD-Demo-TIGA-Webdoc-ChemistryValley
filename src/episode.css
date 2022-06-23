@@ -3,7 +3,7 @@
     position: fixed;
     display: flex;
     left: 25%;
-    top:25%;
+    top:24%;
     background-color: #00000088;
     height: 50%;
     width: 50%;
@@ -41,7 +41,7 @@
     font-family: 'Roboto';
     /* text-align: right; */
     padding: 5px;
-    font-weight: bold;
-    font-size: 35px;
+    /* font-weight: bold; */
+    font-size: 3vh;
     color: #ffffff;
 }
