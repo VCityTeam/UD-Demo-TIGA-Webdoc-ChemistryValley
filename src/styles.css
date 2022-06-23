@@ -214,7 +214,7 @@ body{
   .slidecontainer h3{
     color: #ffffff;
     top: 20%;
-    bottom: 0;
+    bottom: 0px;
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -232,12 +232,14 @@ body{
 
   .slidecontainer #zoomPlus{
     position: absolute;
+    bottom: 40px;
     right: 23%;
 
   }
 
   .slidecontainer #zoomMoins{
     position: absolute;
+    bottom: 40px;
     left: 20%;
   }
 

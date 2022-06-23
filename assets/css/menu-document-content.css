@@ -126,7 +126,7 @@
 }
 
 #toggleButton:hover img{
-    height: 60px;
+    height: 12%;
 }
 
 #toggleButtonLeft{
@@ -148,7 +148,7 @@
     height: 10%;
 }
 #toggleButtonLeft:hover img{
-    height: 60px;
+    height: 12%;
 }
 
 #question-title {
@@ -171,7 +171,7 @@
     color: #fff;
     width: 40%;
     height: 5%;
-    margin-left: -8px;
+    margin-left: 0.2%;
     transform: rotate(270deg);
 }
 
@@ -194,7 +194,7 @@
     top: 28%;
     color: #fff;
     width: 40%;
-    margin-right: 8px;
+    margin-right: 0.2%;
     height: 5%;
     transform: rotate(270deg);
 }
