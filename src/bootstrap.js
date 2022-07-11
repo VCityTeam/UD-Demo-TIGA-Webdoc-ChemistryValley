@@ -6,7 +6,7 @@ import './styles.css';
 import { HelpWindow } from '../src/Help';
 import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
-import { DocumentContent } from '../src/DocumentContent';
+import { DataWindow } from '../src/DataWindow';
 import { QuestionContent } from '../src/QuestionContent';
 
 
@@ -114,7 +114,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* ---- UI ---- */
     //Content menu
-    const contentMenu = new DocumentContent(view3D, observatoire);
+    const contentMenu = new DataWindow(view3D, observatoire);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Question answer menu

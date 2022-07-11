@@ -5,17 +5,17 @@ import * as udviz from 'ud-viz';
  * Class to create menu content
  * 
  */
-export class DocumentContent {
+export class DataWindow {
   /**
    * Create an episode
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
-  constructor(view3D = new udviz.Views.View3D(), listEpisodeVisualizer) {
+  constructor(view3D = new udviz.Views.View3D(), listDataVisualizer) {
     this.view3D = view3D;
 
     //List of an Object content : must be a list of list
-    this.listEpisodeVisualizer = listEpisodeVisualizer;
+    this.listDataVisualizer = listDataVisualizer;
   }
 
 
@@ -68,10 +68,10 @@ export class DocumentContent {
     document.getElementById('buttonObservatoire').addEventListener(
       'mousedown',
       () => {
-        if (this.listEpisodeVisualizer.visibility == true){
-          this.listEpisodeVisualizer.setVisibility(false);
+        if (this.listDataVisualizer.visibility == true){
+          this.listDataVisualizer.setVisibility(false);
         }else{
-          this.listEpisodeVisualizer.setVisibility(true);
+          this.listDataVisualizer.setVisibility(true);
         }
         this.view3D.getItownsView().notifyChange();
       },
