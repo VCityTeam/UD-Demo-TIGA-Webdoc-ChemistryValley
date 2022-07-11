@@ -2,7 +2,7 @@
 
 import { Widgets } from 'ud-viz';
 
-import './Help.css';
+import '../assets/css/Help.css';
 
 /**
  * adds an "HelpWindow" window to show control of the camera that can be open/closed with a button

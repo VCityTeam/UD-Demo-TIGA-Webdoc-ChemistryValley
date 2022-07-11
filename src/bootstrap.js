@@ -2,12 +2,12 @@
 
 import * as udviz from 'ud-viz';
 import '../node_modules/itowns/dist/itowns_widgets.js';
-import './styles.css';
+import '../assets/css/styles.css';
 import { HelpWindow } from '../src/Help';
 import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
 import { DataWindow } from '../src/DataWindow';
-import { EpisodeWindow } from './EpisodeWindow';
+import { EpisodeWindow } from '../src/EpisodeWindow';
 
 
 udviz.Components.SystemUtils.File.loadJSON(
