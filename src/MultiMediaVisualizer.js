@@ -1,4 +1,4 @@
-import '../assets/css/episode.css';
+import '../assets/css/multimedia-window.css';
 import * as THREE from 'three';
 import * as udviz from 'ud-viz';
 import { View3D } from 'ud-viz/src/Views/Views';
@@ -115,21 +115,37 @@ export class MultiMediaVisualizer {
   }
     
   /////// GETTER & SETTER
+
+  /**
+   * Getter for the collection of multimedia thumbnail 
+   */
   getPinsObject(){
     return this.pictureObjects;
   }
 
   /////// MODULE VIEW MANAGEMENT
+
+  /**
+   * 
+   */
   enableView() {
     document
       .getElementById('episodeWindow')
       .style.setProperty('display', 'block');
   }
 
+  /**
+   * 
+   * @param {Int16Array} elementId 
+   */
   disableView(elementId) {
     document.getElementById(elementId).style.setProperty('display', 'none');
   }
 
+  /**
+   * Method to chnage the visibility
+   * @param {Boolean} visibility 
+   */
   setVisibility(visibility = Boolean){
     this.visibility = visibility;
     for (let i = 0 ; i < this.pictureObjects.length; i++){

@@ -1,16 +1,17 @@
 import '../assets/css/menu-document-content.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../assets/css/content-ui.css';
+import '../assets/css/episode-layout.css';
 import * as udviz from 'ud-viz';
+import { MultiMediaObject } from './MultiMediaObject';
+
 /**
- * Class to create menu content
- * 
+ * Class that construct the UI to select the multimedia in the 3D scene, it create different button and the layout to see all the content in the same view
  */
 export class EpisodeWindow {
   /**
-   * Create an episode
    * 
    * @param {View3D} view3D the view where you put all your content 
+   * @param {*} listMultimediaObject 
    */
   constructor(view3D = new udviz.Views.View3D(), listMultimediaObject) {
     this.view3D = view3D;
@@ -20,7 +21,9 @@ export class EpisodeWindow {
 
   }
 
-
+  /**
+   * Creation of HTML UI and setup button listener
+   */
   constructMenu(){    
     //UI
     let MenuDiv = document.createElement('div');
@@ -191,18 +194,30 @@ export class EpisodeWindow {
     );
   }
 
+  /**
+   * 
+   * @param {Boolean} visibility 
+   */
   selectQuestions(visibility){
     this.listMultimediaObject.forEach(element => {
       element.setVisibility(visibility);
     });
   }
 
+  /**
+   * Method to highlight button when it selected
+   * @param {HTMLElement} elementButton Button to change css
+   */
   selectedButton(elementButton){
     this.unSelectedButton();
     elementButton.style.fontSize = '30px';
     elementButton.style.color = '#ff5851';
     elementButton.style.fontWeight = 'bold';
   }
+
+  /**
+   * Reset CSS Button unselected
+   */
   unSelectedButton(){
     this.listButton.forEach(button => {
       button.style.fontSize = '15px';
@@ -211,6 +226,10 @@ export class EpisodeWindow {
     });
   }
 
+  /**
+   * Set the visibilty of the collection of MultiMediaObject corresponding to the button selected
+   * @param {MultiMediaObject[]} listInterview 
+   */
   setObjectVisibility(listInterview){
     if (listInterview.visibility == true){
       listInterview.setVisibility(false);
@@ -220,8 +239,14 @@ export class EpisodeWindow {
     }
   }
 
+  /**
+   * Creating Content UI of a chapter 
+   * @param {string} chapName Chapter name
+   * @param {string[]} listData List of different multimedia view with is name and path to view the multimedia content
+   * @param {string} stringQuestionUser User question to display in UI
+   * @param {string} avisRuePath Path to mp3 file
+   */
   createContentChap(chapName, listData, stringQuestionUser, avisRuePath){
-
     //Title
     let h1Element = document.createElement('h1');
     h1Element.textContent = chapName;
@@ -286,6 +311,12 @@ export class EpisodeWindow {
     };
   }
 
+  /**
+   * Travelling method to orient camera and focus on the multimedia object in the scene
+   * @param {Vector3} position 
+   * @param {Float32Array} verticalDist 
+   * @param {Float32Array} horizonDist 
+   */
   travellingViewToSeeContent(position, verticalDist, horizonDist){
     udviz.Components.focusCameraOn(this.view3D.getItownsView(),
       this.view3D.getItownsView().controls,

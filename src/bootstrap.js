@@ -3,6 +3,7 @@
 import * as udviz from 'ud-viz';
 import '../node_modules/itowns/dist/itowns_widgets.js';
 import '../assets/css/styles.css';
+import '../assets/css/slider.css';
 import { HelpWindow } from '../src/Help';
 import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
