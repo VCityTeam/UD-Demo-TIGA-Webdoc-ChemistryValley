@@ -4,7 +4,7 @@ import * as udviz from 'ud-viz';
 import '../node_modules/itowns/dist/itowns_widgets.js';
 import './styles.css';
 import { HelpWindow } from '../src/Help';
-import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
+import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
 import { DocumentContent } from '../src/DocumentContent';
 import { QuestionContent } from '../src/QuestionContent';
@@ -96,18 +96,18 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* ---- Visualizer object ---- */
     //Questions
-    let episodeVisualizerList = [];
+    let multiMediaVisualizerList = [];
     let pictureObjects = [];
     for (let questionObject of listQuestionObjects){
-      const questionVizu = new EpisodeVisualizer('episode_1', view3D, questionObject);  
+      const questionVizu = new MultiMediaVisualizer('episode_1', view3D, questionObject);  
       questionVizu.constructAllContent(false);
-      episodeVisualizerList.push(questionVizu);
+      multiMediaVisualizerList.push(questionVizu);
       Array.prototype.push.apply(pictureObjects, questionVizu.pictureObjects);
     }
 
     //Observatoire 
     let listContentsObservatoire = [content_1, content_2, content_3, content_4];
-    const observatoire = new EpisodeVisualizer('observatoire', view3D, listContentsObservatoire);  
+    const observatoire = new MultiMediaVisualizer('observatoire', view3D, listContentsObservatoire);  
     observatoire.constructAllContent(false);
     Array.prototype.push.apply(pictureObjects, observatoire.pictureObjects);
     observatoire.constructHtmlVideos();
@@ -118,7 +118,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Question answer menu
-    const questionMenu = new QuestionContent(view3D, episodeVisualizerList);
+    const questionMenu = new QuestionContent(view3D, multiMediaVisualizerList);
     questionMenu.constructMenu('_moduleID', '_modulename');
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );

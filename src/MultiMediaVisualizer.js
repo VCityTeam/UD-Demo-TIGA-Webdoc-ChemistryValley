@@ -8,9 +8,9 @@ import { forEach } from 'vis-util';
  * Class to create an episode with all his content materialized in ud-viz scene
  * 
  */
-export class EpisodeVisualizer { 
+export class MultiMediaVisualizer { 
   /**
-   * Create an episode
+   * Create a collection of multimedia
    * 
    * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
@@ -133,10 +133,6 @@ export class EpisodeVisualizer {
 
   setVisibility(visibility = Boolean){
     this.visibility = visibility;
-    // this.pictureObjects.forEach(element => {
-    //   element.visible = visibility;
-      
-    // });
     for (let i = 0 ; i < this.pictureObjects.length; i++){
       this.pictureObjects[i].visible = visibility;
       this.listContents[i].lock = !visibility;
