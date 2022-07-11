@@ -4,7 +4,7 @@ import * as THREE from 'three';
  * Class to create a content of an epidose
  * 
  */
-export class EpisodeContent { 
+export class MultiMediaObject { 
   /**
      * Create a content
      * 

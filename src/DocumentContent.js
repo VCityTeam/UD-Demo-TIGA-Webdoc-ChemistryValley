@@ -20,7 +20,6 @@ export class DocumentContent {
 
 
   constructMenu(){
-
     //UI
     let dataDiv = document.createElement('div');
     dataDiv.id = 'data-title';

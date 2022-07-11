@@ -5,7 +5,7 @@ import '../node_modules/itowns/dist/itowns_widgets.js';
 import './styles.css';
 import { HelpWindow } from '../src/Help';
 import { EpisodeVisualizer } from '../src/EpisodeVisualizer';
-import { EpisodeContent } from '../src/EpisodeContent';
+import { MultiMediaObject } from '../src/MultiMediaObject';
 import { DocumentContent } from '../src/DocumentContent';
 import { QuestionContent } from '../src/QuestionContent';
 
@@ -79,17 +79,17 @@ udviz.Components.SystemUtils.File.loadJSON(
     const help = new HelpWindow();
 
     //Content episode Observatoire
-    let content_1 = new EpisodeContent(configEpisode['episode-1-data']['content-1'], false);
-    let content_2 = new EpisodeContent(configEpisode['episode-1-data']['content-2'], false);
-    let content_3 = new EpisodeContent(configEpisode['episode-1-data']['content-3'], false);
-    let content_4 = new EpisodeContent(configEpisode['episode-1-data']['content-4'], false);
+    let content_1 = new MultiMediaObject(configEpisode['episode-1-data']['content-1'], false);
+    let content_2 = new MultiMediaObject(configEpisode['episode-1-data']['content-2'], false);
+    let content_3 = new MultiMediaObject(configEpisode['episode-1-data']['content-3'], false);
+    let content_4 = new MultiMediaObject(configEpisode['episode-1-data']['content-4'], false);
 
     let questions = configEpisode['questions'];
     let listQuestionObjects = [];
     for (let question of questions){
       let listQ = [];
       for ( let answer of question){
-        listQ.push(new EpisodeContent(answer, true));
+        listQ.push(new MultiMediaObject(answer, true));
       }
       listQuestionObjects.push(listQ);
     }
@@ -382,20 +382,20 @@ udviz.Components.SystemUtils.File.loadJSON(
 
       if ( intersects.length > 0 ){
         intersects.forEach(elementIntersect => {
-          console.log();
           if(elementIntersect.object.visible == true){
-            let episodeContent = elementIntersect.object.userData.Episodecontent;
-            document.getElementById('resumeVideo').textContent = episodeContent.text;
+            let multimediaObject = elementIntersect.object.userData.multimediaObject;
+            document.getElementById('resumeVideo').textContent = multimediaObject.text;
             document.getElementById('episodeWindowVideo').hidden = false;
             document.getElementById('episodeWindowVideo').style.display = 'block';
 
-            if ( elementIntersect.object.userData.Episodecontent.isVideo){             
+            // Check if the multimedia is a video or not and change integration
+            if (multimediaObject.isVideo){             
               document.getElementById('video-content').hidden = false;
-              document.getElementById('video-content').src = episodeContent.imgContent;
+              document.getElementById('video-content').src = multimediaObject.imgContent;
               
             }else{
               document.getElementById('video-content').hidden = true;
-              document.getElementById('img-content').src = episodeContent.imgContent;
+              document.getElementById('img-content').src = multimediaObject.imgContent;
             }
             elementIntersect.object.material.color.setRGB(0.3, 0.3, 0.3);
           }

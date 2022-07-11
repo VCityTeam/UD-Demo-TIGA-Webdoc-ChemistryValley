@@ -14,7 +14,7 @@ export class EpisodeVisualizer {
    * 
    * @param {string} name name of your episode
    * @param {View3D} view3D the view where you put all your content 
-   * @param {ArrayEpisodeContent} listContents list of Episode content object
+   * @param {ArrayMultiMediaObject} listContents list of Episode content object
    */
   constructor(name, view3D = new udviz.Views.View3D(), listContents) {
     this.name = name;
@@ -36,7 +36,7 @@ export class EpisodeVisualizer {
      * Function who add Sprite object in the scene to create Pins and 
      * @param {THREE.Vector3} position coordinate of your pins in ud-viz scene
     */
-  createPin(episodeContent, imgThumbnail){
+  createPin(multimediaObject, imgThumbnail){
     let pictureTexture;
     pictureTexture = new THREE.TextureLoader().load(imgThumbnail);
     //Pins object
@@ -44,7 +44,7 @@ export class EpisodeVisualizer {
     const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, sizeAttenuation : false  } );
     const pinsSprite = new THREE.Sprite( pinsMaterial );
     const scale = 10000;
-    pinsSprite.position.set(episodeContent.position.x, episodeContent.position.y, episodeContent.position.z); 
+    pinsSprite.position.set(multimediaObject.position.x, multimediaObject.position.y, multimediaObject.position.z); 
     pinsSprite.scale.set(60/scale, 100 / scale, 1/scale );
     pinsSprite.updateMatrixWorld();
     pinsSprite.name = this.name;
@@ -52,7 +52,7 @@ export class EpisodeVisualizer {
     //Picture on the top
     const pictureMaterial = new THREE.SpriteMaterial( { map: pictureTexture, sizeAttenuation : true  } );
     const pictureSprite = new THREE.Sprite( pictureMaterial );
-    pictureSprite.userData = { Episodecontent: episodeContent };
+    pictureSprite.userData = { multimediaObject: multimediaObject };
 
     // pictureSprite.
 
