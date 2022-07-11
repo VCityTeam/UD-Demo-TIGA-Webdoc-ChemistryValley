@@ -6,17 +6,17 @@ import * as udviz from 'ud-viz';
  * Class to create menu content
  * 
  */
-export class QuestionContent {
+export class EpisodeWindow {
   /**
    * Create an episode
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
-  constructor(view3D = new udviz.Views.View3D(), listQuestionObject) {
+  constructor(view3D = new udviz.Views.View3D(), listMultimediaObject) {
     this.view3D = view3D;
 
     //List of an Object content : must be a list of list
-    this.listQuestionObject = listQuestionObject;
+    this.listMultimediaObject = listMultimediaObject;
 
   }
 
@@ -32,9 +32,9 @@ export class QuestionContent {
        ';
 
     //Button pannel
-    let questionMenuDiv = document.createElement('div');
-    questionMenuDiv.id = 'menu-question';
-    document.getElementById('webgl_View3D').append(questionMenuDiv);
+    let episodeMenuDiv = document.createElement('div');
+    episodeMenuDiv.id = 'menu-question';
+    document.getElementById('webgl_View3D').append(episodeMenuDiv);
 
     document.getElementById('menu-question').innerHTML = 
         '<ul id="_all_menu_content">\
@@ -72,7 +72,7 @@ export class QuestionContent {
     this.contentDivUI.hidden = true;
 
     this.divInteractiveContent.hidden = true;
-    questionMenuDiv.hidden = true;
+    episodeMenuDiv.hidden = true;
 
     //Q1 button
     let elementButton1 =  document.getElementById('Q1');
@@ -81,8 +81,8 @@ export class QuestionContent {
       () => {
         let dataButtonChap1 = [['Prendre de la hauteur', './../Contenus sup/Chap01/Prendre de la hauteur/story.html'],['Qu’est-ce que la chimie ?','./../Contenus sup/Chap01/Qu_est-ce que la chimie/story.html']];
         this.createContentChap(elementButton1.textContent, dataButtonChap1,'./../Contenus sup/Questions/Q01/story.html', './../Contenus sup/Chap01/C_est_sur_une_bonne_voie_Jeune marche.mp3' );
-        questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[0]);
+        episodeMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listMultimediaObject[0]);
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1843554.77, 5165405.73, 220), 4000, 8500);
                 
       },
@@ -96,8 +96,8 @@ export class QuestionContent {
       () => {
         let dataButtonChap2 = [['SoftSkills', './../Contenus sup/Chap02/SokftSkills/story.html']];
         this.createContentChap(elementButton2.textContent, dataButtonChap2,'./../Contenus sup/Questions/Q02/story.html', './../Contenus sup/Chap02/Que_de_la_motivation_Voix.mp3');
-        questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[1]);  
+        episodeMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listMultimediaObject[1]);  
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844147.58, 5166881.05, 220), 4000, 8800);   
       },
       false
@@ -110,8 +110,8 @@ export class QuestionContent {
       () => {
         let dataButtonChap3 = [['Compétence ou pas ?', './../Contenus sup/Chap03/Compétence ou pas/story.html'], ['Le parcours d’alternant', './../Contenus sup/Chap03/Parcours alternant/story.html'], ['Peut-on se reconvertir dans l’industrie chimique ?', './../Contenus sup/Chap03/Se reconvertir/story.html']];
         this.createContentChap(elementButton3.textContent, dataButtonChap3,'./../Contenus sup/Questions/Q03/story.html', './../Contenus sup/Chap03/De_plus_en_plus_de_competences_requises_Prof_place_Guichard.mp3');
-        questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[2]); 
+        episodeMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listMultimediaObject[2]); 
         
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844147.58, 5166881.05, 220), 4000, 8800);
       },
@@ -125,8 +125,8 @@ export class QuestionContent {
       () => {
         let dataButtonChap4 = [['C’est quoi une raffinerie ?', './../Contenus sup/Chap04/C est quoi une raffinerie/story.html'], ['Comment fidéliser ?', './../Contenus sup/Chap04/Commen fidéliser/story.html']];
         this.createContentChap(elementButton4.textContent, dataButtonChap4,'./../Contenus sup/Questions/Q04/story.html','./../Contenus sup/Chap04/Des_metiers_bien_payes_Infirmieere_Marchee.mp3');
-        questionMenuDiv.hidden = true; 
-        this.setObjectVisibility(this.listQuestionObject[3]);   
+        episodeMenuDiv.hidden = true; 
+        this.setObjectVisibility(this.listMultimediaObject[3]);   
 
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844032.16, 5165242.68, 220), 4000, 8800);
       },
@@ -140,8 +140,8 @@ export class QuestionContent {
       () => {
         let dataButtonChap5 = [['Et dans les ressources humaines ?', './../Contenus sup/Chap05/Et dans les RH/story.html']];
         this.createContentChap(elementButton5.textContent, dataButtonChap5,'./../Contenus sup/Questions/Q05/story.html', './../Contenus sup/Chap05/Evolution_Grand_homme.mp3');
-        questionMenuDiv.hidden = true; 
-        this.setObjectVisibility(this.listQuestionObject[4]); 
+        episodeMenuDiv.hidden = true; 
+        this.setObjectVisibility(this.listMultimediaObject[4]); 
         
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1844032.16, 5165242.68, 220), 4000, 9800);
       },
@@ -154,8 +154,8 @@ export class QuestionContent {
       'mousedown',
       () => {
         this.createContentChap(elementButton6.textContent, null,'./../Contenus sup/Questions/Q06/story.html', './../Contenus sup/Chap06/Optimiste_a_long_terme_Prof_place Guichard.mp3');
-        questionMenuDiv.hidden = true;
-        this.setObjectVisibility(this.listQuestionObject[5]);    
+        episodeMenuDiv.hidden = true;
+        this.setObjectVisibility(this.listMultimediaObject[5]);    
 
         this.travellingViewToSeeContent(new udviz.THREE.Vector3(1842948.055, 5163731.63, 220), 4000, 7800);
       },
@@ -174,16 +174,16 @@ export class QuestionContent {
     toggleButton.addEventListener(
       'mousedown',
       () => {
-        this.listQuestionObject.forEach(element => {
+        this.listMultimediaObject.forEach(element => {
           element.setVisibility(false);
         });
         this.contentDivUI.hidden = true;
         this.contentDivUI.innerHTML = '';
-        if (questionMenuDiv.hidden == true) {
-          questionMenuDiv.hidden = false;
+        if (episodeMenuDiv.hidden == true) {
+          episodeMenuDiv.hidden = false;
           document.getElementById('themeButtonImg').src = './assets/icons/logoCroixRouge.png';
         } else {
-          questionMenuDiv.hidden = true;
+          episodeMenuDiv.hidden = true;
           document.getElementById('themeButtonImg').src = './assets/icons/logoDeroulant.png';
         }
       },
@@ -192,7 +192,7 @@ export class QuestionContent {
   }
 
   selectQuestions(visibility){
-    this.listQuestionObject.forEach(element => {
+    this.listMultimediaObject.forEach(element => {
       element.setVisibility(visibility);
     });
   }

@@ -7,7 +7,7 @@ import { HelpWindow } from '../src/Help';
 import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
 import { DataWindow } from '../src/DataWindow';
-import { QuestionContent } from '../src/QuestionContent';
+import { EpisodeWindow } from './EpisodeWindow';
 
 
 udviz.Components.SystemUtils.File.loadJSON(
@@ -118,7 +118,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Question answer menu
-    const questionMenu = new QuestionContent(view3D, multiMediaVisualizerList);
+    const questionMenu = new EpisodeWindow(view3D, multiMediaVisualizerList);
     questionMenu.constructMenu('_moduleID', '_modulename');
 
     view3D.html().addEventListener( 'click', onDocumentMouseClick );

@@ -1,5 +1,4 @@
 import '../assets/css/menu-document-content.css';
-import jQuery from 'jquery';
 import * as udviz from 'ud-viz';
 /**
  * Class to create menu content
