@@ -74,23 +74,25 @@
   .slidecontainer h2{
     position: absolute;
     left: 2%; 
-    font-size: 20px;
+    font-size: 2vh;
     color: #ffffff;
-    top: 20%;
-    bottom: 0;
+    top: 25%;
+    bottom: 80%;
     margin-top: auto;
     margin-bottom: auto;
   }
 
   .slidecontainer #zoomPlus{
     position: absolute;
-    bottom: 40px;
+    font-size: 3vh;
+    bottom: 100%;
     right: 23%;
 
   }
 
   .slidecontainer #zoomMoins{
     position: absolute;
-    bottom: 40px;
+    font-size: 3vh;
+    bottom: 100%;
     left: 20%;
   }

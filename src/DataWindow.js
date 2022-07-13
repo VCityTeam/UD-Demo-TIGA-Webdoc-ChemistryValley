@@ -1,12 +1,11 @@
 import '../assets/css/menu-document-content.css';
 import * as udviz from 'ud-viz';
 /**
- * Class to create menu content
+ * Class to create Data UI
  * 
  */
 export class DataWindow {
   /**
-   * Create an episode
    * 
    * @param {View3D} view3D the view where you put all your content 
    */
@@ -18,6 +17,9 @@ export class DataWindow {
   }
 
 
+  /**
+   * Construction of HTML Element for the Data UI
+   */
   constructMenu(){
     //UI
     let dataDiv = document.createElement('div');

@@ -3,12 +3,12 @@
 import * as udviz from 'ud-viz';
 import '../node_modules/itowns/dist/itowns_widgets.js';
 import '../assets/css/styles.css';
-import '../assets/css/slider.css';
 import { HelpWindow } from '../src/Help';
 import { MultiMediaVisualizer } from './MultiMediaVisualizer';
 import { MultiMediaObject } from '../src/MultiMediaObject';
-import { DataWindow } from '../src/DataWindow';
-import { EpisodeWindow } from '../src/EpisodeWindow';
+import { DataWindow } from './DataWindow';
+import { EpisodeWindow } from './EpisodeWindow';
+import { Navigation } from './Navigation';
 
 
 udviz.Components.SystemUtils.File.loadJSON(
@@ -78,6 +78,8 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     //Help module
     const help = new HelpWindow();
+
+    const navigation = new Navigation(view3D);
 
     //Content episode Observatoire
     let content_1 = new MultiMediaObject(configEpisode['episode-1-data']['content-1'], false);
@@ -306,45 +308,6 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     /* --------------------------------- EVENT --------------------------------- */
 
-    let zoomDiv = document.createElement('nav');
-    zoomDiv.className = 'slidecontainer';
-    zoomDiv.innerHTML = 
-    '<h2>Zoom</h2>\
-    <h3 id="zoomMoins">-</h3>\
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">\
-    <h3 id="zoomPlus">+</h3>\
-    <img src="./assets/img/compass.png" id="compass" style="transform: rotate(-43.4214deg);">';
-    
-    document.getElementById('root_View3D').append(zoomDiv);
-
-    let rangeslider = document.getElementById('myRange');
-    // Update the current slider value (each time you drag the slider handle)
-    let lastValue = 50;
-    rangeslider.oninput = function() {
-      let scaleZoom = 50;
-      if (lastValue < this.value){
-        scaleZoom = 50;
-      }else{
-        scaleZoom = -50;
-      }
-      let direction = new udviz.THREE.Vector3();
-      view3D.getCamera().getWorldDirection(direction);
-      let camera = view3D.getCamera().position;
-      
-      direction =  new udviz.THREE.Vector3(direction.x * scaleZoom, direction.y * scaleZoom, direction.z * scaleZoom);
-      camera.set(camera.x + direction.x, camera.y + direction.y, camera.z + direction.z);
-      lastValue = this.value;
-    };
-
-    //Compass update with camera
-    var dir = new udviz.THREE.Vector3();
-    var sph = new udviz.THREE.Spherical();
-    view3D.getRenderer().setAnimationLoop(() => {
-      view3D.getRenderer().render(scene3D, view3D.getCamera());
-      view3D.getCamera().getWorldDirection(dir);
-      sph.setFromVector3(dir);
-      document.getElementById('compass').style.transform = `rotate(${udviz.THREE.Math.radToDeg(sph.theta) - 180}deg)`;
-    });
 
     //Video of introduction
     let divIntro = document.createElement('div');
@@ -369,7 +332,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     };
 
 
-    //Show episode div
+    //Event to display multimedia content
     function onDocumentMouseClick( event ) {    
       event.preventDefault(); 
 
@@ -383,6 +346,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
       if ( intersects.length > 0 ){
         intersects.forEach(elementIntersect => {
+          //check visibility to not intersect with hidden object
           if(elementIntersect.object.visible == true){
             let multimediaObject = elementIntersect.object.userData.multimediaObject;
             document.getElementById('resumeVideo').textContent = multimediaObject.text;
@@ -398,6 +362,7 @@ udviz.Components.SystemUtils.File.loadJSON(
               document.getElementById('video-content').hidden = true;
               document.getElementById('img-content').src = multimediaObject.imgContent;
             }
+            //Change color when the multimedia is consume 
             elementIntersect.object.material.color.setRGB(0.3, 0.3, 0.3);
           }
         });
