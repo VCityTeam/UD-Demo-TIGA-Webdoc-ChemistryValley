@@ -42,9 +42,9 @@ export class MultiMediaVisualizer {
     const pinsTexture = new THREE.TextureLoader().load('./assets/img/1200px-Google_Maps_pin.svg.png');
     const pinsMaterial = new THREE.SpriteMaterial( { map: pinsTexture, sizeAttenuation : false  } );
     const pinsSprite = new THREE.Sprite( pinsMaterial );
-    const scale = 10000;
+    const scale = 10000; // Need this scale to reduce the size of the Sprite object in the scene wich is to big
     pinsSprite.position.set(multimediaObject.position.x, multimediaObject.position.y, multimediaObject.position.z); 
-    pinsSprite.scale.set(60/scale, 100 / scale, 1/scale );
+    pinsSprite.scale.set(60/scale, 100/scale, 1/scale );
     pinsSprite.updateMatrixWorld();
     pinsSprite.name = this.name;
 
@@ -54,7 +54,6 @@ export class MultiMediaVisualizer {
     pictureSprite.userData = { multimediaObject: multimediaObject };
 
     // pictureSprite.
-
     pictureSprite.position.set(pinsSprite.position.x, pinsSprite.position.y, pinsSprite.position.z + 230); 
     
     pictureSprite.scale.set(300 / 1, 250 / 1, 10 / 1);
@@ -89,7 +88,6 @@ export class MultiMediaVisualizer {
       () => {
         this.disableView('episodeWindowVideo');
         divInteractiveContent.hidden = true;
-        // this.image.src = '';
         video.src = '';
         document.getElementById('img-content').src = '';
       },
@@ -143,7 +141,7 @@ export class MultiMediaVisualizer {
   }
 
   /**
-   * Method to chnage the visibility
+   * Method to change the visibility
    * @param {Boolean} visibility 
    */
   setVisibility(visibility = Boolean){
