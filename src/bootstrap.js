@@ -65,7 +65,7 @@ udviz.Components.SystemUtils.File.loadJSON(
       ambientLight
     );
 
-    // Initialize itowns view
+    // Initialize itowns view to have a better view on the Chemistry Valley
     view3D.getCamera().position.set(1842602.2358639822, 5163108.602663754, 1584.6026942525132);
     view3D.getCamera().rotation.set(1.0619838785677609,-0.3043337605398328, -0.16561814175954986);
 
@@ -81,7 +81,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     const navigation = new Navigation(view3D);
 
-    //Content episode Observatoire
+    //Content episode Observatory
     let content_1 = new MultiMediaObject(configEpisode['episode-1-data']['content-1'], false);
     let content_2 = new MultiMediaObject(configEpisode['episode-1-data']['content-2'], false);
     let content_3 = new MultiMediaObject(configEpisode['episode-1-data']['content-3'], false);
@@ -108,16 +108,16 @@ udviz.Components.SystemUtils.File.loadJSON(
       Array.prototype.push.apply(pictureObjects, questionVizu.pictureObjects);
     }
 
-    //Observatoire 
-    let listContentsObservatoire = [content_1, content_2, content_3, content_4];
-    const observatoire = new MultiMediaVisualizer('observatoire', view3D, listContentsObservatoire);  
-    observatoire.constructAllContent(false);
-    Array.prototype.push.apply(pictureObjects, observatoire.pictureObjects);
-    observatoire.constructHtmlVideos();
+    //Observatory 
+    let listContentsObservatory = [content_1, content_2, content_3, content_4];
+    const observatory = new MultiMediaVisualizer('Observatory', view3D, listContentsObservatory);  
+    observatory.constructAllContent(false);
+    Array.prototype.push.apply(pictureObjects, observatory.pictureObjects);
+    observatory.constructHtmlVideos();
 
     /* ---- UI ---- */
     //Content menu
-    const contentMenu = new DataWindow(view3D, observatoire);
+    const contentMenu = new DataWindow(view3D, observatory);
     contentMenu.constructMenu('_moduleID', '_modulename');
 
     //Question answer menu
@@ -135,7 +135,7 @@ udviz.Components.SystemUtils.File.loadJSON(
 
     // Create a ColorLayer for the Ariege area
     const busLayer = new udviz.itowns.ColorLayer('bus', {
-      name: 'LigneBus',
+      name: 'LineBus',
       transparent: true,
       source: busSource,
       style: new udviz.itowns.Style({
@@ -154,16 +154,16 @@ udviz.Components.SystemUtils.File.loadJSON(
     view3D.getItownsView().addLayer(busLayer);
 
     ////---randonnée layers---///
-    const randoSource = new udviz.itowns.FileSource({
+    const trekkeSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envpdiprboucle&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
       format: 'application/json',
     });
 
-    const randoLayer = new udviz.itowns.ColorLayer('rando', {
-      name: 'randonne',
+    const trekkeLayer = new udviz.itowns.ColorLayer('trekke', {
+      name: 'trekke',
       transparent: true,
-      source: randoSource,
+      source: trekkeSource,
       style: new udviz.itowns.Style({
         fill: {
           color: 'green',
@@ -175,19 +175,19 @@ udviz.Components.SystemUtils.File.loadJSON(
       }),
     });
 
-    view3D.getItownsView().addLayer(randoLayer);
+    view3D.getItownsView().addLayer(trekkeLayer);
 
     ////--- Create a ColorLayer for Natural sources ---////
-    const espaceNaturelSource = new udviz.itowns.FileSource({
+    const naturalSpacesSource = new udviz.itowns.FileSource({
       url: 'https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=evg_esp_veg.envens&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:3946&startIndex=0&count=100',
       crs: 'EPSG:3946',
       format: 'application/json',
     });
       // Create a ColorLayer for the Ariege area
-    const espaceNaturelLayer = new udviz.itowns.ColorLayer('espaceNaturel', {
-      name: 'espaceNaturel',
+    const naturalSpacesLayer = new udviz.itowns.ColorLayer('naturalSpaces', {
+      name: 'naturalSpaces',
       transparent: true,
-      source: espaceNaturelSource,
+      source: naturalSpacesSource,
       style: new udviz.itowns.Style({
         fill: {
           color: 'green',
@@ -199,8 +199,8 @@ udviz.Components.SystemUtils.File.loadJSON(
         },
       }),
     });
-    espaceNaturelLayer.visible = false;
-    view3D.getItownsView().addLayer(espaceNaturelLayer);
+    naturalSpacesLayer.visible = false;
+    view3D.getItownsView().addLayer(naturalSpacesLayer);
 
 
     ////--- Residence layer ---////
@@ -313,6 +313,7 @@ udviz.Components.SystemUtils.File.loadJSON(
     let divIntro = document.createElement('div');
     divIntro.id = 'intro';
     document.getElementById('webgl_View3D').appendChild(divIntro);
+    
     let videoIntro = document.createElement('video');
     videoIntro.src = './../Générique Dlf.m4v';
     videoIntro.setAttribute('controls','controls');

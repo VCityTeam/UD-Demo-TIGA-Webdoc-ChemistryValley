@@ -42,10 +42,8 @@ export class Navigation extends Widgets.Components.ModuleView {
     var dir = new THREE.Vector3();
     var sph = new THREE.Spherical();
     view3D.getRenderer().setAnimationLoop(() => {
-      view3D.getRenderer().render(scene3D, view3D.getCamera());
-      view3D.getCamera().getWorldDirection(dir);
-      sph.setFromVector3(dir);
-      document.getElementById('compass').style.transform = `rotate(${THREE.Math.radToDeg(sph.theta) - 180}deg)`;
+      //Get z rotation of the camera and convert in degree
+      document.getElementById('compass').style.transform = `rotate(${THREE.Math.radToDeg(view3D.getCamera().rotation.z)}deg)`;
     });
   }
 }
