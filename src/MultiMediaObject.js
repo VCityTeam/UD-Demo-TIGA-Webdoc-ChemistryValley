@@ -4,16 +4,20 @@ import * as THREE from 'three';
  * Class to create a content of an epidose
  * 
  */
-export class EpisodeContent { 
+export class MultiMediaObject { 
   /**
      * Create a content
      * 
      * @param {JSON} dataContent data correspond to the content number n of your episode
      */
-  constructor(dataContent){
-    this.imgLock = null;
-    this.imgUnLock = null;
+  constructor(dataContent, isVideo){
+    this.isVideo = isVideo;
+    this.lock = true;
+    this.imgContent = null;
+    this.imgThumbnail = null;
     this.position = this.ParsePositionContent(dataContent['position']);
+    this.text = dataContent['text'];
+    this.src = dataContent['src'];
     this.ParseImgContent(dataContent);
   }
 
@@ -35,7 +39,7 @@ export class EpisodeContent {
      * @param {JSON} imgData 
      */
   ParseImgContent(imgData){
-    this.imgUnLock = imgData['imgUnlock'];
-    this.imgLock = imgData['imgLock'];
+    this.imgThumbnail = imgData['imgThumbnail'];
+    this.imgContent = imgData['imgContent'];
   }
 }

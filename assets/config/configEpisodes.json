@@ -1,34 +1,282 @@
 {
     "episode-1-data":{
         "content-1" :{
-          "lock" : true,
+          "lock" : false,
           "position" :{
             "x" : "1843554.77",
             "y" : "5165405.73",
             "z" : "220"
           },
-          "imgUnlock":"/assets/img/Episode1_1.png",
-          "imgLock":"/assets/img/Episode1_1_lock.png"
+          "imgThumbnail":"./assets/img/Observatoire/cheminee.jpg",
+          "imgContent":"./assets/img/Observatoire/cheminee.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-2" :{
           "lock" : false,
           "position" :{
-            "x" : "1844804.07",
-            "y" : "5168372.18",
+            "x" : "1839247.20",  
+            "y" : "5157285.35", 
             "z" : "260"
           },
-          "imgUnlock":"/assets/img/Episode1_2.png",
-          "imgLock":"/assets/img/Episode1_2_lock.png"
+          "imgThumbnail":"./assets/img/Observatoire/cheminee2.jpg",
+          "imgContent":"./assets/img/Observatoire/cheminee2.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         },
         "content-3" :{
           "lock" : false,
           "position" :{
-            "x" : "1843470.01",
-            "y" : "5164312.59",
+            "x" : "1843021.12", 
+            "y" : "5160129.19",
+            "z" : "230"
+          },
+          "imgThumbnail":"./assets/img/Observatoire/pont.jpg",
+          "imgContent":"./assets/img/Observatoire/pont.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
+        },
+        "content-4" :{
+          "lock" : false,
+          "position" :{
+            "x" : "1843570.01",
+            "y" : "5164512.59",
             "z" : "220"
           },
-          "imgUnlock":"/assets/img/Episode1_3.png",
-          "imgLock":"/assets/img/Episode1_3_lock.png"
+          "imgThumbnail":"./assets/img/Observatoire/saint-fons.jpg",
+          "imgContent":"./assets/img/Observatoire/saint-fons.jpg",
+          "text": "Vallée de la chimie - Observatoire photographique par FlorentPERROUDCAUE69",
+          "src":"https://umap.openstreetmap.fr/fr/map/vallee-de-la-chimie-observatoire-photographique_233823#18/45.68050/4.86110"
         }
-    }
+      },
+  "questions":[
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interforaInterview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q1R1.mov",
+        "text": "La perception de l'industrie chimique : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP ",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843554.77",
+          "y" : "5165405.73",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview_2.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q1R2.mov",
+        "text": "La perception de l'industrie chimique : Yannick JAN - Directeur Site Kem One St-Fons",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842341.34",
+          "y" : "5162057.53",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/IFP_interview.png",
+        "imgContent":"./../Contenus sup/Videos/Q1R3.mov",
+        "text": "La perception de l'industrie chimique : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
+        "src":""
+      }
+    ], 
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844032.16", 
+          "y" : "5165242.68",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/emploieFormation.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R1.mov",
+        "text": "Les compétences nécessaires : Delphine NAILLON - Directrice la maison de l'emploi de St-Fons",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R2.mov",
+        "text": "Les compétences nécessaires : Yannick BELLEC - HR Business Partner Elkem",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844357.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interforaInterview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R3.mov",
+        "text": "Les compétences nécessaires : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843127.78",
+          "y" : "5163088.19",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/total_interview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q2R4.mov",
+        "text": "Les compétences nécessaires : Farid BOUCHIA - Opérateur extérieur raffinerie Total Energie",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844057.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interfora_alternant_Interview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q3R2.mov",
+        "text": "Qui peut travailler dans l'industrie chimique : Luca BOMBACE - Alternant Sanofi Pasteur / Interfora IFAIP",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844147.58",
+          "y" : "5166881.05",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview_3.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q3R3.mov",
+        "text": "Qui peut travailler dans l'industrie chimique : Élodie NOLY-COIN - HR Expert / Recrutement Elkem",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844032.16", 
+          "y" : "5165242.68",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/emploieFormation.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q3R6.mov",
+        "text": "Qui peut travailler dans l'industrie chimique : Delphine NAILLON - Directrice la maison de l'emploi de St-Fons",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844157.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview_1.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q3R7.mov",
+        "text": "Qui peut travailler dans l'industrie chimique : Yannick BELLEC - HR Business Partner Elkem",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843127.78",
+          "y" : "5163088.19",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/total_interview.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q4R2.mov",
+        "text": "Le travail dans l'industrie chimique : Farid BOUCHIA - Opérateur extérieur raffinerie Total Energie",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844057.28",
+          "y" : "5167875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview_1.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q4R3.mov",
+        "text": "Le travail dans l'industrie chimique : Yannick BELLEC - HR Business Partner Elkem",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844557.28",
+          "y" : "5168875.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q4R4.mov",
+        "text": "Le travail dans l'industrie chimique : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842341.34",
+          "y" : "5162057.53",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/IFP_interview.png",
+        "imgContent":"./../Contenus sup/Videos/Q5R2.mov",
+        "text": "L'évolution des métiers : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1844557.28",
+          "y" : "5168775.27",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interforaInterview_1.PNG",
+        "imgContent":"./../Contenus sup/Videos/Q5R3.mov",
+        "text": "L'évolution des métiers : Sébastien DUCHAMP - Consultant Formateur Interfora IFAIP",
+        "src":""
+      }
+    ],
+    [
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1842341.34",
+          "y" : "5162057.53",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/IFP_interview_1.png",
+        "imgContent":"./../Contenus sup/Videos/Q6R1.mov",
+        "text": "L’avenir dans l'industrie chimique : Caroline AYMARD - Ingénieure de recherche IFP Energie Nouvelle",
+        "src":""
+      },
+      {
+        "lock" : false,
+        "position" :{
+          "x" : "1843554.77",
+          "y" : "5165405.73",
+          "z" : "220"
+        },
+        "imgThumbnail":"./assets/img/interview_2.PNG",
+        "imgLock":"./../Contenus sup/Videos/Q6R2.mov",
+        "text": "L’avenir dans l'industrie chimique : Yannick JAN - Directeur Site Kem One St-Fons",
+        "src":""
+      }
+    ]
+  ]
 }
